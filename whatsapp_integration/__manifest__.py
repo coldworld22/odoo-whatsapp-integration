@@ -7,8 +7,9 @@
     "website": "https://yourcompany.com",
     "depends": ["base", "mail", "sale"],
     "data": [
+        "views/res_config_settings_view.xml",
         "views/whatsapp_buttons.xml",
-        "security/ir.model.access.csv",
+        "security/ir.model.access.csv"
     ],
     "installable": True,
     "application": True,

@@ -1,0 +1,18 @@
+<odoo>
+    <record id="res_config_settings_view_form_inherit_whatsapp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.whatsapp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.view_res_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='settings']" position="inside">
+                <div class="app-settings-block" data-string="WhatsApp Integration">
+                    <h2>WhatsApp Business API</h2>
+                    <group>
+                        <field name="whatsapp_token"/>
+                        <field name="whatsapp_phone_number_id"/>
+                    </group>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
