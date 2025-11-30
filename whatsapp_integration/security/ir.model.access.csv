@@ -1,2 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_whatsapp_integration,access.whatsapp.integration,model_sale_order,base.group_user,1,1,1,1
+access_whatsapp_send_wizard,access.whatsapp.send.wizard,model_whatsapp_send_wizard,base.group_user,1,1,1,1
+access_whatsapp_message_log,access.whatsapp.message.log,model_whatsapp_message_log,base.group_system,1,1,1,1
+access_whatsapp_template_user,access.whatsapp.template.user,model_whatsapp_template,base.group_user,1,0,0,0
+access_whatsapp_template_manager,access.whatsapp.template.manager,model_whatsapp_template,base.group_system,1,1,1,1
+access_whatsapp_campaign_user,access.whatsapp.campaign.user,model_whatsapp_campaign,base.group_user,1,0,0,0
+access_whatsapp_campaign_manager,access.whatsapp.campaign.manager,model_whatsapp_campaign,base.group_system,1,1,1,1
+access_whatsapp_campaign_queue,access.whatsapp.campaign.queue,model_whatsapp_campaign_queue,base.group_system,1,1,1,1
+access_whatsapp_campaign_step,access.whatsapp.campaign.step,model_whatsapp_campaign_step,base.group_system,1,1,1,1
+access_whatsapp_account,access.whatsapp.account,model_whatsapp_account,base.group_system,1,1,1,1

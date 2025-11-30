@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_whatsapp_message_log_tree" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.tree</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <tree string="WhatsApp Logs">
+                <field name="create_date"/>
+                <field name="direction"/>
+                <field name="status"/>
+                <field name="message_id"/>
+                <field name="partner_id"/>
+                <field name="order_id"/>
+                <field name="campaign_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_whatsapp_message_log_search" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.search</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="message_id" string="Message ID"/>
+                <field name="partner_id"/>
+                <field name="order_id"/>
+                <field name="campaign_id"/>
+                <filter string="Outbound" name="outbound" domain="[('direction','=','outbound')]"/>
+                <filter string="Inbound" name="inbound" domain="[('direction','=','inbound')]"/>
+                <filter string="Failed" name="failed" domain="[('status','=','failed')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_whatsapp_message_log" model="ir.actions.act_window">
+        <field name="name">WhatsApp Logs</field>
+        <field name="res_model">whatsapp.message.log</field>
+        <field name="view_mode">tree,pivot</field>
+        <field name="search_view_id" ref="view_whatsapp_message_log_search"/>
+    </record>
+
+    <menuitem id="menu_whatsapp_log" name="Logs" parent="menu_whatsapp_template_root" action="action_whatsapp_message_log" sequence="20"/>
+</odoo>

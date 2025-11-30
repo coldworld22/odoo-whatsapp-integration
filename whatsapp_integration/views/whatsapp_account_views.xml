@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_whatsapp_account_tree" model="ir.ui.view">
+        <field name="name">whatsapp.account.tree</field>
+        <field name="model">whatsapp.account</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="phone_number_id"/>
+                <field name="is_default"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_whatsapp_account_form" model="ir.ui.view">
+        <field name="name">whatsapp.account.form</field>
+        <field name="model">whatsapp.account</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Account">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="company_id"/>
+                        <field name="phone_number_id"/>
+                        <field name="token"/>
+                        <field name="is_default"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_whatsapp_account" model="ir.actions.act_window">
+        <field name="name">WhatsApp Accounts</field>
+        <field name="res_model">whatsapp.account</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_whatsapp_account" name="Accounts" parent="menu_whatsapp_template_root" action="action_whatsapp_account" sequence="5"/>
+</odoo>

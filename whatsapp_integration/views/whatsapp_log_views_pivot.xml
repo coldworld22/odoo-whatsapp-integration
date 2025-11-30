@@ -1,0 +1,16 @@
+<odoo>
+    <record id="view_whatsapp_message_log_pivot" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.pivot</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <pivot string="WhatsApp KPIs">
+                <field name="campaign_id" type="row"/>
+                <field name="direction" type="row"/>
+                <field name="status" type="row"/>
+                <field name="partner_id" type="col"/>
+                <field name="order_id" type="col"/>
+                <field name="id" type="measure" string="Count"/>
+            </pivot>
+        </field>
+    </record>
+</odoo>

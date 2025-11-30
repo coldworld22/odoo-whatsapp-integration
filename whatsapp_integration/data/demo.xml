@@ -1,3 +1,20 @@
 <odoo>
-    <!-- Optional demo data -->
+    <!-- Demo WhatsApp templates -->
+    <record id="whatsapp_template_order_update" model="whatsapp.template">
+        <field name="name">Order update</field>
+        <field name="template_name">order_update</field>
+        <field name="language_code">en_US</field>
+        <field name="category">UTILITY</field>
+        <field name="status">APPROVED</field>
+        <field name="body_preview">Hi {{1}}, your order {{2}} is being processed.</field>
+    </record>
+
+    <record id="whatsapp_template_payment_reminder" model="whatsapp.template">
+        <field name="name">Payment reminder</field>
+        <field name="template_name">payment_reminder</field>
+        <field name="language_code">en_US</field>
+        <field name="category">MARKETING</field>
+        <field name="status">APPROVED</field>
+        <field name="body_preview">Hello {{1}}, please review your invoice {{2}}. Need help? Reply to this message.</field>
+    </record>
 </odoo>

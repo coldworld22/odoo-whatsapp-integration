@@ -7,9 +7,28 @@
             <xpath expr="//div[@id='settings']" position="inside">
                 <div class="app-settings-block" data-string="WhatsApp Integration">
                     <h2>WhatsApp Business API</h2>
+                    <p class="text-muted">
+                        Connect Odoo to the WhatsApp Business Cloud API to send sales orders and invoices.
+                    </p>
                     <group>
-                        <field name="whatsapp_token"/>
-                        <field name="whatsapp_phone_number_id"/>
+                        <field name="whatsapp_token" placeholder="EAAJ..."/>
+                        <field name="whatsapp_phone_number_id" placeholder="123456789012345"/>
+                        <field name="whatsapp_webhook_verify_token" placeholder="my_verify_token"/>
+                        <field name="whatsapp_app_secret" password="True" placeholder="app secret"/>
+                        <field name="whatsapp_default_media_url" placeholder="https://.../image.jpg"/>
+                    </group>
+                    <div class="text-muted">
+                        <ul>
+                            <li>Use a permanent access token with <strong>whatsapp_business_messaging</strong> scope.</li>
+                            <li>Phone number ID comes from WhatsApp Manager -> Phone Numbers (not the phone number itself).</li>
+                            <li>Webhook verify token must match the value configured in the Meta webhook dashboard.</li>
+                            <li>App secret is required to validate <code>X-Hub-Signature-256</code> headers on callbacks.</li>
+                            <li>Customer mobile numbers must be in E.164 format (e.g., +12025550123).</li>
+                        </ul>
+                    </div>
+                    <group string="Automation">
+                        <field name="whatsapp_auto_send_on_confirm"/>
+                        <field name="whatsapp_auto_send_on_invoice_post"/>
                     </group>
                 </div>
             </xpath>

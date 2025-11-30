@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_whatsapp_template_tree" model="ir.ui.view">
+        <field name="name">whatsapp.template.tree</field>
+        <field name="model">whatsapp.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="template_name"/>
+                <field name="language_code"/>
+                <field name="category"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_whatsapp_template_form" model="ir.ui.view">
+        <field name="name">whatsapp.template.form</field>
+        <field name="model">whatsapp.template</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Template">
+                <header>
+                    <button name="action_submit" type="object" string="Submit" states="DRAFT"/>
+                    <button name="action_mark_approved" type="object" string="Approve" states="DRAFT,SUBMITTED,REJECTED"/>
+                    <button name="action_mark_rejected" type="object" string="Reject" states="DRAFT,SUBMITTED,APPROVED"/>
+                    <field name="status" widget="statusbar" statusbar_visible="DRAFT,SUBMITTED,APPROVED,REJECTED"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="template_name"/>
+                        <field name="language_code"/>
+                        <field name="category"/>
+                        <field name="status"/>
+                        <field name="body_preview"/>
+                        <field name="remark"/>
+                        <field name="placeholders"/>
+                        <field name="expected_variables"/>
+                        <field name="compliance_hint"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_whatsapp_template_search" model="ir.ui.view">
+        <field name="name">whatsapp.template.search</field>
+        <field name="model">whatsapp.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="template_name"/>
+                <filter string="Approved" name="approved" domain="[('status','=','APPROVED')]"/>
+                <filter string="Submitted" name="submitted" domain="[('status','=','SUBMITTED')]"/>
+                <filter string="Rejected" name="rejected" domain="[('status','=','REJECTED')]"/>
+                <filter string="Marketing" name="marketing" domain="[('category','=','MARKETING')]"/>
+                <filter string="Utility" name="utility" domain="[('category','=','UTILITY')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_whatsapp_template" model="ir.actions.act_window">
+        <field name="name">WhatsApp Templates</field>
+        <field name="res_model">whatsapp.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_whatsapp_template_search"/>
+    </record>
+
+    <menuitem id="menu_whatsapp_template_root" name="WhatsApp" parent="base.menu_sales" sequence="90"/>
+    <menuitem id="menu_whatsapp_template" name="Templates" parent="menu_whatsapp_template_root" action="action_whatsapp_template" sequence="10"/>
+</odoo>
