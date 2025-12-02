@@ -1,0 +1,35 @@
+<odoo>
+
+    <!-- ONLY override the login form, not the layout -->
+    <template id="skillbridge_login_form" inherit_id="web.login">
+
+        <!-- Add SkillBridge branding above login form -->
+        <xpath expr="//div[contains(@class,'o_login_form')]" position="before">
+            <div style="text-align:center;margin-bottom:25px;">
+                <img src="/web/image/res.company/1/logo"
+                     style="max-width:150px;margin-bottom:12px;"/>
+                <h2 style="font-size:22px;font-weight:600;color:#333;">SkillBridge Platform</h2>
+                <p style="color:#777;margin-top:-5px;">Welcome to your dashboard</p>
+            </div>
+        </xpath>
+
+        <!-- Style the login form container -->
+        <xpath expr="//div[contains(@class,'o_login_form')]" position="attributes">
+            <attribute name="class">o_login_form shadow-lg p-4 rounded</attribute>
+            <attribute name="style">background:white;width:380px;border-radius:12px;padding:30px !important;</attribute>
+        </xpath>
+
+        <!-- Style the button -->
+        <xpath expr="//button[@type='submit']" position="attributes">
+            <attribute name="class">btn btn-primary btn-block</attribute>
+            <attribute name="style">background-color:#2e7dff;border:none;padding:10px 0;font-size:16px;border-radius:8px;</attribute>
+        </xpath>
+
+        <!-- Style Manage Databases -->
+        <xpath expr="//a[@id='o_database_manager_link']" position="attributes">
+            <attribute name="style">color:#2e7dff;font-weight:500;margin-top:20px;display:block;text-align:center;</attribute>
+        </xpath>
+
+    </template>
+
+</odoo>

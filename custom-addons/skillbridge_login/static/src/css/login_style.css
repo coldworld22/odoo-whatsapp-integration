@@ -1,0 +1,12 @@
+body {
+    background-color: #f7f9fc !important;
+}
+
+.o_login_form input {
+    border-radius: 8px !important;
+    padding: 10px !important;
+}
+
+.o_login_form {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+}

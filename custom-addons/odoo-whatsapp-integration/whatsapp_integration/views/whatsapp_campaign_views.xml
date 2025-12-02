@@ -1,0 +1,93 @@
+<odoo>
+    <record id="view_whatsapp_campaign_tree" model="ir.ui.view">
+        <field name="name">whatsapp.campaign.tree</field>
+        <field name="model">whatsapp.campaign</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="message_mode"/>
+                <field name="template_id"/>
+                <field name="throttle_batch_size"/>
+                <field name="total_pending"/>
+                <field name="total_sent"/>
+                <field name="total_failed"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_whatsapp_campaign_form" model="ir.ui.view">
+        <field name="name">whatsapp.campaign.form</field>
+        <field name="model">whatsapp.campaign</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Campaign">
+                <header>
+                    <button name="action_generate_queue" type="object" string="Generate Queue" class="oe_highlight" states="draft"/>
+                    <button name="action_start" type="object" string="Start" states="draft,paused"/>
+                    <button name="action_pause" type="object" string="Pause" states="running"/>
+                    <button name="action_done" type="object" string="Done" states="running,paused"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,running,paused,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="message_mode"/>
+                        <field name="template_id" attrs="{'invisible': [('message_mode','!=','template')], 'required': [('message_mode','=','template')]}"/>
+                        <field name="media_url" attrs="{'invisible': [('message_mode','!=','media_image')], 'required': [('message_mode','=','media_image')]}"/>
+                        <field name="message_body" attrs="{'required': [('message_mode','in',['text','media_image'])]}"/>
+                    </group>
+                    <group string="Audience">
+                        <field name="partner_tag_ids" widget="many2many_tags"/>
+                        <field name="partner_domain" placeholder="[('country_id.code','=','US')]"/>
+                    </group>
+                    <group string="Scheduling">
+                        <field name="throttle_batch_size"/>
+                        <field name="window_start"/>
+                        <field name="window_end"/>
+                        <field name="last_run" readonly="1"/>
+                        <field name="next_run" readonly="1"/>
+                    </group>
+                    <group string="KPI (Logs)">
+                        <field name="total_sent" readonly="1"/>
+                        <field name="total_failed" readonly="1"/>
+                        <field name="total_delivered" readonly="1"/>
+                        <field name="total_read" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Drip Steps">
+                            <field name="step_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence"/>
+                                    <field name="delay_hours"/>
+                                    <field name="message_mode"/>
+                                    <field name="template_id" attrs="{'invisible': [('message_mode','!=','template')]}"/>
+                                    <field name="media_url" attrs="{'invisible': [('message_mode','!=','media_image')]}"/>
+                                    <field name="message_body"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Queue">
+                            <field name="queue_ids">
+                                <tree editable="bottom">
+                                    <field name="partner_id"/>
+                                    <field name="status"/>
+                                    <field name="attempts"/>
+                                    <field name="message_id"/>
+                                    <field name="last_error"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_whatsapp_campaign" model="ir.actions.act_window">
+        <field name="name">Campaigns</field>
+        <field name="res_model">whatsapp.campaign</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_whatsapp_campaign" name="Campaigns" parent="menu_whatsapp_template_root" action="action_whatsapp_campaign" sequence="15"/>
+</odoo>
