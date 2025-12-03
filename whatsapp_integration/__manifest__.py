@@ -21,8 +21,8 @@ Setup:
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Public project page for details and docs
-    "website": "https://github.com/coldworld22/odoo-whatsapp-integration",
+    # Public project page for details and docs (17.0 branch)
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/17.0",
     "category": "Sales",
     "price": 400.0,
     "currency": "USD",
