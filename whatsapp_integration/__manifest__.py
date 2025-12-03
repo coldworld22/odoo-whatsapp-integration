@@ -17,13 +17,14 @@ Setup:
 3) Approve templates in Meta and mark them APPROVED in Odoo; then send from Sales Orders or run campaigns.
 """,
     "version": "17.0.1.0.1",
-    "author": "Your Company",
-    "maintainer": "Your Company",
+    "author": "Skillbridge Studio",
+    "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
     # Host Learn More on this Odoo instance (serves static description page)
     "website": "https://odoo17.eduskillbridge.net/whatsapp_integration/static/description/index.html",
     "category": "Sales",
+    "external_dependencies": {"python": ["requests"]},
     "depends": ["base", "mail", "sale", "account"],
     "data": [
         "security/security.xml",
