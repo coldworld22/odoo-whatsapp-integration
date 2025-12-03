@@ -24,6 +24,8 @@ Setup:
     # Host Learn More on this Odoo instance (serves static description page)
     "website": "https://odoo17.eduskillbridge.net/whatsapp_integration/static/description/index.html",
     "category": "Sales",
+    "price": 400.0,
+    "currency": "USD",
     "external_dependencies": {"python": ["requests"]},
     "depends": ["base", "mail", "sale", "account"],
     "data": [
