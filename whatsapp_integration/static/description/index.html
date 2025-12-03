@@ -1,5 +1,4 @@
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap");
   :root {
     --bg: #f6f7fb;
     --card: #ffffff;
@@ -13,7 +12,7 @@
     --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
   }
   body {
-    font-family: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
     background: var(--bg);
     color: var(--text);
     margin: 0;
@@ -175,7 +174,7 @@
   }
 </style>
 
-<div class="page">
+<div class="page" id="top">
   <header>
     <div class="brand">
       <img src="icon.png" alt="Skillbridge Studio logo"/>
@@ -186,13 +185,6 @@
       <a href="#how-it-works">How it works</a>
       <a href="#services">Services</a>
       <a class="contact" href="mailto:support@eduskillbridge.net">support@eduskillbridge.net</a>
-      <a class="wa-chip" href="https://wa.me/966531505513" target="_blank" rel="noopener">
-        <svg class="wa-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#22c55e" d="M16.03 6a9.9 9.9 0 0 0-8.34 15.21l-1.2 4.54 4.63-1.17A9.93 9.93 0 0 0 26 15.99C26 10.48 21.55 6 16.03 6Z"/>
-          <path fill="#fff" d="M22.12 18.3c-.13-.2-.47-.32-.98-.56-.5-.25-3-1.47-3.46-1.64-.46-.17-.79-.25-1.12.25-.33.5-1.28 1.64-1.57 1.97-.29.33-.58.37-1.08.12-.5-.25-2.1-.81-4-2.57-1.48-1.38-1.8-2.32-2-2.7-.21-.38-.02-.58.2-.81.18-.18.41-.46.62-.69.21-.23.28-.39.42-.65.14-.26.08-.49-.04-.69-.12-.2-1.12-2.7-1.53-3.69-.4-.96-.81-.83-1.12-.85-.29-.02-.62-.02-.95-.02-.33 0-.87.12-1.32.58-.46.46-1.74 1.7-1.74 4.15 0 2.46 1.79 4.83 2.04 5.16.25.33 3.5 5.34 8.6 7.23 5.1 1.9 5.1 1.27 6.02 1.19.92-.08 2.96-1.2 3.38-2.35.42-1.15.42-2.14.29-2.34Z"/>
-        </svg>
-        +966531505513
-      </a>
     </div>
   </header>
 
@@ -305,4 +297,4 @@
   </div>
 </div>
 
-<button class="float-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Back to top</button>
+<a class="float-top" href="#top">↑ Back to top</a>
