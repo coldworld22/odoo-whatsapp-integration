@@ -21,8 +21,8 @@ Setup:
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Host Learn More on this Odoo instance (serves static description page)
-    "website": "https://odoo17.eduskillbridge.net/whatsapp_integration/static/description/index.html",
+    # Public project page for details and docs
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration",
     "category": "Sales",
     "price": 400.0,
     "currency": "USD",
