@@ -4,6 +4,11 @@ Send invoices, sales orders, and campaign messages through the WhatsApp Business
 ## Compatibility
 - Odoo 17.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
 
+## Data & Privacy
+- Sends partner mobile numbers, template/text content, and optional PDFs to the WhatsApp Business Cloud API to deliver messages.
+- Enforces opt-in and E.164 validation before sending.
+- No activation keys; data stays in your Odoo database unless you export it.
+
 ## Requirements
 - WhatsApp Business Cloud API app.
 - Permanent access token with `whatsapp_business_messaging` scope.

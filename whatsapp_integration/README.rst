@@ -16,6 +16,13 @@ Key Features
 - Compliance: E.164 phone validation, partner opt-in flags, per-company accounts, and webhook signature verification.
 - Observability: message logs (sent/delivered/read/failed) with pivot, plus inbound payload trace.
 
+Data & Privacy
+--------------
+
+- Sends partner mobile, template/text content, and optional PDFs to the WhatsApp Business Cloud API to deliver messages.
+- Enforces opt-in (boolean flag) and E.164 validation before sending.
+- No activation keys; data stays in your Odoo database unless you export it.
+
 Requirements
 ------------
 
