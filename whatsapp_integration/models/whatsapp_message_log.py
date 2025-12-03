@@ -16,6 +16,6 @@ class WhatsAppMessageLog(models.Model):
         required=True,
         default="outbound",
     )
-    status = fields.Char(string="Status")
+    status = fields.Char(string="Status", index=True)
     error_code = fields.Char(string="Error Code")
     last_payload = fields.Text(string="Last Payload")

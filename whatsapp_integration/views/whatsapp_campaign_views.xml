@@ -3,7 +3,9 @@
         <field name="name">whatsapp.campaign.tree</field>
         <field name="model">whatsapp.campaign</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-success="state == 'done'"
+                  decoration-warning="state == 'paused'"
+                  decoration-info="state == 'running'">
                 <field name="name"/>
                 <field name="state"/>
                 <field name="message_mode"/>
@@ -22,19 +24,19 @@
         <field name="arch" type="xml">
             <form string="WhatsApp Campaign">
                 <header>
-                    <button name="action_generate_queue" type="object" string="Generate Queue" class="oe_highlight" states="draft"/>
-                    <button name="action_start" type="object" string="Start" states="draft,paused"/>
-                    <button name="action_pause" type="object" string="Pause" states="running"/>
-                    <button name="action_done" type="object" string="Done" states="running,paused"/>
+                    <button name="action_generate_queue" type="object" string="Generate Queue" class="oe_highlight" modifiers='{"invisible": [["state", "!=", "draft"]]}'/>
+                    <button name="action_start" type="object" string="Start" modifiers='{"invisible": [["state", "not in", ["draft", "paused"]]]}'/>
+                    <button name="action_pause" type="object" string="Pause" modifiers='{"invisible": [["state", "!=", "running"]]}'/>
+                    <button name="action_done" type="object" string="Done" modifiers='{"invisible": [["state", "not in", ["running", "paused"]]]}'/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,running,paused,done"/>
                 </header>
                 <sheet>
                     <group>
                         <field name="name"/>
                         <field name="message_mode"/>
-                        <field name="template_id" attrs="{'invisible': [('message_mode','!=','template')], 'required': [('message_mode','=','template')]}"/>
-                        <field name="media_url" attrs="{'invisible': [('message_mode','!=','media_image')], 'required': [('message_mode','=','media_image')]}"/>
-                        <field name="message_body" attrs="{'required': [('message_mode','in',['text','media_image'])]}"/>
+                        <field name="template_id" modifiers='{"invisible": [["message_mode", "!=", "template"]], "required": [["message_mode", "=", "template"]]}'/>
+                        <field name="media_url" modifiers='{"invisible": [["message_mode", "!=", "media_image"]], "required": [["message_mode", "=", "media_image"]]}'/>
+                        <field name="message_body" modifiers='{"required": [["message_mode", "in", ["text", "media_image"]]]}'/>
                     </group>
                     <group string="Audience">
                         <field name="partner_tag_ids" widget="many2many_tags"/>
@@ -60,15 +62,18 @@
                                     <field name="sequence"/>
                                     <field name="delay_hours"/>
                                     <field name="message_mode"/>
-                                    <field name="template_id" attrs="{'invisible': [('message_mode','!=','template')]}"/>
-                                    <field name="media_url" attrs="{'invisible': [('message_mode','!=','media_image')]}"/>
+                                    <field name="template_id" modifiers='{"invisible": [["message_mode", "!=", "template"]]}'/>
+                                    <field name="media_url" modifiers='{"invisible": [["message_mode", "!=", "media_image"]]}'/>
                                     <field name="message_body"/>
                                 </tree>
                             </field>
                         </page>
                         <page string="Queue">
                             <field name="queue_ids">
-                                <tree editable="bottom">
+                                <tree editable="bottom"
+                                      decoration-success="status == 'sent'"
+                                      decoration-warning="status == 'pending'"
+                                      decoration-danger="status == 'failed'">
                                     <field name="partner_id"/>
                                     <field name="status"/>
                                     <field name="attempts"/>
@@ -87,6 +92,9 @@
         <field name="name">Campaigns</field>
         <field name="res_model">whatsapp.campaign</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create campaigns, generate the queue from partner tags/domains, then start to send in throttled batches.</p>
+        </field>
     </record>
 
     <menuitem id="menu_whatsapp_campaign" name="Campaigns" parent="menu_whatsapp_template_root" action="action_whatsapp_campaign" sequence="15"/>

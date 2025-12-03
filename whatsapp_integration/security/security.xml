@@ -1,0 +1,8 @@
+<odoo>
+    <record id="group_whatsapp_demo_user" model="res.groups">
+        <field name="name">WhatsApp Demo User</field>
+        <field name="category_id" ref="base.module_category_sales"/>
+        <field name="implied_ids" eval="[(6, 0, [ref('base.group_user'), ref('sales_team.group_sale_salesman')])]"/>
+        <field name="comment">Limited demo profile focused on Sales + WhatsApp menus.</field>
+    </record>
+</odoo>

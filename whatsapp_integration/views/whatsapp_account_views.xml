@@ -22,7 +22,7 @@
                         <field name="name"/>
                         <field name="company_id"/>
                         <field name="phone_number_id"/>
-                        <field name="token"/>
+                        <field name="token" password="True"/>
                         <field name="is_default"/>
                     </group>
                 </sheet>
@@ -34,6 +34,9 @@
         <field name="name">WhatsApp Accounts</field>
         <field name="res_model">whatsapp.account</field>
         <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Configure per-company WhatsApp accounts with phone_number_id and access token. Mark one as Default for each company.</p>
+        </field>
     </record>
 
     <menuitem id="menu_whatsapp_account" name="Accounts" parent="menu_whatsapp_template_root" action="action_whatsapp_account" sequence="5"/>

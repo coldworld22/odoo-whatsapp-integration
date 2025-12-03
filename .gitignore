@@ -1,0 +1,7 @@
+venv/
+src/
+odoo.log
+odoo.conf
+*.pyc
+__pycache__/
+requirements.txt

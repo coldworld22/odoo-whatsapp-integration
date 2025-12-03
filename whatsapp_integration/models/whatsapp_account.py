@@ -7,6 +7,17 @@ class WhatsAppAccount(models.Model):
 
     name = fields.Char(required=True)
     company_id = fields.Many2one("res.company", required=True)
-    phone_number_id = fields.Char(required=True, string="Phone Number ID")
-    token = fields.Char(required=True, string="Access Token")
-    is_default = fields.Boolean(default=False)
+    phone_number_id = fields.Char(
+        required=True,
+        string="Phone Number ID",
+        help="Meta phone_number_id for this company (numeric ID from WhatsApp Manager).",
+    )
+    token = fields.Char(
+        required=True,
+        string="Access Token",
+        help="Permanent access token with whatsapp_business_messaging scope.",
+    )
+    is_default = fields.Boolean(
+        default=False,
+        help="If enabled, this account is used by default for the company when sending messages.",
+    )

@@ -39,6 +39,7 @@ class WhatsAppCampaign(models.Model):
         [("draft", "Draft"), ("running", "Running"), ("paused", "Paused"), ("done", "Done")],
         default="draft",
         required=True,
+        index=True,
     )
     last_run = fields.Datetime(string="Last Run")
     next_run = fields.Datetime(string="Next Run")

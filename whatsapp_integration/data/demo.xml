@@ -1,20 +1,91 @@
 <odoo>
-    <!-- Demo WhatsApp templates -->
-    <record id="whatsapp_template_order_update" model="whatsapp.template">
-        <field name="name">Order update</field>
-        <field name="template_name">order_update</field>
-        <field name="language_code">en_US</field>
-        <field name="category">UTILITY</field>
-        <field name="status">APPROVED</field>
-        <field name="body_preview">Hi {{1}}, your order {{2}} is being processed.</field>
-    </record>
+    <data noupdate="1">
+        <!-- Demo WhatsApp templates -->
+        <record id="whatsapp_template_order_update" model="whatsapp.template">
+            <field name="name">Order update</field>
+            <field name="template_name">order_update</field>
+            <field name="language_code">en_US</field>
+            <field name="category">UTILITY</field>
+            <field name="status">APPROVED</field>
+            <field name="body_preview">Hi {{1}}, your order {{2}} is being processed.</field>
+            <field name="expected_variables">2</field>
+            <field name="placeholders">
+{{1}} = customer name
+{{2}} = order reference</field>
+            <field name="compliance_hint">Send only to opted-in customers; include business name and clear support contact.</field>
+        </record>
 
-    <record id="whatsapp_template_payment_reminder" model="whatsapp.template">
-        <field name="name">Payment reminder</field>
-        <field name="template_name">payment_reminder</field>
-        <field name="language_code">en_US</field>
-        <field name="category">MARKETING</field>
-        <field name="status">APPROVED</field>
-        <field name="body_preview">Hello {{1}}, please review your invoice {{2}}. Need help? Reply to this message.</field>
-    </record>
+        <record id="whatsapp_template_payment_reminder" model="whatsapp.template">
+            <field name="name">Payment reminder</field>
+            <field name="template_name">payment_reminder</field>
+            <field name="language_code">en_US</field>
+            <field name="category">MARKETING</field>
+            <field name="status">APPROVED</field>
+            <field name="body_preview">Hello {{1}}, please review your invoice {{2}}. Need help? Reply to this message.</field>
+            <field name="expected_variables">2</field>
+            <field name="placeholders">
+{{1}} = customer name
+{{2}} = invoice number</field>
+            <field name="compliance_hint">Ensure invoice reminders respect opt-in and frequency caps for marketing category templates.</field>
+        </record>
+
+        <!-- Demo user for WhatsApp showcase (inactive, no password) -->
+        <record id="user_whatsapp_demo" model="res.users">
+            <field name="name">WhatsApp Demo</field>
+            <field name="login">demo_whatsapp@example.com</field>
+            <field name="email">demo_whatsapp@example.com</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="company_ids" eval="[(6, 0, [ref('base.main_company')])]"/>
+            <field name="groups_id" eval="[(6, 0, [ref('whatsapp_integration.group_whatsapp_demo_user')])]"/>
+            <field name="action_id" ref="whatsapp_integration.action_whatsapp_template"/>
+            <field name="active">False</field>
+        </record>
+
+        <!-- Demo account (placeholder token/phone; not default) -->
+        <record id="whatsapp_account_demo" model="whatsapp.account">
+            <field name="name">Demo WhatsApp Account</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="phone_number_id">1234567890</field>
+            <field name="token">DEMO_TOKEN</field>
+            <field name="is_default">False</field>
+        </record>
+
+        <!-- Demo partner -->
+        <record id="whatsapp_demo_partner" model="res.partner">
+            <field name="name">Demo Customer</field>
+            <field name="mobile">+12025550123</field>
+            <field name="email">demo.customer@example.com</field>
+            <field name="whatsapp_opt_in">True</field>
+            <field name="whatsapp_opt_in_date">2024-01-01 10:00:00</field>
+            <field name="whatsapp_opt_in_source">Demo</field>
+        </record>
+
+        <!-- Demo campaign with queue and initial step -->
+        <record id="whatsapp_campaign_demo" model="whatsapp.campaign">
+            <field name="name">Demo Campaign</field>
+            <field name="message_mode">template</field>
+            <field name="template_id" ref="whatsapp_template_order_update"/>
+            <field name="throttle_batch_size">10</field>
+            <field name="window_start">8.0</field>
+            <field name="window_end">22.0</field>
+            <field name="state">running</field>
+        </record>
+
+        <record id="whatsapp_campaign_step_demo" model="whatsapp.campaign.step">
+            <field name="campaign_id" ref="whatsapp_campaign_demo"/>
+            <field name="sequence">10</field>
+            <field name="delay_hours">0.0</field>
+            <field name="message_mode">template</field>
+            <field name="template_id" ref="whatsapp_template_order_update"/>
+            <field name="message_body">Hi {{1}}, your order {{2}} is being processed.</field>
+        </record>
+
+        <record id="whatsapp_campaign_queue_demo" model="whatsapp.campaign.queue">
+            <field name="campaign_id" ref="whatsapp_campaign_demo"/>
+            <field name="partner_id" ref="whatsapp_demo_partner"/>
+            <field name="status">pending</field>
+            <field name="attempts">0</field>
+            <field name="step_id" ref="whatsapp_campaign_step_demo"/>
+        </record>
+    </data>
 </odoo>

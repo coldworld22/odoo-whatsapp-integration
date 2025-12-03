@@ -60,7 +60,15 @@ class WhatsAppAPI(models.Model):
         account = (
             self.env["whatsapp.account"]
             .sudo()
-            .search([("company_id", "=", company.id)], order="is_default desc, id desc", limit=1)
+            .search(
+                [
+                    ("company_id", "=", company.id),
+                    ("is_default", "=", True),
+                    ("token", "!=", False),
+                    ("phone_number_id", "!=", False),
+                ],
+                limit=1,
+            )
         )
         if account:
             return account.token, account.phone_number_id

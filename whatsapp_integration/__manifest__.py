@@ -2,20 +2,31 @@
     "name": "WhatsApp Cloud Messaging",
     "summary": "Send invoices, sales orders, and custom messages via WhatsApp Business Cloud API",
     "description": """
-WhatsApp Business integration for Odoo:
-- Send WhatsApp messages from Sales Orders.
-- Attach Sales Order PDFs and posted invoices.
-- Configure token and phone number ID in settings with validation.
+WhatsApp Business Cloud integration for Odoo Sales and Accounting.
+
+Key features:
+- Send WhatsApp messages from Sales Orders and posted invoices (PDF attachments supported).
+- Message modes: text, Meta templates, images; template variables with compliance hints.
+- Bulk campaigns with queues, throttling, drip steps, retries/backoff, and KPI dashboards.
+- Partner opt-in flags with E.164 validation; per-company WhatsApp accounts (no hard-coded tokens).
+- Webhook verification with verify token + app secret and delivery/read/failure logs.
+
+Setup:
+1) Settings › WhatsApp Business API: token, phone number ID, webhook verify token, app secret, default media URL.
+2) Create a default WhatsApp Account record per company with token + phone number ID.
+3) Approve templates in Meta and mark them APPROVED in Odoo; then send from Sales Orders or run campaigns.
 """,
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "author": "Your Company",
     "maintainer": "Your Company",
-    "support": "support@yourcompany.com",
-    "license": "LGPL-3",
-    "website": "https://yourcompany.com",
+    "support": "support@eduskillbridge.net",
+    "license": "OPL-1",
+    # Host Learn More on this Odoo instance (serves static description page)
+    "website": "https://odoo17.eduskillbridge.net/whatsapp_integration/static/description/index.html",
     "category": "Sales",
     "depends": ["base", "mail", "sale", "account"],
     "data": [
+        "security/security.xml",
         "security/ir.model.access.csv",
         "views/res_config_settings_view.xml",
         "views/whatsapp_wizard_views.xml",
@@ -28,6 +39,13 @@ WhatsApp Business integration for Odoo:
         "views/res_partner_views.xml",
         "data/cron.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "whatsapp_integration/static/src/scss/demo_brand.scss",
+            "whatsapp_integration/static/src/scss/demo_hide_apps.scss",
+            "whatsapp_integration/static/src/js/demo_hide_apps.js",
+        ],
+    },
     "demo": ["data/demo.xml"],
     "images": [
         "static/description/icon.png",

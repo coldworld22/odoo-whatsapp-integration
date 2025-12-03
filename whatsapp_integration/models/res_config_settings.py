@@ -1,4 +1,7 @@
+import re
+
 from odoo import fields, models
+from odoo.exceptions import UserError
 
 
 class ResConfigSettings(models.TransientModel):
@@ -37,3 +40,18 @@ class ResConfigSettings(models.TransientModel):
         config_parameter="whatsapp_integration.default_media_url",
         help="Fallback image URL for media sends or QR codes.",
     )
+
+    def _check_settings(self):
+        for rec in self:
+            if rec.whatsapp_phone_number_id:
+                phone_id = rec.whatsapp_phone_number_id.strip()
+                if not re.fullmatch(r"[0-9]+", phone_id):
+                    raise UserError("WhatsApp Phone Number ID must be numeric (Meta phone_number_id, not the phone itself).")
+            if rec.whatsapp_default_media_url:
+                url = rec.whatsapp_default_media_url.strip()
+                if not re.match(r"^https?://", url):
+                    raise UserError("Default Media URL must start with http:// or https://")
+
+    def set_values(self):
+        self._check_settings()
+        return super().set_values()

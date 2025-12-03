@@ -3,7 +3,10 @@
         <field name="name">whatsapp.message.log.tree</field>
         <field name="model">whatsapp.message.log</field>
         <field name="arch" type="xml">
-            <tree string="WhatsApp Logs">
+            <tree string="WhatsApp Logs"
+                  decoration-success="status in ['delivered','read','sent']"
+                  decoration-warning="status in ['pending','queued']"
+                  decoration-danger="status in ['failed','error']">
                 <field name="create_date"/>
                 <field name="direction"/>
                 <field name="status"/>
@@ -36,6 +39,11 @@
         <field name="res_model">whatsapp.message.log</field>
         <field name="view_mode">tree,pivot</field>
         <field name="search_view_id" ref="view_whatsapp_message_log_search"/>
+        <field name="help" type="html">
+            <p>
+                Track outbound and inbound WhatsApp messages with status. Use Filters for failed/delivered and pivot for KPIs.
+            </p>
+        </field>
     </record>
 
     <menuitem id="menu_whatsapp_log" name="Logs" parent="menu_whatsapp_template_root" action="action_whatsapp_message_log" sequence="20"/>

@@ -2,16 +2,16 @@
     <record id="res_config_settings_view_form_inherit_whatsapp" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.whatsapp</field>
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base.view_res_config_settings"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='settings']" position="inside">
+            <xpath expr="//form" position="inside">
                 <div class="app-settings-block" data-string="WhatsApp Integration">
                     <h2>WhatsApp Business API</h2>
                     <p class="text-muted">
                         Connect Odoo to the WhatsApp Business Cloud API to send sales orders and invoices.
                     </p>
                     <group>
-                        <field name="whatsapp_token" placeholder="EAAJ..."/>
+                        <field name="whatsapp_token" placeholder="EAAJ..." password="True"/>
                         <field name="whatsapp_phone_number_id" placeholder="123456789012345"/>
                         <field name="whatsapp_webhook_verify_token" placeholder="my_verify_token"/>
                         <field name="whatsapp_app_secret" password="True" placeholder="app secret"/>
