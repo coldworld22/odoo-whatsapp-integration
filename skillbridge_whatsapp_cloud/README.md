@@ -16,7 +16,7 @@ Send invoices, sales orders, and campaign messages through the WhatsApp Business
 - Webhook verify token + app secret; customer mobiles in E.164 format with opt-in captured.
 
 ## Installation
-1. Copy the `whatsapp_integration` directory into your Odoo addons path (or install from Apps).
+1. Copy the `skillbridge_whatsapp_cloud` directory into your Odoo addons path (or install from Apps).
 2. Update Apps List, search for **WhatsApp Cloud Messaging**, and install.
 
 ## Configuration

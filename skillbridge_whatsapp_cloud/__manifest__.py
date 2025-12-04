@@ -44,9 +44,9 @@ Setup:
     ],
     "assets": {
         "web.assets_backend": [
-            "whatsapp_integration/static/src/scss/demo_brand.scss",
-            "whatsapp_integration/static/src/scss/demo_hide_apps.scss",
-            "whatsapp_integration/static/src/js/demo_hide_apps.js",
+            "skillbridge_whatsapp_cloud/static/src/scss/demo_brand.scss",
+            "skillbridge_whatsapp_cloud/static/src/scss/demo_hide_apps.scss",
+            "skillbridge_whatsapp_cloud/static/src/js/demo_hide_apps.js",
         ],
     },
     "demo": ["data/demo.xml"],

@@ -7,7 +7,7 @@
   - A permanent access token with `whatsapp_business_messaging` scope.
 
 ### Install the module
-1. Copy `whatsapp_integration` into your Odoo addons path (or add the repo path to `addons_path` in `odoo.conf`).
+1. Copy `skillbridge_whatsapp_cloud` into your Odoo addons path (or add the repo path to `addons_path` in `odoo.conf`).
 2. Restart Odoo and update the Apps list.
 3. Install "WhatsApp Cloud Messaging" from Apps.
 
@@ -15,10 +15,10 @@
 1. Go to Settings -> General Settings -> WhatsApp Business API.
 2. Enter the Access Token, Phone Number ID, Webhook Verify Token, and App Secret you got from Meta.
 3. Save. Odoo stores these values in system parameters:
-   - `whatsapp_integration.token`
-   - `whatsapp_integration.phone_number_id`
-   - `whatsapp_integration.webhook_verify_token`
-   - `whatsapp_integration.app_secret`
+   - `skillbridge_whatsapp_cloud.token`
+   - `skillbridge_whatsapp_cloud.phone_number_id`
+   - `skillbridge_whatsapp_cloud.webhook_verify_token`
+   - `skillbridge_whatsapp_cloud.app_secret`
 
 ### Verify connectivity (optional)
 - Create a sales order with a customer that has a valid mobile number in E.164 format (e.g., `+12025550123`).

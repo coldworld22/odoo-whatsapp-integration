@@ -11,7 +11,7 @@ class AccountMove(models.Model):
     def action_post(self):
         res = super().action_post()
         auto_send = (
-            self.env["ir.config_parameter"].sudo().get_param("whatsapp_integration.auto_send_on_invoice_post")
+            self.env["ir.config_parameter"].sudo().get_param("skillbridge_whatsapp_cloud.auto_send_on_invoice_post")
             == "True"
         )
         if auto_send:

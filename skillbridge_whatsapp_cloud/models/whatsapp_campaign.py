@@ -246,7 +246,7 @@ class WhatsAppCampaign(models.Model):
         if step:
             return step.message_mode, step.template_id, step.message_body, step.media_url
         media_url = self.media_url or self.env["ir.config_parameter"].sudo().get_param(
-            "whatsapp_integration.default_media_url"
+            "skillbridge_whatsapp_cloud.default_media_url"
         )
         return self.message_mode, self.template_id, self.message_body, media_url
 

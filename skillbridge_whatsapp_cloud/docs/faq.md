@@ -16,4 +16,4 @@ Only posted customer invoices/credit notes linked to the sales order are sent. E
 Yes, but numbers that are not in the test phone list may be rate-limited or blocked by Meta.
 
 **Where are credentials stored?**  
-In Odoo system parameters: `whatsapp_integration.token` and `whatsapp_integration.phone_number_id`.
+In Odoo system parameters: `skillbridge_whatsapp_cloud.token` and `skillbridge_whatsapp_cloud.phone_number_id`.

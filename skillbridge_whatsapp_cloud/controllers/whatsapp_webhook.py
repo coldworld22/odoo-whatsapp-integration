@@ -24,8 +24,8 @@ class WhatsAppWebhookController(http.Controller):
     def whatsapp_webhook_ping(self, **kwargs):
         """Lightweight endpoint to verify reachability from Meta or monitoring tools."""
         params = request.env["ir.config_parameter"].sudo()
-        verify_token = params.get_param("whatsapp_integration.webhook_verify_token")
-        app_secret = params.get_param("whatsapp_integration.app_secret")
+        verify_token = params.get_param("skillbridge_whatsapp_cloud.webhook_verify_token")
+        app_secret = params.get_param("skillbridge_whatsapp_cloud.app_secret")
         if not verify_token or not app_secret:
             _logger.warning("Webhook ping failed: missing verify token or app secret.")
             return http.Response(_("Webhook not configured"), status=503, mimetype="text/plain")
@@ -33,7 +33,7 @@ class WhatsAppWebhookController(http.Controller):
 
     def _handle_verification(self, params):
         verify_token = request.env["ir.config_parameter"].sudo().get_param(
-            "whatsapp_integration.webhook_verify_token"
+            "skillbridge_whatsapp_cloud.webhook_verify_token"
         )
         mode = params.get("hub.mode")
         token = params.get("hub.verify_token")
@@ -47,7 +47,7 @@ class WhatsAppWebhookController(http.Controller):
     def _handle_callback(self):
         # Validate signature
         app_secret = request.env["ir.config_parameter"].sudo().get_param(
-            "whatsapp_integration.app_secret"
+            "skillbridge_whatsapp_cloud.app_secret"
         )
         if not app_secret:
             _logger.error("WhatsApp webhook received but app secret is not configured.")

@@ -16,7 +16,8 @@ class WhatsAppAPI(models.Model):
     def action_confirm(self):
         res = super().action_confirm()
         auto_send = (
-            self.env["ir.config_parameter"].sudo().get_param("whatsapp_integration.auto_send_on_confirm") == "True"
+            self.env["ir.config_parameter"].sudo().get_param("skillbridge_whatsapp_cloud.auto_send_on_confirm")
+            == "True"
         )
         if auto_send:
             for order in self:
@@ -72,8 +73,8 @@ class WhatsAppAPI(models.Model):
         )
         if account:
             return account.token, account.phone_number_id
-        token = self.env["ir.config_parameter"].sudo().get_param("whatsapp_integration.token")
-        phone_number_id = self.env["ir.config_parameter"].sudo().get_param("whatsapp_integration.phone_number_id")
+        token = self.env["ir.config_parameter"].sudo().get_param("skillbridge_whatsapp_cloud.token")
+        phone_number_id = self.env["ir.config_parameter"].sudo().get_param("skillbridge_whatsapp_cloud.phone_number_id")
         if not token or not phone_number_id:
             raise UserError(_("WhatsApp API credentials are not configured in Settings."))
         return token, phone_number_id

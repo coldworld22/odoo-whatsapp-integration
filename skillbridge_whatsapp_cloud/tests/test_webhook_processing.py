@@ -48,8 +48,8 @@ class TestWebhookProcessing(TransactionCase):
 
         # Inject configuration
         params = self.env["ir.config_parameter"].sudo()
-        params.set_param("whatsapp_integration.app_secret", self.app_secret)
-        params.set_param("whatsapp_integration.webhook_verify_token", "token")
+        params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
+        params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
 
         # Patch request context: simulate headers/body
         class DummyRequest:
@@ -113,8 +113,8 @@ class TestWebhookProcessing(TransactionCase):
         sig = self._signature(body_bytes)
 
         params = self.env["ir.config_parameter"].sudo()
-        params.set_param("whatsapp_integration.app_secret", self.app_secret)
-        params.set_param("whatsapp_integration.webhook_verify_token", "token")
+        params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
+        params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
 
         class DummyRequest:
             def __init__(self, body, signature):
