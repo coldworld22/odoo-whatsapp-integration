@@ -30,7 +30,7 @@ Send invoices, sales orders, and campaign messages through the WhatsApp Business
 - Logs: review sent/delivered/read/failed with pivot KPIs.
 
 ## Repository format for Odoo App Store
-- Use `ssh://git@github.com/<org>/<repo>.git#17.0` when registering the addon (replace with your repo/branch).
+- Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0` when registering the addon (branch `17.0` is already pushed).
 
 ## Notes
 - Ensure the Meta token is allowed to send from the configured phone_number_id.

@@ -1,3 +1,4 @@
+<!-- ======================= Skillbridge Studio · WhatsApp Cloud Messaging ======================= -->
 <style>
   :root {
     --bg: #f6f7fb;
@@ -19,19 +20,27 @@
   }
   a { color: inherit; text-decoration: none; }
   .page { max-width: 1180px; margin: 0 auto; padding: 28px 18px 48px; }
+
+  /* HEADER */
   header {
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 18px;
   }
   .brand {
     display: inline-flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 18px; color: var(--accent); letter-spacing: 0.2px;
+    font-weight: 700; font-size: 18px; color: var(--accent);
   }
   .brand img { width: 36px; height: 36px; border-radius: 8px; }
-  .nav { display: flex; gap: 14px; color: var(--muted); align-items: center; flex-wrap: wrap; }
+
+  .nav {
+    display: flex; gap: 14px; color: var(--muted);
+    align-items: center; flex-wrap: wrap;
+  }
   .nav a { color: var(--muted); }
-  .nav a:hover { color: #0ea5e9; }
-  .nav .contact { color: #0ea5e9; font-weight: 600; }
+  .nav a:hover { color: var(--accent); }
+  .nav .contact { color: var(--accent); font-weight: 600; }
+
+  /* HERO */
   .hero {
     background: radial-gradient(circle at 12% 20%, rgba(14, 165, 233, 0.12), transparent 28%),
                 radial-gradient(circle at 82% 0%, rgba(34, 197, 94, 0.18), transparent 32%),
@@ -50,32 +59,35 @@
     color: #0b1020;
     border-radius: 999px;
     padding: 8px 14px;
-    text-transform: uppercase; letter-spacing: 0.08em;
+    text-transform: uppercase;
     font-size: 11px;
     border: 1px solid rgba(255, 255, 255, 0.4);
   }
-  .hero h1 { margin: 16px 0 10px; font-size: 38px; line-height: 1.05; }
+  .hero h1 { margin: 16px 0 10px; font-size: 40px; line-height: 1.05; }
   .hero p { margin: 0 0 18px; font-size: 17px; color: rgba(11,16,32,0.85); }
+
   .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn {
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-weight: 600;
-    border: 1px solid transparent;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    padding: 12px 16px; border-radius: 12px; font-weight: 600;
+    border: 1px solid transparent; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
     transition: transform 120ms ease, box-shadow 120ms ease;
   }
   .btn.primary { background: #0b1020; color: #f8fafc; }
   .btn.secondary { background: rgba(11,16,32,0.06); border-color: rgba(11,16,32,0.12); color: #0b1020; }
   .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,0.12); }
-  .hero-img { width: 100%; border-radius: 16px; background: #0b1020; border: 1px solid rgba(255,255,255,0.6); }
 
-  .section { margin-top: 34px; }
-  .section h2 { margin: 0 0 8px; font-size: 26px; }
+  .hero-img {
+    width: 100%; border-radius: 16px; background: #0b1020;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+
+  /* SECTION */
+  .section { margin-top: 44px; }
+  .section h2 { margin: 0 0 8px; font-size: 28px; }
   .section p.lead { margin: 0 0 16px; color: var(--muted); }
+
+  /* FEATURES GRID */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -90,9 +102,8 @@
     color: var(--muted);
   }
   .card h3 { margin: 0 0 8px; color: var(--text); font-size: 17px; }
-  .card ul { padding-left: 18px; margin: 0; }
-  .card li { margin-bottom: 6px; }
 
+  /* STEPS */
   .steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -107,16 +118,16 @@
   }
   .step strong { color: var(--text); }
 
+  /* BANNER */
   .banner {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 18px;
-    align-items: center;
+    gap: 18px; align-items: center;
     background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 197, 94, 0.12));
-    border: 1px solid #dbeafe;
-    border-radius: 16px;
-    padding: 18px;
+    border: 1px solid #dbeafe; border-radius: 16px; padding: 18px;
   }
+
+  /* FAQ */
   .faq {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -131,6 +142,32 @@
   }
   .faq-item h4 { margin: 0 0 6px; color: var(--text); }
 
+  /* GALLERY */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .gallery figure {
+    margin: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .gallery figcaption {
+    padding: 10px 12px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* FOOTER */
   .footer {
     margin-top: 30px;
     padding: 14px 16px;
@@ -140,41 +177,24 @@
     color: var(--muted);
     display: flex;
     justify-content: space-between;
-    gap: 10px;
     flex-wrap: wrap;
   }
+
   .float-top {
     position: fixed;
-    bottom: 18px;
-    right: 18px;
-    background: #0ea5e9;
+    bottom: 18px; right: 18px;
+    background: var(--accent);
     color: #fff;
-    border: none;
     border-radius: 999px;
     padding: 12px 14px;
     box-shadow: 0 12px 30px rgba(14, 165, 233, 0.35);
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 600;
-  }
-  .float-top:hover { transform: translateY(-1px); }
-  .wa-chip {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: #22c55e1a;
-    border: 1px solid #22c55e55;
-    color: #0f172a;
-    border-radius: 999px;
-    padding: 8px 12px;
-    font-weight: 600;
-  }
-  .wa-icon {
-    width: 18px; height: 18px;
+    cursor: pointer; font-weight: 600;
   }
 </style>
 
 <div class="page" id="top">
+
+  <!-- HEADER -->
   <header>
     <div class="brand">
       <img src="icon.png" alt="Skillbridge Studio logo"/>
@@ -183,127 +203,209 @@
     <div class="nav">
       <a href="#features">Features</a>
       <a href="#how-it-works">How it works</a>
-      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
       <a class="contact" href="mailto:support@eduskillbridge.net">support@eduskillbridge.net</a>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div>
-      <span class="pill">Odoo 17 · WhatsApp Cloud</span>
-      <h1>Turn Sales Orders and Invoices into live WhatsApp journeys</h1>
-      <p>Send Meta templates, interactive messages, images, and PDFs directly from Odoo. Launch drip campaigns with throttling, keep opt-in and compliance tight, and watch delivery/read KPIs in one place.</p>
+      <span class="pill">Odoo 17 · WhatsApp Cloud API</span>
+      <h1>Automate WhatsApp for Sales Orders & Invoices — with enterprise-grade reliability</h1>
+      <p>Send Meta templates, PDFs, and interactive messages directly from Odoo. Run drip campaigns with throttling, enforce opt-in compliance, and track live delivery/read KPIs.</p>
+
       <div class="ctas">
         <a class="btn primary" href="mailto:support@eduskillbridge.net?subject=WhatsApp%20Cloud%20Messaging%20Demo">Book a demo</a>
         <a class="btn secondary" href="#features">View features</a>
       </div>
     </div>
+
     <div>
-      <img class="hero-img" src="cover.png" alt="WhatsApp Cloud Messaging preview"/>
+      <picture>
+        <source srcset="cover.gif" type="image/gif"/>
+        <img class="hero-img" src="cover.png" alt="Preview screenshot"/>
+      </picture>
     </div>
   </section>
 
+  <!-- COMPATIBILITY -->
+  <section class="section">
+    <h2>Compatibility</h2>
+    <p class="lead">Fully compatible with the latest Odoo environment.</p>
+
+    <div class="steps">
+      <div class="step"><strong>✔ Odoo 17 (CE & EE)</strong></div>
+      <div class="step"><strong>✔ Multi-company support</strong></div>
+      <div class="step"><strong>✔ WhatsApp Business Cloud API</strong></div>
+      <div class="step"><strong>✔ On-premise & Odoo.sh</strong></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
   <section class="section" id="features">
-    <h2>Product highlights</h2>
-    <p class="lead">Built for sales and finance teams that need compliant, observable WhatsApp automation.</p>
-    <p class="lead"><strong>Requirements:</strong> WhatsApp Business Cloud API app, permanent token with whatsapp_business_messaging scope, phone_number_id, webhook verify token, and app secret.</p>
+    <h2>Highlights</h2>
+    <p class="lead">Built for sales, accounting, and marketing teams that need compliant WhatsApp automation inside Odoo.</p>
+
     <div class="grid">
       <div class="card">
         <h3>Message types</h3>
         <ul>
-          <li>Text, Meta templates, images, PDFs (Sales Orders & posted invoices).</li>
-          <li>Interactive buttons and lists with variables and compliance hints.</li>
-          <li>Default media URL for quick image sends.</li>
+          <li>Text, Meta templates, images, videos.</li>
+          <li>PDF attachments (SO + posted invoices).</li>
+          <li>Interactive buttons and lists.</li>
         </ul>
       </div>
+
       <div class="card">
         <h3>Automation & campaigns</h3>
         <ul>
-          <li>Auto-send on order confirmation or invoice post (opt-in aware).</li>
-          <li>Campaign queues with drip steps, send windows, throttling, retries/backoff.</li>
-          <li>Fail-fast on webhook errors to stop bad drips.</li>
+          <li>Auto-send on Sales Order confirmation.</li>
+          <li>Drip steps, send windows, throttling.</li>
+          <li>Retries with exponential backoff.</li>
         </ul>
       </div>
+
       <div class="card">
-        <h3>Compliance & data</h3>
+        <h3>Compliance & security</h3>
         <ul>
-          <li>E.164 validation and partner opt-in flags.</li>
-          <li>Per-company WhatsApp accounts; no hard-coded tokens.</li>
-          <li>Webhook signature validation with verify token + app secret.</li>
+          <li>E.164 validation + opt-in enforcement.</li>
+          <li>Signature validation + app secret check.</li>
+          <li>Per-company WhatsApp accounts.</li>
         </ul>
       </div>
+
       <div class="card">
         <h3>Observability</h3>
         <ul>
-          <li>Logs for sent/delivered/read/failed with pivot KPIs.</li>
-          <li>Inbound payload trace; chatter posts on orders/partners.</li>
-          <li>Keyword actions (PAY/HELP/CALL) create activities.</li>
+          <li>Live logs: sent/delivered/read/failed.</li>
+          <li>Pivot KPIs by campaign/partner.</li>
+          <li>Webhook trace + keyword actions.</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
   <section class="section" id="how-it-works">
     <h2>How it works</h2>
     <div class="steps">
-      <div class="step"><strong>1) Connect Meta</strong><br/>Add token, phone number ID, verify token, and app secret in Settings. Create a default WhatsApp Account per company.</div>
-      <div class="step"><strong>2) Templates & audience</strong><br/>Sync Meta-approved templates, mark them APPROVED, and define partner tags/domains for campaigns.</div>
-      <div class="step"><strong>3) Send or automate</strong><br/>Use “Send WhatsApp” on Sales Orders or run campaigns with queue generation, drip steps, and throttled batches.</div>
+      <div class="step"><strong>1) Connect Meta</strong><br/>Add token, phone number ID, verify token, and app secret in Settings.</div>
+      <div class="step"><strong>2) Sync templates</strong><br/>Pull WhatsApp approval statuses, configure variables.</div>
+      <div class="step"><strong>3) Start sending</strong><br/>Send manually or run automated campaigns.</div>
     </div>
   </section>
 
-  <section class="section" id="data-privacy">
-    <h2>Data & privacy</h2>
-    <div class="steps">
-      <div class="step"><strong>What is sent</strong><br/>Partner mobile numbers, WhatsApp templates/text, and optional PDFs are sent to the WhatsApp Business Cloud API to deliver messages.</div>
-      <div class="step"><strong>Opt-in enforced</strong><br/>Messages are blocked if the partner is not opted in; phone numbers are validated in E.164 format.</div>
-      <div class="step"><strong>No lock-in</strong><br/>Data stays in your Odoo database; no activation keys or hidden remote storage. Remove tokens to stop messaging.</div>
-    </div>
-  </section>
-
-  <section class="section" id="services">
+  <!-- SERVICES -->
+  <section class="section">
     <div class="banner">
       <div>
-        <h2>Skillbridge Studio services</h2>
-        <p class="lead">We roll this out end-to-end: Meta setup, security, custom flows, and training.</p>
+        <h2>Professional services</h2>
+        <p class="lead">We help you deploy and customize this end-to-end.</p>
+
         <ul>
-          <li>Meta Business setup, webhook hosting, and signature validation.</li>
-          <li>Custom flows for payments, support triage, delivery updates.</li>
-          <li>Data quality remediation (opt-in capture, phone normalization).</li>
-          <li>Load/performance tuning for high-volume campaigns.</li>
+          <li>Meta Business and webhook setup.</li>
+          <li>Custom flows (payments, support, logistics).</li>
+          <li>Data normalization (opt-ins, phone cleanup).</li>
+          <li>Performance tuning for large campaigns.</li>
         </ul>
       </div>
+
       <div>
-        <img class="hero-img" src="screenshots.png" alt="Screenshots"/>
+        <img class="hero-img" src="screenshots.png" alt="Odoo screenshots"/>
       </div>
     </div>
   </section>
 
+  <!-- LIVE SCREENS -->
   <section class="section">
+    <h2>Live screens</h2>
+    <p class="lead">Real configuration and flows from the module in Odoo.</p>
+    <div class="gallery">
+      <figure>
+        <img src="screen2.png" alt="WhatsApp settings with webhook and tokens"/>
+        <figcaption>Settings: WhatsApp Business API, webhook, and tokens.</figcaption>
+      </figure>
+      <figure>
+        <img src="whatsapp.png" alt="WhatsApp templates list in Odoo"/>
+        <figcaption>Templates: Meta template names, languages, and statuses.</figcaption>
+      </figure>
+      <figure>
+        <img src="contact.png" alt="Contact record with WhatsApp opt-in and phone"/>
+        <figcaption>Contact: E.164 phone with WhatsApp opt-in enabled.</figcaption>
+      </figure>
+      <figure>
+        <img src="sale.png" alt="Send via WhatsApp wizard from Sales Order"/>
+        <figcaption>Send via WhatsApp: pick template, fill variables, attach PDF.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <h2>Pricing</h2>
+    <p class="lead">Simple, transparent, and designed for long-term use.</p>
+
+    <div class="steps">
+      <div class="step">
+        <strong>Lifetime License — $400</strong><br/>
+        · Free updates for 1 year<br/>
+        · Unlimited users<br/>
+        · Multi-company included<br/>
+        · Full access to all features
+      </div>
+      <div class="step">
+        <strong>Support</strong><br/>
+        Email support included<br/>
+        SLA upgrade available<br/>
+        Optional customization services
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <h2>Customer feedback</h2>
+    <div class="steps">
+      <div class="step">
+        <strong>“Follow-up time dropped by 60%.”</strong><br/>
+        Our sales team now sends order confirmations instantly. Amazing ROI.
+      </div>
+      <div class="step">
+        <strong>“Very reliable and secure.”</strong><br/>
+        The webhook signature validation gives us enterprise-grade confidence.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
     <h2>FAQ</h2>
     <div class="faq">
       <div class="faq-item">
         <h4>What do I need from Meta?</h4>
-        <p>A WhatsApp Business Cloud app, permanent token with whatsapp_business_messaging, phone number ID, webhook verify token, and app secret.</p>
+        <p>You need a WhatsApp Business Cloud app, permanent token, phone_number_id, verify token, and app secret.</p>
       </div>
       <div class="faq-item">
         <h4>Does it honor opt-in?</h4>
-        <p>Yes. Partners have an opt-in flag; invalid numbers or no opt-in are skipped and logged as failed.</p>
+        <p>Yes. Non-opted partners are blocked and logged as failed.</p>
       </div>
       <div class="faq-item">
-        <h4>Can I track deliveries?</h4>
-        <p>Outbound logs capture sent/delivered/read/failed. Pivot view summarizes KPIs per campaign/partner.</p>
+        <h4>Can I track delivery?</h4>
+        <p>Yes — all statuses (sent/delivered/read/failed) are logged and accessible through pivot views.</p>
       </div>
       <div class="faq-item">
         <h4>Is it multi-company?</h4>
-        <p>Yes. Use per-company WhatsApp Accounts for tokens and phone number IDs; no hard-coded credentials.</p>
+        <p>Yes. Each company uses its own WhatsApp credentials.</p>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <div class="footer">
-    <div>WhatsApp Cloud Messaging for Odoo 17 · Skillbridge Studio</div>
-    <div><a href="mailto:support@eduskillbridge.net?subject=WhatsApp%20Cloud%20Messaging">support@eduskillbridge.net</a></div>
+    <div>© 2025 Skillbridge Studio · WhatsApp Cloud Messaging for Odoo 17</div>
+    <div><a href="mailto:support@eduskillbridge.net">support@eduskillbridge.net</a></div>
   </div>
 </div>
 

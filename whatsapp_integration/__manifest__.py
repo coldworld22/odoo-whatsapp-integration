@@ -53,7 +53,9 @@ Setup:
     "images": [
         "static/description/icon.png",
         "static/description/cover.png",
-        "static/description/screenshots.png",
+        "static/description/contact.png",
+        "static/description/sale.png",
+        "static/description/whatsapp.png",
     ],
     "installable": True,
     "application": True,

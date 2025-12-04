@@ -51,7 +51,7 @@ Quickstart
 Repository for Odoo App Store
 -----------------------------
 
-When registering the addon, use the store format: ``ssh://git@github.com/<org>/<repo>.git#17.0`` (replace with your repo/branch).
+When registering the addon, use the store format: ``ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0`` (branch ``17.0`` is already pushed).
 
 Troubleshooting
 ---------------
