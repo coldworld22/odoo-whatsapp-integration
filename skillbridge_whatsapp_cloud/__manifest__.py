@@ -53,6 +53,7 @@ Setup:
     "images": [
         "static/description/icon.png",
         "static/description/cover.png",
+        "static/description/cover.gif",
         "static/description/contact.png",
         "static/description/sale.png",
         "static/description/whatsapp.png",
