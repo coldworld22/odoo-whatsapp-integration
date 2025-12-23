@@ -48,6 +48,11 @@
   .sb-hero-media { align-self: center; }
   .sb-hero-media img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16); background: #0f172a; }
 
+  .sb-feature-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px; }
+  .sb-feature-chip { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06); display: flex; align-items: center; gap: 10px; }
+  .sb-icon-badge { width: 32px; height: 32px; border-radius: 10px; background: rgba(14, 165, 233, 0.12); color: #0f172a; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(14, 165, 233, 0.2); }
+  .sb-muted { color: var(--muted); font-size: 13px; }
+
   .sb-section { margin-top: 44px; }
   .sb-section h2 { margin: 0 0 8px; font-size: 26px; font-family: "Sora", "DM Sans", sans-serif; }
   .sb-lead { margin: 0 0 16px; color: var(--muted); }
@@ -124,16 +129,17 @@
     <section class="sb-hero">
       <div>
         <span class="sb-pill">Odoo 17 | WhatsApp Cloud API</span>
-        <h1>WhatsApp Cloud Messaging for Sales, Invoices, and Campaigns</h1>
-        <p>Send Meta-approved templates, PDFs, and interactive messages from Sales Orders and posted invoices. Automate campaigns with throttling and retries, enforce opt-in compliance, and track delivery and read KPIs.</p>
+        <h1>WhatsApp Cloud Messaging for Sales Orders & Invoices</h1>
+        <p>Send Meta-approved templates, PDFs, and interactive messages from Sales Orders and posted invoices. Automate campaigns with throttling and retries, enforce opt-in compliance, and track delivery/read KPIs.</p>
         <ul class="sb-list">
           <li>Official WhatsApp Cloud API, no extra gateway.</li>
-          <li>Interactive buttons and lists, images, and PDFs.</li>
-          <li>Inbound logs with keyword opt-in and opt-out.</li>
+          <li>Interactive buttons/lists, images, and PDFs.</li>
+          <li>Inbound logs with keyword opt-in/out (STOP/START).</li>
         </ul>
         <div class="sb-cta">
           <a class="sb-btn primary" href="mailto:support@eduskillbridge.net?subject=WhatsApp%20Cloud%20Messaging%20Demo">Book a demo</a>
           <a class="sb-btn secondary" href="#screens">View screens</a>
+          <a class="sb-btn secondary" href="#quick-demos">Watch demo</a>
         </div>
       </div>
       <div class="sb-hero-media">
@@ -143,6 +149,13 @@
         </picture>
       </div>
     </section>
+
+    <div class="sb-feature-bar sb-stagger">
+      <div class="sb-feature-chip"><span class="sb-icon-badge">SO</span><div><strong>Sales Orders</strong><br/><span class="sb-muted">Send PDFs with templates</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">INV</span><div><strong>Invoices</strong><br/><span class="sb-muted">Posted invoices + reminders</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">CAM</span><div><strong>Campaigns</strong><br/><span class="sb-muted">Queues, throttling, drip steps</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">IN</span><div><strong>Inbox</strong><br/><span class="sb-muted">Reply from Odoo</span></div></div>
+    </div>
 
     <section class="sb-section">
       <h2>Compatibility</h2>
@@ -337,6 +350,18 @@
           <img src="screen3.png" alt="WhatsApp logs and KPIs"/>
           <figcaption>Logs: delivery and read KPIs plus error visibility.</figcaption>
         </figure>
+        <figure>
+          <img src="screen7.png" alt="WhatsApp campaign steps and queues"/>
+          <figcaption>Campaign: drip steps, throttling, and queues.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen8.png" alt="WhatsApp inbox conversations"/>
+          <figcaption>Inbox: conversations and replies inside Odoo.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen9.png" alt="WhatsApp delivery KPIs pivot view"/>
+          <figcaption>KPIs: sent/delivered/read/failed in pivot.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -365,8 +390,8 @@
       <h2>Results you can measure</h2>
       <div class="sb-steps sb-stagger">
         <div class="sb-step">
-          <strong>Delivery and read KPIs</strong><br/>
-          Track sent, delivered, read, and failure counts by campaign, order, or partner.
+          <strong>Delivery & read KPIs</strong><br/>
+          Track sent/delivered/read/failure counts by campaign, order, or partner.
         </div>
         <div class="sb-step">
           <strong>Failure visibility</strong><br/>
