@@ -4,11 +4,16 @@
         <field name="model">whatsapp.template</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="action_sync_from_meta" type="object" string="Sync from Meta"
+                            class="btn-primary" groups="base.group_system"/>
+                </header>
                 <field name="name"/>
                 <field name="template_name"/>
                 <field name="language_code"/>
                 <field name="category"/>
                 <field name="status"/>
+                <field name="last_synced_at"/>
             </tree>
         </field>
     </record>
@@ -19,6 +24,8 @@
         <field name="arch" type="xml">
             <form string="WhatsApp Template">
                 <header>
+                    <button name="action_sync_from_meta" type="object" string="Sync from Meta" class="btn-primary"
+                            groups="base.group_system"/>
                     <button name="action_submit" type="object" string="Submit"
                             modifiers='{"invisible": [["status", "!=", "DRAFT"]]}'/>
                     <button name="action_mark_approved" type="object" string="Approve"
@@ -34,6 +41,8 @@
                         <field name="language_code"/>
                         <field name="category"/>
                         <field name="status"/>
+                        <field name="meta_template_id" readonly="1"/>
+                        <field name="last_synced_at" readonly="1"/>
                         <field name="body_preview"/>
                         <field name="remark"/>
                         <field name="placeholders"/>
@@ -52,6 +61,7 @@
             <search>
                 <field name="name"/>
                 <field name="template_name"/>
+                <filter string="Synced" name="synced" domain="[('meta_template_id','!=',False)]"/>
                 <filter string="Approved" name="approved" domain="[('status','=','APPROVED')]"/>
                 <filter string="Submitted" name="submitted" domain="[('status','=','SUBMITTED')]"/>
                 <filter string="Rejected" name="rejected" domain="[('status','=','REJECTED')]"/>

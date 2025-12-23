@@ -1,7 +1,7 @@
 WhatsApp Cloud Messaging
 ========================
 
-Send WhatsApp Business Cloud API messages from Odoo for sales, invoices, and campaigns with delivery tracking and opt-in compliance.
+WhatsApp Cloud API for Odoo sales, invoices, and campaigns with templates, PDFs, delivery tracking, and opt-in compliance.
 
 Compatibility
 -------------
@@ -15,6 +15,7 @@ Key Features
 - Campaigns: queues with throttling, drip steps, send windows, retries/backoff, and KPI dashboards.
 - Compliance: E.164 phone validation, partner opt-in flags, per-company accounts, and webhook signature verification.
 - Observability: message logs (sent/delivered/read/failed) with pivot, plus inbound payload trace.
+- Keywords: STOP/START automatically toggle opt-in and log in chatter.
 
 Data & Privacy
 --------------
@@ -28,14 +29,16 @@ Requirements
 
 - WhatsApp Business Cloud API app.
 - Permanent access token with ``whatsapp_business_messaging`` scope.
+- ``whatsapp_business_management`` scope if you plan to sync templates.
 - Phone number ID from WhatsApp Manager (not the phone itself).
+- Business Account ID (WABA ID) for template sync.
 - Webhook verify token + app secret; partner mobiles in E.164 format with opt-in captured.
 
 Installation & Configuration
 ----------------------------
 
 1) Install the module from Apps (or copy to addons path and update list).  
-2) Settings → WhatsApp Business API: set token, phone number ID, webhook verify token, app secret, and optional default media URL.  
+2) Settings → WhatsApp Business API: set token, phone number ID, Business Account ID (WABA ID), webhook verify token, app secret, and optional default media URL.  
 3) Sales → WhatsApp → Accounts: create a **default** account per company (token + phone number ID).  
 4) Approve templates in Meta; create the same templates in Odoo and set status to APPROVED.  
 5) Demo data includes safe placeholder templates, partner, campaign, and non-default demo account under ``noupdate``.
@@ -46,7 +49,11 @@ Quickstart
 1) Create a partner with E.164 mobile (e.g., ``+12025550123``) and opt-in enabled.  
 2) Open a Sales Order → click **Send WhatsApp** → pick text/template/image/interactive → Send.  
 3) Campaigns: create campaign → add drip steps → **Generate Queue** → **Start**; cron batches sends and logs statuses.  
-4) Review Logs and Pivot for sent/delivered/read/failed KPIs.
+4) Review Logs and Pivot for sent/delivered/read/failed KPIs.  
+5) Inbound messages are logged to the partner or most recent Sales Order.
+6) Use WhatsApp → Inbox to reply and view conversation history per customer.
+7) Use Sync from Meta in Templates to pull approved templates and statuses.
+8) A daily cron keeps templates synced when WABA credentials are configured.
 
 Repository for Odoo App Store
 -----------------------------

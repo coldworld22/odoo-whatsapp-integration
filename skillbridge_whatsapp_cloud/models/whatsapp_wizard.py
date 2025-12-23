@@ -52,13 +52,16 @@ class WhatsAppSendWizard(models.TransientModel):
 
         message = (self.message_body or "").strip() or order._get_default_whatsapp_message()
         self._validate_interactive_constraints()
+        list_payload = self._collect_list_payload()
+        if self.message_mode == "media_image":
+            list_payload = {"media_url": self.media_url}
         order._send_whatsapp_payloads(
             message_body=message,
             message_mode=self.message_mode,
             template=self.template_id,
             template_components=self._collect_template_components(),
             buttons=self._collect_buttons(),
-            list_payload=self._collect_list_payload(),
+            list_payload=list_payload,
             include_sale_order_pdf=self.include_sale_order_pdf,
             include_invoice_pdf=self.include_invoice_pdf,
         )

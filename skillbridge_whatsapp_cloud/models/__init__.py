@@ -6,6 +6,8 @@ from . import whatsapp_template
 from . import whatsapp_campaign
 from . import whatsapp_campaign_queue
 from . import whatsapp_campaign_step
+from . import whatsapp_conversation
+from . import whatsapp_inbox_reply
 from . import whatsapp_account
 from . import res_partner
 from . import account_move

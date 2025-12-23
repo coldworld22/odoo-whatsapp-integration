@@ -149,16 +149,20 @@ class WhatsAppCampaign(models.Model):
                 if not template:
                     raise UserError(_("Template is required for template campaigns."))
                 msg_id = self._send_template(mobile, token, phone_number_id, template)
+                summary = template.name or template.template_name or ""
+                self._log_message(msg_id, partner, summary, "template", template.template_name or "")
             elif mode == "media_image":
                 if not media_url:
                     raise UserError(_("Image URL is required for media campaigns."))
                 msg_id = self._send_media_image(mobile, token, phone_number_id, media_url, body)
+                summary = body or _("Image")
+                self._log_message(msg_id, partner, summary, "image")
             else:
                 if not body:
                     raise UserError(_("Message body is required for text campaigns."))
                 msg_id = self._send_text(mobile, token, phone_number_id, body)
+                self._log_message(msg_id, partner, body, "text")
             line.write({"status": "sent", "message_id": msg_id or False, "attempts": line.attempts + 1})
-            self._log_message(msg_id, partner)
             self._schedule_next_step(line)
         except Exception as exc:
             _logger.warning("Campaign send failed for partner %s: %s", partner.id, exc)
@@ -230,7 +234,7 @@ class WhatsAppCampaign(models.Model):
             return messages[0].get("id")
         return None
 
-    def _log_message(self, msg_id, partner):
+    def _log_message(self, msg_id, partner, message_body=None, message_type=None, template_name=None):
         self.env["whatsapp.message.log"].sudo().create(
             {
                 "message_id": msg_id or "",
@@ -238,6 +242,9 @@ class WhatsAppCampaign(models.Model):
                 "campaign_id": self.id,
                 "direction": "outbound",
                 "status": "sent",
+                "message_body": message_body or "",
+                "message_type": message_type or "",
+                "template_name": template_name or "",
             }
         )
 

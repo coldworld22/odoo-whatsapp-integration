@@ -17,6 +17,11 @@ class ResConfigSettings(models.TransientModel):
         config_parameter="skillbridge_whatsapp_cloud.phone_number_id",
         help="The WhatsApp phone number ID from Meta Business Manager (not the phone number itself).",
     )
+    whatsapp_business_account_id = fields.Char(
+        string="WhatsApp Business Account ID",
+        config_parameter="skillbridge_whatsapp_cloud.business_account_id",
+        help="Meta WhatsApp Business Account ID (WABA ID) used to sync templates.",
+    )
     whatsapp_webhook_verify_token = fields.Char(
         string="Webhook Verify Token",
         config_parameter="skillbridge_whatsapp_cloud.webhook_verify_token",
@@ -47,6 +52,10 @@ class ResConfigSettings(models.TransientModel):
                 phone_id = rec.whatsapp_phone_number_id.strip()
                 if not re.fullmatch(r"[0-9]+", phone_id):
                     raise UserError("WhatsApp Phone Number ID must be numeric (Meta phone_number_id, not the phone itself).")
+            if rec.whatsapp_business_account_id:
+                waba_id = rec.whatsapp_business_account_id.strip()
+                if not re.fullmatch(r"[0-9]+", waba_id):
+                    raise UserError("WhatsApp Business Account ID must be numeric (WABA ID from Meta).")
             if rec.whatsapp_default_media_url:
                 url = rec.whatsapp_default_media_url.strip()
                 if not re.match(r"^https?://", url):

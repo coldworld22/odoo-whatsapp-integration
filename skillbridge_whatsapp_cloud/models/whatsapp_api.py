@@ -332,28 +332,39 @@ class WhatsAppAPI(models.Model):
 
         # Send main message
         main_msg_id = None
+        message_type = "text"
+        message_summary = message_body
+        template_name = ""
         if message_mode == "template":
             if not template:
                 raise UserError(_("Please select a template to send."))
             main_msg_id = self._send_whatsapp_template(
                 mobile, token, phone_number_id, template, components=template_components
             )
+            message_type = "template"
+            template_name = template.template_name or ""
+            message_summary = template.name or template.template_name or ""
         elif message_mode == "interactive_button":
             if not buttons:
                 raise UserError(_("Please add at least one button."))
             main_msg_id = self._send_whatsapp_interactive_buttons(
                 mobile, token, phone_number_id, message_body, buttons
             )
+            message_type = "interactive_button"
         elif message_mode == "interactive_list":
             if not list_payload.get("rows"):
                 raise UserError(_("Please provide at least one list row."))
             main_msg_id = self._send_whatsapp_interactive_list(
                 mobile, token, phone_number_id, message_body, list_payload
             )
+            message_type = "interactive_list"
         elif message_mode == "media_image":
             if not list_payload.get("media_url"):
                 raise UserError(_("Please provide an image URL to send."))
             main_msg_id = self._send_whatsapp_image(mobile, token, phone_number_id, list_payload["media_url"], message_body)
+            message_type = "image"
+            if not message_summary:
+                message_summary = _("Image")
         else:
             main_msg_id = self._send_whatsapp_text(mobile, token, phone_number_id, message_body)
 
@@ -365,6 +376,9 @@ class WhatsAppAPI(models.Model):
                     "partner_id": self.partner_id.id,
                     "direction": "outbound",
                     "status": "sent",
+                    "message_body": message_summary or "",
+                    "message_type": message_type,
+                    "template_name": template_name,
                 }
             )
 
@@ -379,6 +393,7 @@ class WhatsAppAPI(models.Model):
                 caption=_("Sales Order %(number)s") % {"number": self.name},
             )
             if sale_msg_id:
+                caption = _("Sales Order %(number)s") % {"number": self.name}
                 log_model.create(
                     {
                         "message_id": sale_msg_id,
@@ -386,6 +401,8 @@ class WhatsAppAPI(models.Model):
                         "partner_id": self.partner_id.id,
                         "direction": "outbound",
                         "status": "sent",
+                        "message_body": caption,
+                        "message_type": "document",
                     }
                 )
 
@@ -412,5 +429,7 @@ class WhatsAppAPI(models.Model):
                             "partner_id": self.partner_id.id,
                             "direction": "outbound",
                             "status": "sent",
+                            "message_body": caption,
+                            "message_type": "document",
                         }
                     )

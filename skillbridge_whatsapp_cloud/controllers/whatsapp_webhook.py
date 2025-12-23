@@ -3,7 +3,7 @@ import hmac
 import json
 import logging
 
-from odoo import _, http
+from odoo import _, fields, http
 from odoo.exceptions import AccessDenied
 from odoo.http import request
 from odoo.tools import html_escape
@@ -127,6 +127,8 @@ class WhatsAppWebhookController(http.Controller):
             "partner_id": partner.id if partner else False,
             "direction": "inbound",
             "status": msg_type or "",
+            "message_body": text_body or "",
+            "message_type": msg_type or "",
             "last_payload": json.dumps(message),
         }
         request.env["whatsapp.message.log"].sudo().create(log_vals)
@@ -241,6 +243,31 @@ class WhatsAppWebhookController(http.Controller):
         if not partner or not text_body:
             return
         keyword = text_body.strip().upper()
+        opt_out_keywords = {"STOP", "UNSUBSCRIBE", "CANCEL", "END", "QUIT"}
+        opt_in_keywords = {"START", "YES", "SUBSCRIBE"}
+
+        if keyword in opt_out_keywords:
+            if partner.whatsapp_opt_in:
+                partner.write(
+                    {
+                        "whatsapp_opt_in": False,
+                        "whatsapp_opt_in_source": _("WhatsApp keyword: %s") % keyword,
+                    }
+                )
+                partner.message_post(body=html_escape(_("WhatsApp opt-out received: %s") % keyword))
+            return
+        if keyword in opt_in_keywords:
+            if not partner.whatsapp_opt_in:
+                partner.write(
+                    {
+                        "whatsapp_opt_in": True,
+                        "whatsapp_opt_in_date": fields.Datetime.now(),
+                        "whatsapp_opt_in_source": _("WhatsApp keyword: %s") % keyword,
+                    }
+                )
+                partner.message_post(body=html_escape(_("WhatsApp opt-in received: %s") % keyword))
+            return
+
         mapping = {
             "PAY": _("Customer requested payment help."),
             "HELP": _("Customer requested assistance."),

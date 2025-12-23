@@ -135,3 +135,60 @@ class TestWebhookProcessing(TransactionCase):
 
         messages = self.order.message_ids.filtered(lambda m: "failed" in (m.body or ""))
         self.assertTrue(messages, "Order should have a chatter message for failed WhatsApp delivery")
+
+    def test_opt_out_and_opt_in_keywords(self):
+        self.partner.write({"whatsapp_opt_in": True})
+        payload = {
+            "entry": [
+                {
+                    "id": "entry1",
+                    "changes": [
+                        {
+                            "value": {
+                                "messages": [
+                                    {
+                                        "id": "wamid.inbound_stop",
+                                        "from": "+15551234567",
+                                        "type": "text",
+                                        "text": {"body": "STOP"},
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                }
+            ]
+        }
+        body_bytes = json.dumps(payload).encode("utf-8")
+        sig = self._signature(body_bytes)
+
+        params = self.env["ir.config_parameter"].sudo()
+        params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
+        params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
+
+        class DummyRequest:
+            def __init__(self, body, signature):
+                self.method = "POST"
+                self.headers = {"X-Hub-Signature-256": signature}
+                self._body = body
+
+            def get_data(self, cache=False, as_text=False):
+                return self._body
+
+        httpreq = DummyRequest(body_bytes, sig)
+        self.env["ir.http"]._current_request = httpreq
+        self.controller._handle_callback()
+
+        self.partner.invalidate_cache()
+        self.assertFalse(self.partner.whatsapp_opt_in, "STOP should opt the partner out")
+
+        payload["entry"][0]["changes"][0]["value"]["messages"][0]["id"] = "wamid.inbound_start"
+        payload["entry"][0]["changes"][0]["value"]["messages"][0]["text"]["body"] = "START"
+        body_bytes = json.dumps(payload).encode("utf-8")
+        sig = self._signature(body_bytes)
+        httpreq = DummyRequest(body_bytes, sig)
+        self.env["ir.http"]._current_request = httpreq
+        self.controller._handle_callback()
+
+        self.partner.invalidate_cache()
+        self.assertTrue(self.partner.whatsapp_opt_in, "START should opt the partner in")

@@ -7,6 +7,7 @@
                 <field name="name"/>
                 <field name="company_id"/>
                 <field name="phone_number_id"/>
+                <field name="business_account_id"/>
                 <field name="is_default"/>
             </tree>
         </field>
@@ -22,6 +23,7 @@
                         <field name="name"/>
                         <field name="company_id"/>
                         <field name="phone_number_id"/>
+                        <field name="business_account_id"/>
                         <field name="token" password="True"/>
                         <field name="is_default"/>
                     </group>

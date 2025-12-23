@@ -12,6 +12,10 @@ class WhatsAppAccount(models.Model):
         string="Phone Number ID",
         help="Meta phone_number_id for this company (numeric ID from WhatsApp Manager).",
     )
+    business_account_id = fields.Char(
+        string="Business Account ID",
+        help="Meta WhatsApp Business Account ID (WABA ID) used for template sync.",
+    )
     token = fields.Char(
         required=True,
         string="Access Token",
