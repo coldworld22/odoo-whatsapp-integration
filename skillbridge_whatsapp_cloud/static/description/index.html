@@ -52,9 +52,24 @@
   .sb-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16); }
   .sb-hero-media img { border-radius: 16px; border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18); background: #0f172a; }
 
+  .sb-hero-media { align-self: center; }
+  .sb-hero-media img { width: 100%; height: auto; display: block; border-radius: 16px; border: 1px solid rgba(15, 23, 42, 0.12); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16); background: #0f172a; }
+
+  .sb-feature-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px; }
+  .sb-feature-chip { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06); display: flex; align-items: center; gap: 10px; }
+  .sb-icon-badge { width: 32px; height: 32px; border-radius: 10px; background: rgba(14, 165, 233, 0.12); color: #0f172a; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(14, 165, 233, 0.2); }
+  .sb-muted { color: var(--muted); font-size: 13px; }
+
   .sb-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 18px; }
   .sb-metric { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06); color: var(--muted); font-size: 13px; }
   .sb-metric strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 4px; }
+
+  .sb-section { margin-top: 44px; }
+  .sb-section h2 { margin: 0 0 8px; font-size: 26px; font-family: "Sora", "DM Sans", sans-serif; }
+  .sb-lead { margin: 0 0 16px; color: var(--muted); }
+
+  .sb-chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sb-chip { padding: 8px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--muted); }
 
   .sb-section { margin-top: 42px; }
   .sb-lead { color: var(--muted); margin: 0 0 16px; }
@@ -114,13 +129,14 @@
         <h1>WhatsApp Cloud Messaging for Sales Orders & Invoices</h1>
         <p>Send Meta-approved templates, PDFs, and interactive messages from Sales Orders and posted invoices. Automate campaigns with throttling and retries, enforce opt-in compliance, and track delivery/read KPIs.</p>
         <ul class="sb-list">
-          <li>Official WhatsApp Cloud API (no extra gateway).</li>
+          <li>Official WhatsApp Cloud API, no extra gateway.</li>
           <li>Interactive buttons/lists, images, and PDFs.</li>
           <li>Inbound logs with keyword opt-in/out (STOP/START).</li>
         </ul>
         <div class="sb-cta">
           <a class="sb-btn primary" href="mailto:support@eduskillbridge.net?subject=WhatsApp%20Cloud%20Messaging%20Demo">Book a demo</a>
           <a class="sb-btn secondary" href="#screens">View screens</a>
+          <a class="sb-btn secondary" href="#quick-demos">Watch demo</a>
         </div>
       </div>
       <div class="sb-hero-media">
@@ -131,11 +147,48 @@
       </div>
     </section>
 
+    <div class="sb-feature-bar sb-stagger">
+      <div class="sb-feature-chip"><span class="sb-icon-badge">SO</span><div><strong>Sales Orders</strong><br/><span class="sb-muted">Send PDFs with templates</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">INV</span><div><strong>Invoices</strong><br/><span class="sb-muted">Posted invoices + reminders</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">CAM</span><div><strong>Campaigns</strong><br/><span class="sb-muted">Queues, throttling, drip steps</span></div></div>
+      <div class="sb-feature-chip"><span class="sb-icon-badge">IN</span><div><strong>Inbox</strong><br/><span class="sb-muted">Reply from Odoo</span></div></div>
+    </div>
+
     <div class="sb-metrics">
       <div class="sb-metric"><strong>Compliance</strong> E.164 validation, opt-in enforcement, signature checks.</div>
       <div class="sb-metric"><strong>Visibility</strong> Delivery/read KPIs, pivot logs, chatter alerts on failures.</div>
       <div class="sb-metric"><strong>Automation</strong> Campaign throttling, retries, drip steps, send windows.</div>
     </div>
+
+    <section class="sb-section">
+      <h2>Compatibility</h2>
+      <p class="sb-lead">Built to fit modern Odoo deployments and infrastructure.</p>
+      <div class="sb-chip-row sb-stagger">
+        <div class="sb-chip">Odoo 18 CE and EE</div>
+        <div class="sb-chip">Multi-company support</div>
+        <div class="sb-chip">WhatsApp Business Cloud API</div>
+        <div class="sb-chip">On-premise and Odoo.sh</div>
+      </div>
+    </section>
+
+    <section class="sb-section">
+      <h2>Why teams choose it</h2>
+      <p class="sb-lead">Reliable automation with clear compliance and visibility.</p>
+      <div class="sb-grid sb-stagger">
+        <div class="sb-card">
+          <h3>Reliable sending</h3>
+          <p>Queue-based campaigns with throttling, retries, and send windows.</p>
+        </div>
+        <div class="sb-card">
+          <h3>Compliance ready</h3>
+          <p>E.164 validation, opt-in enforcement, and keyword opt-in and opt-out.</p>
+        </div>
+        <div class="sb-card">
+          <h3>Full visibility</h3>
+          <p>Delivery and read logs, pivot KPIs, and chatter alerts on failures.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="sb-section" id="features">
       <h2>Highlights</h2>
@@ -233,14 +286,47 @@
     <section class="sb-section" id="screens">
       <h2>Live screens</h2>
       <p class="sb-lead">Real configuration and flows from the module in Odoo.</p>
-      <div class="sb-gallery">
-        <figure><img src="screen1.png" alt="WhatsApp menu and dashboard overview"><figcaption>Navigation: WhatsApp menus inside Sales.</figcaption></figure>
-        <figure><img src="screen2.png" alt="WhatsApp settings with webhook and tokens"><figcaption>Settings: WhatsApp Business API, webhook, tokens.</figcaption></figure>
-        <figure><img src="screen5.png" alt="WhatsApp templates list in Odoo"><figcaption>Templates: Meta names, languages, statuses.</figcaption></figure>
-        <figure><img src="screen4.png" alt="Send via WhatsApp wizard in Odoo"><figcaption>Wizard: choose template, variables, attachments.</figcaption></figure>
-        <figure><img src="contact.png" alt="Contact with WhatsApp opt-in and phone"><figcaption>Contacts: E.164 phone with opt-in enabled.</figcaption></figure>
-        <figure><img src="screen6.png" alt="Send via WhatsApp from Sales Order"><figcaption>Send via WhatsApp: pick template, fill variables, attach PDF.</figcaption></figure>
-        <figure><img src="screen3.png" alt="WhatsApp logs and KPIs"><figcaption>Logs: delivery/read KPIs and error visibility.</figcaption></figure>
+      <div class="sb-gallery sb-stagger">
+        <figure>
+          <img src="screen1.png" alt="WhatsApp menu and dashboard overview"/>
+          <figcaption>Navigation: WhatsApp menus added to Sales.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen2.png" alt="WhatsApp settings with webhook and tokens"/>
+          <figcaption>Settings: WhatsApp Business API, webhook, and tokens.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen5.png" alt="WhatsApp templates list in Odoo"/>
+          <figcaption>Templates: Meta template names, languages, and statuses.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen4.png" alt="Send via WhatsApp wizard in Odoo"/>
+          <figcaption>Wizard: pick mode, variables, and attachments.</figcaption>
+        </figure>
+        <figure>
+          <img src="contact.png" alt="Contact record with WhatsApp opt-in and phone"/>
+          <figcaption>Contact: E.164 phone with WhatsApp opt-in enabled.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen6.png" alt="Send via WhatsApp wizard from Sales Order"/>
+          <figcaption>Send via WhatsApp: pick template, fill variables, attach PDF.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen3.png" alt="WhatsApp logs and KPIs"/>
+          <figcaption>Logs: delivery and read KPIs plus error visibility.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen7.png" alt="WhatsApp campaign steps and queues"/>
+          <figcaption>Campaign: drip steps, throttling, and queues.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen8.png" alt="WhatsApp inbox conversations"/>
+          <figcaption>Inbox: conversations and replies inside Odoo.</figcaption>
+        </figure>
+        <figure>
+          <img src="screen9.png" alt="WhatsApp delivery KPIs pivot view"/>
+          <figcaption>KPIs: sent/delivered/read/failed in pivot.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -261,10 +347,19 @@
 
     <section class="sb-section">
       <h2>Results you can measure</h2>
-      <div class="sb-steps">
-        <div class="sb-step"><strong>Delivery & read KPIs</strong><br>Track sent/delivered/read/failure counts by campaign, order, or partner.</div>
-        <div class="sb-step"><strong>Failure visibility</strong><br>Errors post to chatter with activities for fast follow-up.</div>
-        <div class="sb-step"><strong>Inbound context</strong><br>Incoming messages are logged and attached to partners or recent orders.</div>
+      <div class="sb-steps sb-stagger">
+        <div class="sb-step">
+          <strong>Delivery & read KPIs</strong><br/>
+          Track sent/delivered/read/failure counts by campaign, order, or partner.
+        </div>
+        <div class="sb-step">
+          <strong>Failure visibility</strong><br/>
+          Errors post to chatter with activities for fast follow-up.
+        </div>
+        <div class="sb-step">
+          <strong>Inbound context</strong><br/>
+          Incoming messages are logged and attached to partners or recent orders.
+        </div>
       </div>
     </section>
 
