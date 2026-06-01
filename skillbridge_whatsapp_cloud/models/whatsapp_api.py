@@ -303,9 +303,9 @@ class WhatsAppAPI(models.Model):
 
     def _render_invoice_pdf(self, invoice):
         report = self.env.ref("account.account_invoices", raise_if_not_found=False) or self.env.ref(
-            "account.report_invoice_document", raise_if_not_found=False
+            "account.account_invoices_without_payment", raise_if_not_found=False
         )
-        if not report:
+        if not report or report._name != "ir.actions.report":
             raise UserError(_("Invoice PDF report is missing."))
         pdf_content, _ = report._render_qweb_pdf(invoice.id)
         filename = f"{invoice.name or 'invoice'}.pdf"
