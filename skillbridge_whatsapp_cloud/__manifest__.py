@@ -19,7 +19,7 @@ Setup:
 2) Create a default WhatsApp Account record per company with token + phone number ID.
 3) Approve templates in Meta and mark them APPROVED in Odoo; then send from Sales Orders or run campaigns.
 """,
-    "version": "18.0.1.1.3",
+    "version": "17.0.1.1.4",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
@@ -34,17 +34,18 @@ Setup:
     "data": [
         "security/security.xml",
         "security/ir.model.access.csv",
-        "views/res_config_settings_view.xml",
+        # Define the WhatsApp root menu before child menus reference it.
+        "views/whatsapp_template_views.xml",
+        "views/whatsapp_account_views.xml",
         "views/whatsapp_inbox_views.xml",
         "views/whatsapp_inbox_reply_views.xml",
         "views/whatsapp_wizard_views.xml",
         "views/whatsapp_buttons.xml",
-        "views/whatsapp_template_views.xml",
         "views/whatsapp_log_views.xml",
         "views/whatsapp_log_views_pivot.xml",
         "views/whatsapp_campaign_views.xml",
-        "views/whatsapp_account_views.xml",
         "views/res_partner_views.xml",
+        "views/res_config_settings_view.xml",
         "data/cron.xml",
     ],
     "assets": {

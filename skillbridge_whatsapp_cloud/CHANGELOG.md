@@ -18,7 +18,6 @@
 - Refreshed Odoo Apps store assets (cover.png + cover.gif) and description layout with scoped styles to prevent Odoo CSS collisions.
 - Updated public listing text for clearer positioning, features, and compliance messaging.
 
-## 18.0.1.1.3
+## 17.0.1.1.4
 
-- Ported module to Odoo 18.0 with updated manifest/website links and listing content.
-- Kept WhatsApp Inbox, template sync, campaigns, and webhook signature validation intact for 18.0.
+- Fixed `post_init_hook` signature compatibility across Odoo 16 (cr, registry) and Odoo 17+ (env) to prevent installation crash.
