@@ -2,7 +2,7 @@
 WhatsApp Cloud API for Odoo sales orders, invoices, and campaigns with templates, PDFs, and delivery tracking.
 
 ## Compatibility
-- Odoo 17.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
+- Odoo 18.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
 
 ## Data & Privacy
 - Sends partner mobile numbers, template/text content, and optional PDFs to the WhatsApp Business Cloud API to deliver messages.
@@ -36,7 +36,7 @@ WhatsApp Cloud API for Odoo sales orders, invoices, and campaigns with templates
 - A daily cron keeps templates synced when WABA credentials are configured.
 
 ## Repository format for Odoo App Store
-- Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0` when registering the addon (branch `17.0` is already pushed).
+- Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#18.0` when registering the addon (branch `18.0` is already pushed).
 
 ## Notes
 - Ensure the Meta token is allowed to send from the configured phone_number_id.
