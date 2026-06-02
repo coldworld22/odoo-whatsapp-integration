@@ -17,7 +17,7 @@ Setup highlights:
 2) Create a WhatsApp Account per company and approve templates in Meta.
 3) Send manually from Sales Orders or automate with campaign queues and cron tasks.
 """,
-    "version": "17.0.1.1.4",
+    "version": "17.0.1.1.5",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
@@ -57,6 +57,12 @@ Setup highlights:
     "images": [
         "static/description/cover.png",
         "static/description/cover.gif",
+        "static/description/screenshots/dashboard.png",
+        "static/description/screenshots/inbox.png",
+        "static/description/screenshots/campaigns.png",
+        "static/description/screenshots/templates.png",
+        "static/description/screenshots/logs.png",
+        "static/description/screenshots/analytics.png",
         "static/description/screen4.png",
         "static/description/screen6.png",
         "static/description/screen2.png",
