@@ -94,12 +94,12 @@ class WhatsAppCampaign(models.Model):
 
     def _compute_totals(self):
         for rec in self:
-            rec.total_pending = len(rec.queue_ids.filtered(lambda l: l.status == "pending"))
-            rec.total_sent = len(rec.queue_ids.filtered(lambda l: l.status == "sent"))
-            rec.total_failed = len(rec.queue_ids.filtered(lambda l: l.status == "failed"))
+            rec.total_pending = len(rec.queue_ids.filtered(lambda queue_line: queue_line.status == "pending"))
+            rec.total_sent = len(rec.queue_ids.filtered(lambda queue_line: queue_line.status == "sent"))
+            rec.total_failed = len(rec.queue_ids.filtered(lambda queue_line: queue_line.status == "failed"))
             logs = self.env["whatsapp.message.log"].sudo().search([("campaign_id", "=", rec.id)])
-            rec.total_delivered = len(logs.filtered(lambda l: l.status == "delivered"))
-            rec.total_read = len(logs.filtered(lambda l: l.status == "read"))
+            rec.total_delivered = len(logs.filtered(lambda log_line: log_line.status == "delivered"))
+            rec.total_read = len(logs.filtered(lambda log_line: log_line.status == "read"))
 
     def _within_window(self):
         now = fields.Datetime.context_timestamp(self, datetime.utcnow()).time()
@@ -119,7 +119,8 @@ class WhatsAppCampaign(models.Model):
             batch_limit = limit or campaign.throttle_batch_size or 50
             now = fields.Datetime.now()
             lines = campaign.queue_ids.filtered(
-                lambda l: l.status == "pending" and (not l.next_attempt_at or l.next_attempt_at <= now)
+                lambda queue_line: queue_line.status == "pending"
+                and (not queue_line.next_attempt_at or queue_line.next_attempt_at <= now)
             )[:batch_limit]
             if not lines:
                 campaign.write({"state": "done"})
