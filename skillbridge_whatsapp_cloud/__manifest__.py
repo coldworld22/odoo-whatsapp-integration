@@ -17,13 +17,13 @@ Setup highlights:
 2) Create a WhatsApp Account per company and approve templates in Meta.
 3) Send manually from Sales Orders or automate with campaign queues and cron tasks.
 """,
-    "version": "17.0.1.1.5",
+    "version": "17.0.1.1.6",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Public project page for details and docs (18.0 branch)
-    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/18.0",
+    # Public project page for details and docs (17.0 branch)
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/17.0",
     "category": "Sales",
     "price": 249.0,
     "currency": "USD",
