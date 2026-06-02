@@ -57,10 +57,10 @@ Setup:
     },
     "demo": ["data/demo.xml"],
     "images": [
-        "static/description/cover.png",
+        "static/description/cover-v2.png",
         "static/description/cover.gif",
-        "static/description/screenshots/dashboard.png",
-        "static/description/screenshots/inbox.png",
+        "static/description/screenshots/dashboard-v2.png",
+        "static/description/screenshots/inbox-v2.png",
         "static/description/screenshots/campaigns.png",
         "static/description/screenshots/templates.png",
         "static/description/screenshots/logs.png",
