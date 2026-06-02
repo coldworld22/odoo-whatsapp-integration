@@ -46,13 +46,6 @@ Setup highlights:
         "views/res_config_settings_view.xml",
         "data/cron.xml",
     ],
-    "assets": {
-        "web.assets_backend": [
-            "skillbridge_whatsapp_cloud/static/src/scss/demo_brand.scss",
-            "skillbridge_whatsapp_cloud/static/src/scss/demo_hide_apps.scss",
-            "skillbridge_whatsapp_cloud/static/src/js/demo_hide_apps.js",
-        ],
-    },
     "demo": ["data/demo.xml"],
     "images": [
         "static/description/cover.png",
