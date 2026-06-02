@@ -2,22 +2,14 @@
      Upgraded: Premium Apps Store description.
      Bootstrap 4 markup only. No external CSS or JS. All styles in-file. -->
 
-<style>
-  .hero { background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); }
-  .hero-badges .badge { font-size: .85rem; padding: .5rem .6rem; border-radius: .45rem; }
-  .stat-card { border-radius: .5rem; padding: .75rem 1rem; background: #fff; box-shadow: 0 6px 18px rgba(22,27,34,0.06); }
-  .stat-card .value { font-weight: 700; font-size: 1.05rem; }
-  .screenshot { border-radius: .5rem; overflow: hidden; box-shadow: 0 10px 30px rgba(11,20,40,0.07); }
-  .screenshot-caption { font-size: .85rem; color: #6c757d; }
-  .feature-table th { background: #f6f9ff; }
-  .workflow-card { border-radius: .45rem; border: 1px solid #eef3fb; background: #fff; padding: .8rem; text-align:center; }
-  .workflow-arrow { font-size: 1.4rem; color: #6c757d; }
-  details summary { cursor: pointer; font-weight: 600; }
-  .final-cta { background: linear-gradient(90deg,#0b5fff,#007bff); color: #fff; border-radius: .5rem; padding: 2rem; }
-  .final-cta a.btn { min-width: 220px; }
-  .muted-small { color: #6c757d; font-size: .95rem; }
-  @media (max-width: 768px){ .hero { padding: 1.5rem 1rem; } }
-</style>
+  .sb-feature-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px; }
+  .sb-feature-chip { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06); display: flex; align-items: center; gap: 10px; }
+  .sb-icon-badge { width: 32px; height: 32px; border-radius: 10px; background: rgba(14, 165, 233, 0.12); color: #0f172a; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(14, 165, 233, 0.2); }
+  .sb-muted { color: var(--muted); font-size: 13px; }
+
+  .sb-section { margin-top: 44px; }
+  .sb-section h2 { margin: 0 0 8px; font-size: 26px; font-family: "Sora", "DM Sans", sans-serif; }
+  .sb-lead { margin: 0 0 16px; color: var(--muted); }
 
 <div class="container my-5">
 
@@ -100,36 +92,35 @@
       </div>
     </div>
 
-    <!-- Inbox (alternate) -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6 order-2 order-md-1">
-        <h5 class="font-weight-bold">WhatsApp Inbox</h5>
-        <p class="text-muted">Unified threaded conversations with attachments, quick replies, and CRM context.</p>
-        <p class="screenshot-caption">screenshots/inbox.png</p>
+    <section class="sb-hero">
+      <div>
+        <span class="sb-pill">Odoo 17 | WhatsApp Cloud API</span>
+        <h1>WhatsApp Cloud Messaging for Sales Orders & Invoices</h1>
+        <p>Send Meta-approved templates, PDFs, and interactive messages from Sales Orders and posted invoices. Automate campaigns with throttling and retries, enforce opt-in compliance, and track delivery/read KPIs.</p>
+        <ul class="sb-list">
+          <li>Official WhatsApp Cloud API, no extra gateway.</li>
+          <li>Interactive buttons/lists, images, and PDFs.</li>
+          <li>Inbound logs with keyword opt-in/out (STOP/START).</li>
+        </ul>
+        <div class="sb-cta">
+          <a class="sb-btn primary" href="mailto:support@eduskillbridge.net?subject=WhatsApp%20Cloud%20Messaging%20Demo">Book a demo</a>
+          <a class="sb-btn secondary" href="#screens">View screens</a>
+          <a class="sb-btn secondary" href="#quick-demos">Watch demo</a>
+        </div>
       </div>
       <div class="col-md-6 order-1 order-md-2">
         <img src="screenshots/inbox.png" alt="WhatsApp Inbox" class="img-fluid screenshot">
       </div>
     </div>
 
-    <!-- Campaigns -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6">
-        <img src="screenshots/campaigns.png" alt="Campaign Manager" class="img-fluid screenshot">
-      </div>
-      <div class="col-md-6">
-        <h5 class="font-weight-bold">Campaign Manager</h5>
-        <p class="text-muted">Queueing, throttles, retries and step-based drip campaigns for compliant outreach at scale.</p>
-        <p class="screenshot-caption">screenshots/campaigns.png</p>
-      </div>
-    </div>
-
-    <!-- Templates (alternate) -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6 order-2 order-md-1">
-        <h5 class="font-weight-bold">Template Manager</h5>
-        <p class="text-muted">Manage Meta-approved templates directly from Odoo with preview and variable support.</p>
-        <p class="screenshot-caption">screenshots/templates.png</p>
+    <section class="sb-section">
+      <h2>Compatibility</h2>
+      <p class="sb-lead">Built to fit modern Odoo deployments and infrastructure.</p>
+      <div class="sb-chip-row sb-stagger">
+        <div class="sb-chip">Odoo 18 CE and EE</div>
+        <div class="sb-chip">Multi-company support</div>
+        <div class="sb-chip">WhatsApp Business Cloud API</div>
+        <div class="sb-chip">On-premise and Odoo.sh</div>
       </div>
       <div class="col-md-6 order-1 order-md-2">
         <img src="screenshots/templates.png" alt="Template Manager" class="img-fluid screenshot">
