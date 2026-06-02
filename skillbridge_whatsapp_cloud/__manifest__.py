@@ -48,7 +48,7 @@ Setup highlights:
     ],
     "demo": ["data/demo.xml"],
     "images": [
-        "static/description/cover.png",
+        "static/description/cover-v2.png",
         "static/description/cover.gif",
         "static/description/screenshots/dashboard.png",
         "static/description/screenshots/inbox.png",
