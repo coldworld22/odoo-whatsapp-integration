@@ -21,3 +21,10 @@
 ## 17.0.1.1.4
 
 - Fixed `post_init_hook` signature compatibility across Odoo 16 (cr, registry) and Odoo 17+ (env) to prevent installation crash.
+
+## 17.0.1.1.5
+
+- Revised Odoo Apps Store description page: premium hero, screenshot showcase, integrations, comparison, workflow and FAQ updates.
+- Added high-quality screenshots and inline SVG badges/icons for a polished App Store listing.
+- Accessibility improvements: ARIA attributes, descriptive captions and keyboard-friendly CTAs.
+- Updated `__manifest__.py` images list and bumped module version for App Store readiness.
