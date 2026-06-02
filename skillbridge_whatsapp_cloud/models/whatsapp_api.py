@@ -291,7 +291,7 @@ class WhatsAppAPI(models.Model):
         report = self.env.ref("sale.action_report_saleorder", raise_if_not_found=False)
         if not report:
             raise UserError(_("Sale order PDF report is missing."))
-        pdf_content, _ = report._render_qweb_pdf(self.id)
+        pdf_content, _report_format = report._render_qweb_pdf(self.id)
         filename = f"{self.name or 'sale_order'}.pdf"
         return pdf_content, filename
 
@@ -307,7 +307,7 @@ class WhatsAppAPI(models.Model):
         )
         if not report or report._name != "ir.actions.report":
             raise UserError(_("Invoice PDF report is missing."))
-        pdf_content, _ = report._render_qweb_pdf(invoice.id)
+        pdf_content, _report_format = report._render_qweb_pdf(invoice.id)
         filename = f"{invoice.name or 'invoice'}.pdf"
         return pdf_content, filename
 

@@ -19,7 +19,7 @@ class WhatsAppConversation(models.Model):
     )
     last_status = fields.Char(string="Last Status", readonly=True)
     last_message_id = fields.Many2one("whatsapp.message.log", string="Last Message Log", readonly=True)
-    message_ids = fields.One2many("whatsapp.message.log", "partner_id", string="Messages", readonly=True)
+    message_ids = fields.One2many("whatsapp.message.log", "conversation_id", string="Messages", readonly=True)
 
     def action_reply(self):
         self.ensure_one()
