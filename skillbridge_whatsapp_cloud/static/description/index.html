@@ -2,14 +2,24 @@
      Upgraded: Premium Apps Store description.
      Bootstrap 4 markup only. No external CSS or JS. All styles in-file. -->
 
-  .sb-feature-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px; }
-  .sb-feature-chip { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06); display: flex; align-items: center; gap: 10px; }
-  .sb-icon-badge { width: 32px; height: 32px; border-radius: 10px; background: rgba(14, 165, 233, 0.12); color: #0f172a; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(14, 165, 233, 0.2); }
-  .sb-muted { color: var(--muted); font-size: 13px; }
-
-  .sb-section { margin-top: 44px; }
-  .sb-section h2 { margin: 0 0 8px; font-size: 26px; font-family: "Sora", "DM Sans", sans-serif; }
-  .sb-lead { margin: 0 0 16px; color: var(--muted); }
+<style>
+  body, .container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .hero { background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); }
+  .hero-badges .badge { font-size: .85rem; padding: .5rem .6rem; border-radius: .45rem; }
+  .stat-card { border-radius: .5rem; padding: .75rem 1rem; background: #fff; box-shadow: 0 6px 18px rgba(22,27,34,0.06); }
+  .stat-card .value { font-weight: 700; font-size: 1.05rem; }
+  .screenshot { border-radius: .5rem; overflow: hidden; box-shadow: 0 10px 30px rgba(11,20,40,0.07); }
+  .screenshot-caption { font-size: .85rem; color: #6c757d; }
+  .feature-table th { background: #f6f9ff; }
+  .feature-table td, .feature-table th { font-family: "Segoe UI Symbol", "Noto Color Emoji", "Noto Sans", Arial, sans-serif; }
+  .workflow-card { border-radius: .45rem; border: 1px solid #eef3fb; background: #fff; padding: .8rem; text-align:center; }
+  .workflow-arrow { font-size: 1.4rem; color: #6c757d; }
+  details summary { cursor: pointer; font-weight: 600; }
+  .final-cta { background: linear-gradient(90deg,#0b5fff,#007bff); color: #fff; border-radius: .5rem; padding: 2rem; }
+  .final-cta a.btn { min-width: 220px; }
+  .muted-small { color: #6c757d; font-size: .95rem; }
+  @media (max-width: 768px){ .hero { padding: 1.5rem 1rem; } }
+</style>
 
 <div class="container my-5">
 
@@ -66,7 +76,7 @@
 
       <div class="col-lg-5 text-center order-1 order-lg-2 mb-4 mb-lg-0">
         <div class="card border-0 shadow-sm screenshot">
-          <img src="cover.png" alt="Module preview" class="card-img-top img-fluid">
+          <img src="cover-v2.png" alt="Module preview" class="card-img-top img-fluid">
           <div class="card-body py-3">
             <p class="mb-0 small text-muted">Preview: campaign & inbox views inside Odoo</p>
           </div>
@@ -83,57 +93,45 @@
     <!-- Dashboard -->
     <div class="row align-items-center my-4">
       <div class="col-md-6">
-        <img src="screenshots/dashboard.png" alt="Dashboard Overview" class="img-fluid screenshot">
+        <img src="screenshots/dashboard-v2.png" alt="Dashboard Overview" class="img-fluid screenshot">
       </div>
       <div class="col-md-6">
         <h5 class="font-weight-bold">Dashboard Overview</h5>
         <p class="text-muted">High level KPIs, campaign health, and message status at a glance for operations and management.</p>
-        <p class="screenshot-caption">screenshots/dashboard.png</p>
+        <p class="screenshot-caption">screenshots/dashboard-v2.png</p>
       </div>
     </div>
 
-        <ul class="list-unstyled mt-4 text-muted small">
-          <li>Official WhatsApp Cloud API &mdash; no third-party gateway.</li>
-          <li>Two-way conversations, template sync, media & PDF sharing.</li>
-          <li>Delivery & read tracking, webhook events, secure authentication.</li>
-        </ul>
-
-        <!-- Enterprise Stats -->
-        <div class="row stat-grid">
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">100%</div>
-              <div class="muted-small">Official Meta API</div>
-            </div>
-          </div>
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">24/7</div>
-              <div class="muted-small">Message Tracking</div>
-            </div>
-          </div>
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">Unlimited</div>
-              <div class="muted-small">Scalable Campaigns</div>
-            </div>
-          </div>
-        </div>
-
+    <!-- Inbox (alternate) -->
+    <div class="row align-items-center my-4">
+      <div class="col-md-6 order-2 order-md-1">
+        <h5 class="font-weight-bold">WhatsApp Inbox</h5>
+        <p class="text-muted">Unified threaded conversations with attachments, quick replies, and CRM context.</p>
+        <p class="screenshot-caption">screenshots/inbox-v2.png</p>
       </div>
       <div class="col-md-6 order-1 order-md-2">
-        <img src="screenshots/inbox.png" alt="WhatsApp Inbox" class="img-fluid screenshot">
+        <img src="screenshots/inbox-v2.png" alt="WhatsApp Inbox" class="img-fluid screenshot">
       </div>
     </div>
 
-    <section class="sb-section">
-      <h2>Compatibility</h2>
-      <p class="sb-lead">Built to fit modern Odoo deployments and infrastructure.</p>
-      <div class="sb-chip-row sb-stagger">
-        <div class="sb-chip">Odoo 18 CE and EE</div>
-        <div class="sb-chip">Multi-company support</div>
-        <div class="sb-chip">WhatsApp Business Cloud API</div>
-        <div class="sb-chip">On-premise and Odoo.sh</div>
+    <!-- Campaigns -->
+    <div class="row align-items-center my-4">
+      <div class="col-md-6">
+        <img src="screenshots/campaigns.png" alt="Campaign Manager" class="img-fluid screenshot">
+      </div>
+      <div class="col-md-6">
+        <h5 class="font-weight-bold">Campaign Manager</h5>
+        <p class="text-muted">Queueing, throttles, retries and step-based drip campaigns for compliant outreach at scale.</p>
+        <p class="screenshot-caption">screenshots/campaigns.png</p>
+      </div>
+    </div>
+
+    <!-- Templates (alternate) -->
+    <div class="row align-items-center my-4">
+      <div class="col-md-6 order-2 order-md-1">
+        <h5 class="font-weight-bold">Template Manager</h5>
+        <p class="text-muted">Manage Meta-approved templates directly from Odoo with preview and variable support.</p>
+        <p class="screenshot-caption">screenshots/templates.png</p>
       </div>
       <div class="col-md-6 order-1 order-md-2">
         <img src="screenshots/templates.png" alt="Template Manager" class="img-fluid screenshot">
@@ -187,7 +185,7 @@
           </tr>
           <tr>
             <td>Two-way Messaging</td>
-            <td class="text-success">✓</td>
+            <td class="text-success">&#10003;</td>
             <td class="text-muted">Limited</td>
           </tr>
           <tr>
@@ -197,12 +195,12 @@
           </tr>
           <tr>
             <td>Delivery Tracking</td>
-            <td class="text-success">✓</td>
+            <td class="text-success">&#10003;</td>
             <td class="text-muted">Basic</td>
           </tr>
           <tr>
             <td>Read Tracking</td>
-            <td class="text-success">✓</td>
+            <td class="text-success">&#10003;</td>
             <td class="text-muted">Basic</td>
           </tr>
           <tr>
@@ -212,22 +210,22 @@
           </tr>
           <tr>
             <td>Analytics</td>
-            <td class="text-success">✓</td>
+            <td class="text-success">&#10003;</td>
             <td class="text-muted">Limited</td>
           </tr>
           <tr>
             <td>PDF Sharing</td>
-            <td class="text-success">✓</td>
-            <td class="text-muted">✕</td>
+            <td class="text-success">&#10003;</td>
+            <td class="text-muted">&#10007;</td>
           </tr>
           <tr>
             <td>Template Sync</td>
-            <td class="text-success">✓</td>
-            <td class="text-muted">✕</td>
+            <td class="text-success">&#10003;</td>
+            <td class="text-muted">&#10007;</td>
           </tr>
           <tr>
             <td>Webhook Events</td>
-            <td class="text-success">✓</td>
+            <td class="text-success">&#10003;</td>
             <td class="text-muted">Limited</td>
           </tr>
         </tbody>
