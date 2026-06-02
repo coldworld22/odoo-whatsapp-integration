@@ -23,7 +23,7 @@
 - Refreshed Odoo Apps store assets (cover.png + cover.gif) and description layout with scoped styles to prevent Odoo CSS collisions.
 - Updated public listing text for clearer positioning, features, and compliance messaging.
 
-## 17.0.1.1.4
+## 18.0.1.1.5
 
 - Fixed `post_init_hook` signature compatibility across Odoo 16 (cr, registry) and Odoo 17+ (env) to prevent installation crash.
 
