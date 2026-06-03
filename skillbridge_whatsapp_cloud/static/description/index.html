@@ -1,316 +1,319 @@
-<!-- SkillBridge &mdash; WhatsApp Cloud Messaging for Odoo 18
-     Upgraded: Premium Apps Store description.
-     Bootstrap 4 markup only. No external CSS or JS. All styles in-file. -->
-
+<!-- SkillBridge Studio — WhatsApp Cloud Messaging for Odoo 17
+     Professional Odoo Apps Store description. Bootstrap 4 compatible, no external assets. -->
 <style>
-  body, .container { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  .hero { background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%); }
-  .hero-badges .badge { font-size: .85rem; padding: .5rem .6rem; border-radius: .45rem; }
-  .stat-card { border-radius: .5rem; padding: .75rem 1rem; background: #fff; box-shadow: 0 6px 18px rgba(22,27,34,0.06); }
-  .stat-card .value { font-weight: 700; font-size: 1.05rem; }
-  .screenshot { border-radius: .5rem; overflow: hidden; box-shadow: 0 10px 30px rgba(11,20,40,0.07); }
-  .screenshot-caption { font-size: .85rem; color: #6c757d; }
-  .feature-table th { background: #f6f9ff; }
-  .feature-table td, .feature-table th { font-family: "Segoe UI Symbol", "Noto Color Emoji", "Noto Sans", Arial, sans-serif; }
-  .workflow-card { border-radius: .45rem; border: 1px solid #eef3fb; background: #fff; padding: .8rem; text-align:center; }
-  .workflow-arrow { font-size: 1.4rem; color: #6c757d; }
-  details summary { cursor: pointer; font-weight: 600; }
-  .final-cta { background: linear-gradient(90deg,#0b5fff,#007bff); color: #fff; border-radius: .5rem; padding: 2rem; }
-  .final-cta a.btn { min-width: 220px; }
-  .muted-small { color: #6c757d; font-size: .95rem; }
-  @media (max-width: 768px){ .hero { padding: 1.5rem 1rem; } }
+  .sb-store-page {
+    color: #1f2937;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .sb-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #075e54 48%, #16a34a 100%);
+    border-radius: 28px;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+  }
+  .sb-hero:after {
+    background: radial-gradient(circle at top right, rgba(255,255,255,.22), rgba(255,255,255,0) 34rem);
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+  .sb-hero > .row { position: relative; z-index: 1; }
+  .sb-eyebrow {
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px;
+    color: #ecfdf5;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    padding: 7px 12px;
+    text-transform: uppercase;
+  }
+  .sb-hero h1 { font-size: 46px; font-weight: 800; letter-spacing: -.04em; line-height: 1.08; }
+  .sb-hero .lead { color: rgba(255,255,255,.88); font-size: 19px; }
+  .sb-hero-card {
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(2, 6, 23, .28);
+    color: #0f172a;
+  }
+  .sb-pill {
+    background: #ecfdf5;
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    color: #166534;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 6px 8px 0;
+    padding: 7px 11px;
+  }
+  .sb-section { padding: 48px 0; }
+  .sb-section-title { font-size: 30px; font-weight: 800; letter-spacing: -.03em; margin-bottom: 10px; }
+  .sb-section-subtitle { color: #64748b; font-size: 16px; margin-bottom: 28px; }
+  .sb-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 12px 34px rgba(15, 23, 42, .07);
+    height: 100%;
+    padding: 24px;
+  }
+  .sb-card h4, .sb-card h5, .sb-card h6 { color: #111827; font-weight: 800; }
+  .sb-icon {
+    align-items: center;
+    background: linear-gradient(135deg, #dcfce7, #dbeafe);
+    border-radius: 16px;
+    color: #075e54;
+    display: inline-flex;
+    font-size: 22px;
+    font-weight: 800;
+    height: 48px;
+    justify-content: center;
+    margin-bottom: 16px;
+    width: 48px;
+  }
+  .sb-screenshot {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, .09);
+    padding: 10px;
+  }
+  .sb-screenshot img { border-radius: 12px; width: 100%; }
+  .sb-check-list { list-style: none; margin: 0; padding: 0; }
+  .sb-check-list li { margin-bottom: 12px; padding-left: 30px; position: relative; }
+  .sb-check-list li:before {
+    background: #16a34a;
+    border-radius: 50%;
+    color: #ffffff;
+    content: "✓";
+    font-size: 12px;
+    font-weight: 800;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    position: absolute;
+    text-align: center;
+    top: 2px;
+    width: 20px;
+  }
+  .sb-flow-step {
+    border-left: 3px solid #22c55e;
+    margin-bottom: 18px;
+    padding-left: 18px;
+  }
+  .sb-comparison th { background: #f8fafc; border-top: 0; color: #0f172a; }
+  .sb-comparison td, .sb-comparison th { vertical-align: middle; }
+  .sb-positive { color: #16a34a; font-weight: 800; }
+  .sb-muted { color: #64748b; }
+  .sb-cta {
+    background: linear-gradient(135deg, #111827, #075e54);
+    border-radius: 24px;
+    color: #ffffff;
+    padding: 42px 28px;
+  }
+  .sb-cta p { color: rgba(255,255,255,.82); }
+  @media (max-width: 767.98px) {
+    .sb-hero h1 { font-size: 34px; }
+    .sb-section { padding: 34px 0; }
+  }
 </style>
 
-<div class="container my-5">
-
-  <!-- HERO -->
-  <section class="hero jumbotron p-4 p-md-5 rounded shadow-sm border-0">
+<div class="container sb-store-page my-5">
+  <section class="sb-hero p-4 p-lg-5 mb-5">
     <div class="row align-items-center">
-      <div class="col-lg-7 order-2 order-lg-1">
-        <div class="mb-3 hero-badges">
-          <span class="badge badge-dark mr-2">Enterprise</span>
-          <span class="badge badge-info mr-2">WhatsApp Cloud API</span>
-          <span class="badge badge-secondary">Multi-company</span>
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <span class="sb-eyebrow">Official WhatsApp Cloud API for Odoo</span>
+        <h1 class="mt-3 mb-3">Professional WhatsApp messaging for sales, invoices, support, and campaigns</h1>
+        <p class="lead mb-4">SkillBridge WhatsApp Cloud Messaging connects Odoo 17 to Meta's official WhatsApp Business Cloud API so your team can send compliant customer messages, automate follow-ups, and track every delivery event from one native Odoo workspace.</p>
+        <div class="mb-4">
+          <span class="sb-pill">Odoo 17 Community & Enterprise</span>
+          <span class="sb-pill">Multi-company</span>
+          <span class="sb-pill">Template sync</span>
+          <span class="sb-pill">Inbox + campaigns</span>
         </div>
-
-        <h1 class="display-4 font-weight-bold">SkillBridge &mdash; WhatsApp Cloud Messaging for Odoo 18</h1>
-        <p class="lead text-muted">Deliver secure, reliable WhatsApp conversations from Odoo. Reduce response times, increase campaign ROI, and maintain full auditability &mdash; all with native Odoo models.</p>
-
-        <div class="d-flex flex-wrap align-items-center mt-4">
-          <a href="#final-cta" class="btn btn-primary btn-lg mr-3 mb-2">Request Demo / Install</a>
-          <a href="#support" class="btn btn-outline-secondary btn-lg mb-2">Enterprise Support</a>
-          <div class="ml-3 d-none d-md-block">
-            <span class="muted-small">Trusted by enterprise teams • Official Meta integration</span>
+        <a href="mailto:support@eduskillbridge.net?subject=SkillBridge%20WhatsApp%20Cloud%20Demo" class="btn btn-light btn-lg mr-2 mb-2">Request a Demo</a>
+        <a href="#features" class="btn btn-outline-light btn-lg mb-2">Explore Features</a>
+      </div>
+      <div class="col-lg-5">
+        <div class="sb-hero-card p-3">
+          <img src="cover.png" alt="SkillBridge WhatsApp Cloud Messaging dashboard preview" class="img-fluid rounded">
+          <div class="p-3">
+            <h5 class="mb-1">Built for real Odoo operations</h5>
+            <p class="mb-0 sb-muted">Sales teams, accountants, marketers, and support agents work from the same auditable WhatsApp timeline.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <ul class="list-unstyled mt-4 text-muted small">
-          <li>Official WhatsApp Cloud API &mdash; no third-party gateway.</li>
-          <li>Two-way conversations, template sync, media & PDF sharing.</li>
-          <li>Delivery & read tracking, webhook events, secure authentication.</li>
+  <section id="features" class="sb-section">
+    <div class="text-center mx-auto" style="max-width: 760px;">
+      <h2 class="sb-section-title">Everything you need for WhatsApp inside Odoo</h2>
+      <p class="sb-section-subtitle">A complete, production-ready module for transactional messages, two-way conversations, approved templates, and campaign automation.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">1</div>
+          <h4>Official Cloud API</h4>
+          <p class="sb-muted mb-0">Use Meta's official WhatsApp Cloud API with secure credentials, webhook verification, and no unofficial browser gateway.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">2</div>
+          <h4>Sales & invoice messages</h4>
+          <p class="sb-muted mb-0">Send messages directly from Sales Orders and posted invoices, including generated PDF documents when required.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">3</div>
+          <h4>Campaign automation</h4>
+          <p class="sb-muted mb-0">Create campaigns with queues, drip steps, retry policies, throttling, and scheduled cron processing for safer high-volume sending.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">4</div>
+          <h4>Two-way inbox</h4>
+          <p class="sb-muted mb-0">Manage inbound WhatsApp conversations, reply from Odoo, and keep customer context linked to partners and documents.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">5</div>
+          <h4>Template management</h4>
+          <p class="sb-muted mb-0">Synchronize Meta templates, manage languages and variables, and send only approved templates for compliant outreach.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="sb-card">
+          <div class="sb-icon">6</div>
+          <h4>Delivery analytics</h4>
+          <p class="sb-muted mb-0">Track sent, delivered, read, and failed states with logs, pivot reporting, and webhook payload traceability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sb-section bg-light rounded px-3 px-lg-4">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="sb-screenshot">
+          <img src="screenshots/dashboard.png" alt="WhatsApp dashboard and message status analytics in Odoo">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="sb-section-title">Clear dashboards for every message status</h2>
+        <p class="sb-section-subtitle">Operations managers can review message throughput, campaign health, failures, and read rates without exporting data to external spreadsheets.</p>
+        <ul class="sb-check-list">
+          <li>Message logs for outgoing, inbound, delivered, read, and failed events.</li>
+          <li>Pivot-friendly reporting for campaign and template performance.</li>
+          <li>Webhook events preserved for troubleshooting and auditability.</li>
         </ul>
-
-        <!-- Enterprise Stats -->
-        <div class="row mt-4">
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">100% Official</div>
-              <div class="muted-small">Meta Cloud API</div>
-            </div>
-          </div>
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">Real-Time</div>
-              <div class="muted-small">Delivery & Read Tracking</div>
-            </div>
-          </div>
-          <div class="col-4 mb-2">
-            <div class="stat-card text-center">
-              <div class="value">Scalable</div>
-              <div class="muted-small">Queued Campaigns</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="col-lg-5 text-center order-1 order-lg-2 mb-4 mb-lg-0">
-        <div class="card border-0 shadow-sm screenshot">
-          <img src="cover-v2.png" alt="Module preview" class="card-img-top img-fluid">
-          <div class="card-body py-3">
-            <p class="mb-0 small text-muted">Preview: campaign & inbox views inside Odoo</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Screenshot Showcase -->
-  <section id="screenshots" class="py-5">
-    <h3 class="h4 font-weight-bold">Screenshots</h3>
-    <p class="text-muted small">A quick tour of the app's main screens. Click to preview in the store.</p>
-
-    <!-- Dashboard -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6">
-        <img src="screenshots/dashboard-v2.png" alt="Dashboard Overview" class="img-fluid screenshot">
-      </div>
-      <div class="col-md-6">
-        <h5 class="font-weight-bold">Dashboard Overview</h5>
-        <p class="text-muted">High level KPIs, campaign health, and message status at a glance for operations and management.</p>
-        <p class="screenshot-caption">screenshots/dashboard-v2.png</p>
-      </div>
+  <section class="sb-section">
+    <div class="text-center mx-auto" style="max-width: 760px;">
+      <h2 class="sb-section-title">Store screenshots</h2>
+      <p class="sb-section-subtitle">Preview the native Odoo screens included with the module.</p>
     </div>
-
-    <!-- Inbox (alternate) -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6 order-2 order-md-1">
-        <h5 class="font-weight-bold">WhatsApp Inbox</h5>
-        <p class="text-muted">Unified threaded conversations with attachments, quick replies, and CRM context.</p>
-        <p class="screenshot-caption">screenshots/inbox-v2.png</p>
-      </div>
-      <div class="col-md-6 order-1 order-md-2">
-        <img src="screenshots/inbox-v2.png" alt="WhatsApp Inbox" class="img-fluid screenshot">
-      </div>
+    <div class="row">
+      <div class="col-md-6 mb-4"><div class="sb-screenshot"><img src="screenshots/inbox.png" alt="WhatsApp Inbox in Odoo"></div><h5 class="mt-3 font-weight-bold">Inbox & replies</h5><p class="sb-muted">Follow customer conversations and respond with full Odoo context.</p></div>
+      <div class="col-md-6 mb-4"><div class="sb-screenshot"><img src="screenshots/campaigns.png" alt="WhatsApp campaign management in Odoo"></div><h5 class="mt-3 font-weight-bold">Campaign queues</h5><p class="sb-muted">Plan drip steps, process queues, and keep high-volume sends controlled.</p></div>
+      <div class="col-md-6 mb-4"><div class="sb-screenshot"><img src="screenshots/templates.png" alt="WhatsApp template synchronization in Odoo"></div><h5 class="mt-3 font-weight-bold">Template sync</h5><p class="sb-muted">Keep approved Meta templates aligned with Odoo records and languages.</p></div>
+      <div class="col-md-6 mb-4"><div class="sb-screenshot"><img src="screenshots/logs.png" alt="WhatsApp message logs in Odoo"></div><h5 class="mt-3 font-weight-bold">Audit logs</h5><p class="sb-muted">Investigate delivery, read, and failure events from searchable message logs.</p></div>
     </div>
+  </section>
 
-    <!-- Campaigns -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6">
-        <img src="screenshots/campaigns.png" alt="Campaign Manager" class="img-fluid screenshot">
+  <section class="sb-section bg-light rounded px-3 px-lg-4">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <h2 class="sb-section-title">A simple implementation workflow</h2>
+        <p class="sb-section-subtitle">Configure once, then let teams communicate from familiar Odoo records.</p>
       </div>
-      <div class="col-md-6">
-        <h5 class="font-weight-bold">Campaign Manager</h5>
-        <p class="text-muted">Queueing, throttles, retries and step-based drip campaigns for compliant outreach at scale.</p>
-        <p class="screenshot-caption">screenshots/campaigns.png</p>
-      </div>
-    </div>
-
-    <!-- Templates (alternate) -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6 order-2 order-md-1">
-        <h5 class="font-weight-bold">Template Manager</h5>
-        <p class="text-muted">Manage Meta-approved templates directly from Odoo with preview and variable support.</p>
-        <p class="screenshot-caption">screenshots/templates.png</p>
-      </div>
-      <div class="col-md-6 order-1 order-md-2">
-        <img src="screenshots/templates.png" alt="Template Manager" class="img-fluid screenshot">
-      </div>
-    </div>
-
-    <!-- Logs -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6">
-        <img src="screenshots/logs.png" alt="Message Logs" class="img-fluid screenshot">
-      </div>
-      <div class="col-md-6">
-        <h5 class="font-weight-bold">Message Logs</h5>
-        <p class="text-muted">Immutable logs and detailed delivery/read events for audits and reconciliation.</p>
-        <p class="screenshot-caption">screenshots/logs.png</p>
-      </div>
-    </div>
-
-    <!-- Analytics (alternate) -->
-    <div class="row align-items-center my-4">
-      <div class="col-md-6 order-2 order-md-1">
-        <h5 class="font-weight-bold">Analytics</h5>
-        <p class="text-muted">Campaign performance, delivery rates and read metrics with pivot-friendly exports.</p>
-        <p class="screenshot-caption">screenshots/analytics.png</p>
-      </div>
-      <div class="col-md-6 order-1 order-md-2">
-        <img src="screenshots/analytics.png" alt="Analytics" class="img-fluid screenshot">
+      <div class="col-lg-7">
+        <div class="sb-flow-step"><h5>1. Configure credentials</h5><p class="sb-muted mb-0">Add the access token, phone number ID, WABA ID, verify token, and app secret in Odoo settings.</p></div>
+        <div class="sb-flow-step"><h5>2. Prepare compliant contacts</h5><p class="sb-muted mb-0">Capture opt-in, validate E.164 mobile numbers, and assign company-specific WhatsApp accounts.</p></div>
+        <div class="sb-flow-step"><h5>3. Sync approved templates</h5><p class="sb-muted mb-0">Import Meta-approved templates and map variables for transactional and marketing use cases.</p></div>
+        <div class="sb-flow-step"><h5>4. Send, automate, and measure</h5><p class="sb-muted mb-0">Send from documents, reply in the inbox, automate campaigns, and track all statuses in logs.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison Table -->
-  <section id="comparison" class="py-5 bg-light p-4 rounded">
-    <h3 class="h5 font-weight-bold">How SkillBridge Compares</h3>
-    <p class="text-muted small">A side-by-side look at what you get with SkillBridge versus basic WhatsApp modules.</p>
+  <section class="sb-section">
+    <div class="row">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="sb-section-title">Professional use cases</h2>
+        <ul class="sb-check-list">
+          <li>Order confirmations, quotations, payment reminders, and invoice PDFs.</li>
+          <li>Appointment reminders, delivery updates, renewal alerts, and service notifications.</li>
+          <li>Lead nurturing, product announcements, and compliant template-based campaigns.</li>
+          <li>Customer support replies with conversation history and partner context.</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="sb-section-title">Enterprise-ready controls</h2>
+        <ul class="sb-check-list">
+          <li>Multi-company credential isolation and role-based access security.</li>
+          <li>Queue throttling, retry/backoff handling, and cron-based processing.</li>
+          <li>Webhook HMAC verification and clear troubleshooting information.</li>
+          <li>STOP/START keyword handling to keep opt-in status current.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <div class="table-responsive">
-      <table class="table table-hover feature-table">
+  <section class="sb-section">
+    <h2 class="sb-section-title text-center">Why choose SkillBridge?</h2>
+    <div class="table-responsive mt-4">
+      <table class="table table-bordered sb-comparison">
         <thead>
           <tr>
-            <th>Feature</th>
-            <th>SkillBridge</th>
-            <th>Basic WhatsApp Modules</th>
+            <th>Capability</th>
+            <th>SkillBridge WhatsApp Cloud</th>
+            <th>Basic WhatsApp connector</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Official Cloud API</td>
-             <td class="text-success">&#10003;</td>
-             <td class="text-muted">&#10007;</td>
-          </tr>
-          <tr>
-            <td>Two-way Messaging</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">Limited</td>
-          </tr>
-          <tr>
-            <td>Campaign Management</td>
-             <td class="text-success">&#10003;</td>
-             <td class="text-muted">&#10007;</td>
-          </tr>
-          <tr>
-            <td>Delivery Tracking</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">Basic</td>
-          </tr>
-          <tr>
-            <td>Read Tracking</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">Basic</td>
-          </tr>
-          <tr>
-            <td>Multi Company</td>
-             <td class="text-success">&#10003;</td>
-             <td class="text-muted">&#10007;</td>
-          </tr>
-          <tr>
-            <td>Analytics</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">Limited</td>
-          </tr>
-          <tr>
-            <td>PDF Sharing</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">&#10007;</td>
-          </tr>
-          <tr>
-            <td>Template Sync</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">&#10007;</td>
-          </tr>
-          <tr>
-            <td>Webhook Events</td>
-            <td class="text-success">&#10003;</td>
-            <td class="text-muted">Limited</td>
-          </tr>
+          <tr><td>Official Meta Cloud API</td><td class="sb-positive">Included</td><td class="sb-muted">Often limited or gateway-based</td></tr>
+          <tr><td>Sales order and invoice PDF messaging</td><td class="sb-positive">Included</td><td class="sb-muted">Usually manual</td></tr>
+          <tr><td>Two-way inbox</td><td class="sb-positive">Included</td><td class="sb-muted">Limited</td></tr>
+          <tr><td>Campaign queues and drip steps</td><td class="sb-positive">Included</td><td class="sb-muted">Basic broadcast only</td></tr>
+          <tr><td>Template synchronization</td><td class="sb-positive">Included</td><td class="sb-muted">Manual setup</td></tr>
+          <tr><td>Delivery/read analytics</td><td class="sb-positive">Included</td><td class="sb-muted">Minimal logs</td></tr>
+          <tr><td>Multi-company support</td><td class="sb-positive">Included</td><td class="sb-muted">Not always available</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- Workflow -->
-  <section id="workflow" class="py-5">
-    <h3 class="h5 font-weight-bold">How It Works</h3>
-    <p class="text-muted small">Simple, secure flow integrating customers, Meta Cloud and Odoo.</p>
-
-    <div class="row text-center align-items-center mt-4">
-      <div class="col-12 d-flex flex-wrap justify-content-center align-items-center">
-        <div class="mx-2 workflow-card col-auto">Customer</div>
-        <div class="mx-2 workflow-arrow">↓</div>
-        <div class="mx-2 workflow-card col-auto">WhatsApp</div>
-        <div class="mx-2 workflow-arrow">↓</div>
-        <div class="mx-2 workflow-card col-auto">Meta Cloud API</div>
-        <div class="mx-2 workflow-arrow">↓</div>
-        <div class="mx-2 workflow-card col-auto">SkillBridge Module</div>
-        <div class="mx-2 workflow-arrow">↓</div>
-        <div class="mx-2 workflow-card col-auto">Odoo CRM / Sales / Accounting</div>
-      </div>
+  <section class="sb-section bg-light rounded px-3 px-lg-4">
+    <h2 class="sb-section-title text-center">Frequently asked questions</h2>
+    <div class="row mt-4">
+      <div class="col-md-6 mb-3"><div class="sb-card"><h5>Does this use the official WhatsApp API?</h5><p class="sb-muted mb-0">Yes. The module connects Odoo to Meta's official WhatsApp Business Cloud API.</p></div></div>
+      <div class="col-md-6 mb-3"><div class="sb-card"><h5>Is it compatible with Community and Enterprise?</h5><p class="sb-muted mb-0">Yes. The module is designed for Odoo 17 Community and Enterprise installations.</p></div></div>
+      <div class="col-md-6 mb-3"><div class="sb-card"><h5>Can I send documents?</h5><p class="sb-muted mb-0">Yes. You can send text, templates, images, interactive content, and PDFs from supported Odoo documents.</p></div></div>
+      <div class="col-md-6 mb-3"><div class="sb-card"><h5>Are Meta fees included?</h5><p class="sb-muted mb-0">No. Meta conversation and messaging fees are billed separately by Meta according to your WhatsApp Business account.</p></div></div>
     </div>
   </section>
 
-  <!-- Business Use Cases (expanded) -->
-  <section id="use-cases" class="py-4 bg-white p-3 rounded">
-    <h3 class="h5 font-weight-bold">Business Use Cases</h3>
-    <div class="row mt-3">
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">E-Commerce</h5><p class="mb-0 text-muted small">Order confirmations, delivery updates and abandoned cart recovery via WhatsApp.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Education</h5><p class="mb-0 text-muted small">Notifications, timetables and student communications with audit logs for compliance.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Healthcare</h5><p class="mb-0 text-muted small">Secure appointment reminders, patient confirmations and document sharing (PDFs).</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Logistics</h5><p class="mb-0 text-muted small">Delivery notifications, driver coordination and proof-of-delivery messages.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Government Services</h5><p class="mb-0 text-muted small">Secure citizen notifications, scheduling and auditable communication trails.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Recruitment</h5><p class="mb-0 text-muted small">Candidate outreach, interview scheduling and document sharing via WhatsApp.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Sales & Lead Nurturing</h5><p class="mb-0 text-muted small">Automate follow-ups, qualify leads via chat and attach product PDFs directly to prospects.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Support & Service</h5><p class="mb-0 text-muted small">Route incoming messages to support teams, attach context to tickets, and preserve logs for SLAs.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h5 class="mb-2">Transactional Notifications</h5><p class="mb-0 text-muted small">Send order confirmations, delivery updates and secure transactional messages using approved templates.</p></div></div>
+  <section id="support" class="sb-section">
+    <div class="sb-cta text-center">
+      <h2 class="font-weight-bold mb-3">Launch a polished WhatsApp experience in Odoo</h2>
+      <p class="lead mb-4">Need help with Meta setup, template approval, onboarding, or custom workflows? SkillBridge Studio can support your implementation.</p>
+      <a href="mailto:support@eduskillbridge.net?subject=SkillBridge%20WhatsApp%20Cloud%20Support" class="btn btn-light btn-lg mr-2 mb-2">Contact Support</a>
+      <a href="https://wa.me/966531505513" class="btn btn-outline-light btn-lg mb-2">Message on WhatsApp</a>
+      <p class="small mt-3 mb-0">Support email: support@eduskillbridge.net</p>
     </div>
   </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-5">
-    <h3 class="h5 font-weight-bold">Frequently Asked Questions</h3>
-    <div class="mt-3">
-      <details class="mb-2"><summary>Does it support Odoo Enterprise?</summary><div class="p-3 text-muted small">Yes &mdash; SkillBridge is fully compatible with Odoo Enterprise and integrates with Enterprise modules and access control.</div></details>
-      <details class="mb-2"><summary>Does it support Odoo Community?</summary><div class="p-3 text-muted small">Yes &mdash; Core messaging and campaign features work with Odoo Community installs; some integrations with Enterprise-only modules may vary.</div></details>
-      <details class="mb-2"><summary>Does it require Meta verification?</summary><div class="p-3 text-muted small">You must configure a Meta Business account and WhatsApp Business Account. SkillBridge works with the official Meta Cloud API and supports the verification flows.</div></details>
-      <details class="mb-2"><summary>Can I send PDFs?</summary><div class="p-3 text-muted small">Yes &mdash; Attach PDFs, images and other supported media types to messages and campaigns.</div></details>
-      <details class="mb-2"><summary>Can I use multiple WhatsApp numbers?</summary><div class="p-3 text-muted small">Yes &mdash; Multi-company support allows separate credentials and WABA numbers per company.</div></details>
-      <details class="mb-2"><summary>Does it support media attachments?</summary><div class="p-3 text-muted small">Yes &mdash; Images, documents and other supported media are uploadable and trackable per message.</div></details>
-      <details class="mb-2"><summary>Are message statuses tracked?</summary><div class="p-3 text-muted small">Yes &mdash; Delivery and read events are logged and available in message logs and analytics.</div></details>
-    </div>
-  </section>
-
-  <!-- Enterprise Ready -->
-  <section id="enterprise" class="py-4 bg-light p-4 rounded">
-    <h3 class="h5 font-weight-bold">Enterprise Ready</h3>
-    <div class="row mt-3">
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Queue Processing</h6><p class="mb-0 text-muted small">Background workers process campaigns with throttles, retries and windows.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Scalable Architecture</h6><p class="mb-0 text-muted small">Designed for high-volume sends with safe batch controls and monitoring.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Audit Logs</h6><p class="mb-0 text-muted small">Immutable logs for messages, changes and webhooks to meet compliance needs.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Role Permissions</h6><p class="mb-0 text-muted small">Fine-grained access for sending, templates, and log visibility per role.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Webhook Security</h6><p class="mb-0 text-muted small">HMAC verification and scoped tokens for webhook and API security.</p></div></div>
-      <div class="col-md-4 mb-3"><div class="p-3 border rounded h-100"><h6>Multi Company Isolation</h6><p class="mb-0 text-muted small">Separate credentials and data partitioning per company.</p></div></div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section id="final-cta" class="py-5 mt-4">
-    <div class="final-cta text-center">
-      <h2 class="font-weight-bold">Modernize customer engagement with enterprise WhatsApp</h2>
-      <p class="lead">Automation, compliance and official Meta integration &mdash; built for Odoo teams and large-scale operations.</p>
-      <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center mt-4">
-        <a href="#" class="btn btn-light btn-lg mr-sm-3 mb-2">Install on Odoo</a>
-        <a href="mailto:support@eduskillbridge.net?subject=SkillBridge%20Demo" class="btn btn-outline-light btn-lg mb-2">Request Enterprise Demo</a>
-      </div>
-      <p class="mt-3 small">Includes secure authentication, multi-company support and full message logs. Meta conversation fees billed separately.</p>
-    </div>
-  </section>
-
-  <footer class="pt-4 mt-4 border-top text-muted small text-center">
-    © 2026 SkillBridge Studio · <a href="mailto:support@eduskillbridge.net">support@eduskillbridge.net</a>
-  </footer>
-
 </div>

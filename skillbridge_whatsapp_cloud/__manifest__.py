@@ -17,13 +17,13 @@ Setup highlights:
 2) Create a WhatsApp Account per company and approve templates in Meta.
 3) Send manually from Sales Orders or automate with campaign queues and cron tasks.
 """,
-    "version": "18.0.1.1.6",
+    "version": "17.0.1.1.6",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Public project page for details and docs (18.0 branch)
-    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/18.0",
+    # Public project page for details and docs (17.0 branch)
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/17.0",
     "category": "Sales",
     "price": 249.0,
     "currency": "USD",
@@ -45,19 +45,16 @@ Setup highlights:
         "views/res_partner_views.xml",
         "data/cron.xml",
     ],
-    "assets": {
-        "web.assets_backend": [
-            "skillbridge_whatsapp_cloud/static/src/scss/demo_brand.scss",
-            "skillbridge_whatsapp_cloud/static/src/scss/demo_hide_apps.scss",
-            "skillbridge_whatsapp_cloud/static/src/js/demo_hide_apps.js",
-        ],
-    },
     "demo": ["data/demo.xml"],
     "images": [
         "static/description/cover-v2.png",
         "static/description/cover.gif",
-        "static/description/screenshots/dashboard-v2.png",
-        "static/description/screenshots/inbox-v2.png",
+        "static/description/screenshots/dashboard.png",
+        "static/description/screenshots/inbox.png",
+        "static/description/screenshots/campaigns.png",
+        "static/description/screenshots/templates.png",
+        "static/description/screenshots/logs.png",
+        "static/description/screenshots/analytics.png",
         "static/description/screen4.png",
         "static/description/screen6.png",
         "static/description/screen2.png",
