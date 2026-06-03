@@ -1,7 +1,7 @@
 # WhatsApp Cloud Messaging
 WhatsApp Cloud API for Odoo sales orders, invoices, and campaigns with templates, PDFs, and delivery tracking.
 
-A premium enterprise-grade integration for Odoo 19 using the official Meta Cloud API. Includes inbox, campaign engine, template sync, PDF sharing and delivery/read analytics. See the App Store-ready screenshots in `static/description/`.
+Supported: Odoo 17 (this branch). Use corresponding branches for other Odoo versions.
 
 ## Compatibility
 - Odoo 19.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
@@ -35,15 +35,8 @@ systemctl restart odoo
 2. In Odoo: Update the Apps list, search for **WhatsApp Cloud Messaging** and install the module.
 3. Configure Settings → WhatsApp Business API with your WABA credentials and webhook settings to test end-to-end messaging in a sandbox or production WABA.
 
-## Screenshots
-- `static/description/cover-v2.png`
-- `static/description/screenshots/dashboard-v2.png`
-- `static/description/screen5.png`
-- `static/description/screen4.png`
-- `static/description/screen3.png`
-- `static/description/screen7.png`
-- `static/description/screen8.png`
-- `static/description/screen9.png`
+Repository for Odoo App Store
+Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0` when registering the addon.
 
 ## Configuration
 1. Settings → General Settings → WhatsApp Business API: set Access Token, Phone Number ID, Business Account ID (WABA ID), Webhook Verify Token, App Secret, and optional Default Media URL.
