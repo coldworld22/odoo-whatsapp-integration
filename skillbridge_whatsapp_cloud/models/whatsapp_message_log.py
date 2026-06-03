@@ -54,6 +54,8 @@ class WhatsAppMessageLog(models.Model):
             conversation = Conversation.search([("partner_id", "=", rec.partner_id.id)], limit=1)
             if not conversation:
                 conversation = Conversation.create({"partner_id": rec.partner_id.id})
+            if rec.conversation_id != conversation:
+                rec.write({"conversation_id": conversation.id})
             conversation.write(
                 {
                     "last_message": rec._conversation_summary(),

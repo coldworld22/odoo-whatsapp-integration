@@ -1,0 +1,75 @@
+/* Demo branding: match Skillbridge login look; scoped to demo users. */
+.o_whatsapp_demo {
+  --sb-accent: #fbbf24;
+  --sb-accent-2: #f59e0b;
+  --sb-dark: #0b1224;
+  --sb-muted: #8ea0c2;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(247, 191, 36, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.08), transparent 30%),
+    #0b1224;
+
+  .o_main_navbar {
+    background: linear-gradient(135deg, rgba(20, 27, 44, 0.9), rgba(11, 18, 36, 0.95));
+    border-bottom: 1px solid rgba(247, 191, 36, 0.2);
+  }
+
+  .o_menu_brand {
+    font-weight: 700;
+    color: var(--sb-accent);
+  }
+
+  .o_control_panel .breadcrumb-item.active {
+    color: var(--sb-accent);
+  }
+
+  .o_web_client .o_action_manager .o_action {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(247, 191, 36, 0.05), transparent 30%),
+      #0b1224;
+  }
+
+  .o_kanban_view .oe_kanban_global_click,
+  .o_list_view {
+    border-radius: 12px;
+    background: #0f1a33;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+    color: #e5edf7;
+  }
+
+  .o_form_view .o_form_sheet_bg {
+    background: transparent;
+  }
+
+  .o_form_view .o_form_sheet {
+    background: #0f1a33;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+    color: #e5edf7;
+  }
+
+  .o_searchview {
+    border-color: rgba(247, 191, 36, 0.35);
+    background: #0f1a33;
+    color: #e5edf7;
+  }
+
+  .o_searchview .o_searchview_input_container input::placeholder {
+    color: var(--sb-muted);
+  }
+
+  .o_statusbar_status .o_arrow_button_current {
+    background: linear-gradient(135deg, var(--sb-accent), var(--sb-accent-2));
+    color: #0b1224;
+  }
+
+  .btn-primary,
+  .o_form_button_save {
+    background: linear-gradient(135deg, var(--sb-accent), var(--sb-accent-2));
+    border: none;
+    color: #0b1224;
+    font-weight: 700;
+  }
+}
