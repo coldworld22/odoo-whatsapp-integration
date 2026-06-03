@@ -1,3 +1,7 @@
+from odoo import SUPERUSER_ID, api
+from odoo.api import Environment
+
+
 def post_init_hook(*args, **kwargs):
     """Compatibility wrapper for module post-init hooks across Odoo versions.
 
@@ -6,35 +10,21 @@ def post_init_hook(*args, **kwargs):
     - post_init_hook(cr, registry)   # Older Odoo versions
     - post_init_hook(registry)       # Some hooks receive only registry
     """
-    try:
-        from odoo import SUPERUSER_ID, api
-        from odoo.api import Environment
-    except Exception:
-        SUPERUSER_ID = None
-        api = None
-        Environment = None
-
     env = None
     created_cursor = False
 
-    # Positional args handling
     if args:
         first = args[0]
-        # If an Environment was passed directly (17+)
-        if Environment is not None and isinstance(first, Environment):
+        if isinstance(first, Environment):
             env = first
-        elif api is not None:
-            # If a registry was passed (has cursor method), open a cursor
-            if hasattr(first, "cursor") and callable(first.cursor):
-                cr = first.cursor()
-                created_cursor = True
-                env = api.Environment(cr, SUPERUSER_ID, {})
-            else:
-                # Assume a DB cursor was passed (older signature)
-                cr = first
-                env = api.Environment(cr, SUPERUSER_ID, {})
+        elif hasattr(first, "cursor") and callable(first.cursor):
+            cr = first.cursor()
+            created_cursor = True
+            env = api.Environment(cr, SUPERUSER_ID, {})
+        else:
+            cr = first
+            env = api.Environment(cr, SUPERUSER_ID, {})
 
-    # Keyword arg 'env' when called as post_init_hook(env=env)
     if env is None:
         env = kwargs.get("env")
 

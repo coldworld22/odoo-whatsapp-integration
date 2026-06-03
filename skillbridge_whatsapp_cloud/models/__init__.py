@@ -1,13 +1,13 @@
-from . import res_config_settings
-from . import whatsapp_api
-from . import whatsapp_wizard
-from . import whatsapp_message_log
-from . import whatsapp_template
-from . import whatsapp_campaign
-from . import whatsapp_campaign_queue
-from . import whatsapp_campaign_step
-from . import whatsapp_conversation
-from . import whatsapp_inbox_reply
-from . import whatsapp_account
-from . import res_partner
-from . import account_move
+from . import res_config_settings as res_config_settings
+from . import whatsapp_api as whatsapp_api
+from . import whatsapp_wizard as whatsapp_wizard
+from . import whatsapp_message_log as whatsapp_message_log
+from . import whatsapp_template as whatsapp_template
+from . import whatsapp_campaign as whatsapp_campaign
+from . import whatsapp_campaign_queue as whatsapp_campaign_queue
+from . import whatsapp_campaign_step as whatsapp_campaign_step
+from . import whatsapp_conversation as whatsapp_conversation
+from . import whatsapp_inbox_reply as whatsapp_inbox_reply
+from . import whatsapp_account as whatsapp_account
+from . import res_partner as res_partner
+from . import account_move as account_move

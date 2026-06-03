@@ -1,7 +1,7 @@
 # WhatsApp Cloud Messaging
 Official WhatsApp Business Cloud API integration for Odoo — send orders, invoices, and automated campaigns with compliance and observability.
 
-Supported: Odoo 18 (this branch). Use corresponding branches for other Odoo versions.
+Supported: Odoo 17 (this branch). Use corresponding branches for other Odoo versions.
 
 Quick highlights
 - Send Meta-approved templates, text, images and attach PDFs to Sales Orders and posted invoices.
@@ -27,7 +27,7 @@ Usage
 - Use the Inbox to reply to inbound messages and maintain conversation history per partner.
 
 Repository for Odoo App Store
-Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#18.0` when registering the addon.
+Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0` when registering the addon.
 
 Notes
 - Ensure the Meta token is permitted to send from the configured `phone_number_id` and that customer numbers are in E.164 format and opted-in.

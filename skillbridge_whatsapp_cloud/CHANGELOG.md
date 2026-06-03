@@ -1,3 +1,8 @@
+## 17.0.1.1.6
+
+- Rebuilt the Odoo Apps Store description as a complete professional landing page with valid scoped styling, premium hero, feature cards, screenshot gallery, workflow, comparison, FAQ, and support CTA.
+- Aligned store metadata and documentation links with the Odoo 17 store branch.
+
 ## 17.0.1.0.1
 
 - Switched to OPL-1 license for paid distribution; added support and troubleshooting docs.
@@ -18,7 +23,7 @@
 - Refreshed Odoo Apps store assets (cover.png + cover.gif) and description layout with scoped styles to prevent Odoo CSS collisions.
 - Updated public listing text for clearer positioning, features, and compliance messaging.
 
-## 17.0.1.1.4
+## 18.0.1.1.5
 
 - Fixed `post_init_hook` signature compatibility across Odoo 16 (cr, registry) and Odoo 17+ (env) to prevent installation crash.
 
