@@ -29,3 +29,8 @@
 - Added missing backend asset files referenced by the manifest.
 - Updated list views, window actions, and scheduled actions for Odoo 18.0 compatibility.
 - Fixed the WhatsApp conversation/message log relation so the registry can initialize cleanly.
+
+## 18.0.1.1.7
+
+- Reworked the Odoo Apps Store description with store-safe ASCII copy, valid screenshot paths, and clearer setup/support sections.
+- Updated manifest title, summary, version, and image gallery entries for the refreshed Odoo 18 listing.

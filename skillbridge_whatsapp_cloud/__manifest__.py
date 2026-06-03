@@ -1,6 +1,6 @@
 {
-    "name": "WhatsApp Cloud Messaging — Skillbridge Studio",
-    "summary": "Official WhatsApp Cloud API integration for Odoo — send orders, invoices, and campaigns.",
+    "name": "WhatsApp Cloud Messaging - Skillbridge Studio",
+    "summary": "WhatsApp Cloud API for Odoo: send orders, invoices, inbox replies, and campaigns.",
     "description": """
 WhatsApp Cloud Messaging brings the official WhatsApp Business Cloud API to Odoo, enabling sales, accounting and marketing teams to send Meta-approved templates, attach PDFs, and run compliant campaigns with delivery/read tracking.
 
@@ -17,7 +17,7 @@ Setup highlights:
 2) Create a WhatsApp Account per company and approve templates in Meta.
 3) Send manually from Sales Orders or automate with campaign queues and cron tasks.
 """,
-    "version": "18.0.1.1.6",
+    "version": "18.0.1.1.7",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
@@ -54,15 +54,18 @@ Setup highlights:
     },
     "demo": ["data/demo.xml"],
     "images": [
-        "static/description/cover-v2.png",
+        "static/description/cover-v3.png",
         "static/description/cover.gif",
-        "static/description/screenshots/dashboard-v2.png",
-        "static/description/screenshots/inbox-v2.png",
+        "static/description/screenshots/dashboard-v3.png",
+        "static/description/screenshots/inbox-v3.png",
         "static/description/screen4.png",
         "static/description/screen6.png",
         "static/description/screen2.png",
         "static/description/screen5.png",
         "static/description/screen3.png",
+        "static/description/screen7.png",
+        "static/description/screen8.png",
+        "static/description/screen9.png",
         "static/description/contact.png",
         "static/description/screen1.png",
         "static/description/icon.png",
