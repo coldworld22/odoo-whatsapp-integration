@@ -23,6 +23,9 @@
 - Ported module to Odoo 18.0 with updated manifest/website links and listing content.
 - Kept WhatsApp Inbox, template sync, campaigns, and webhook signature validation intact for 18.0.
 
-## Unreleased - 2026-06-01
+## 18.0.1.1.6
 
 - Polish store listing: tightened module name and summary, focused long description, streamlined README, and refreshed landing page hero/CTA/footer year.
+- Added missing backend asset files referenced by the manifest.
+- Updated list views, window actions, and scheduled actions for Odoo 18.0 compatibility.
+- Fixed the WhatsApp conversation/message log relation so the registry can initialize cleanly.
