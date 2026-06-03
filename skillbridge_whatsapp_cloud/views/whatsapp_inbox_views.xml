@@ -1,6 +1,6 @@
 <odoo>
     <record id="view_whatsapp_conversation_tree" model="ir.ui.view">
-        <field name="name">whatsapp.conversation.tree</field>
+        <field name="name">whatsapp.conversation.list</field>
         <field name="model">whatsapp.conversation</field>
         <field name="arch" type="xml">
             <list string="WhatsApp Inbox"

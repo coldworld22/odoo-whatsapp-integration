@@ -1,6 +1,6 @@
 <odoo>
     <record id="view_whatsapp_campaign_tree" model="ir.ui.view">
-        <field name="name">whatsapp.campaign.tree</field>
+        <field name="name">whatsapp.campaign.list</field>
         <field name="model">whatsapp.campaign</field>
         <field name="arch" type="xml">
             <list decoration-success="state == 'done'"

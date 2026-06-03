@@ -1,6 +1,6 @@
 <odoo>
     <record id="view_whatsapp_template_tree" model="ir.ui.view">
-        <field name="name">whatsapp.template.tree</field>
+        <field name="name">whatsapp.template.list</field>
         <field name="model">whatsapp.template</field>
         <field name="arch" type="xml">
             <list>

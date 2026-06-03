@@ -1,6 +1,6 @@
 <odoo>
     <record id="view_whatsapp_message_log_tree" model="ir.ui.view">
-        <field name="name">whatsapp.message.log.tree</field>
+        <field name="name">whatsapp.message.log.list</field>
         <field name="model">whatsapp.message.log</field>
         <field name="arch" type="xml">
             <list string="WhatsApp Logs"
