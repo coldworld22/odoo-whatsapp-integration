@@ -28,3 +28,10 @@
 - Added high-quality screenshots and inline SVG badges/icons for a polished App Store listing.
 - Accessibility improvements: ARIA attributes, descriptive captions and keyboard-friendly CTAs.
 - Updated `__manifest__.py` images list and bumped module version for App Store readiness.
+
+## 17.0.1.1.6
+
+- Added missing backend asset files referenced by the manifest.
+- Reworked the Odoo Apps Store description with store-safe ASCII copy, valid screenshot paths, and clearer setup/support sections.
+- Fixed the WhatsApp conversation/message log relation so the registry can initialize cleanly.
+- Updated manifest title, summary, website, version, and image gallery entries for the refreshed Odoo 17 listing.

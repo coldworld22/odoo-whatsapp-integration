@@ -9,6 +9,12 @@ class WhatsAppMessageLog(models.Model):
     message_id = fields.Char(string="Message ID", required=True, index=True)
     order_id = fields.Many2one("sale.order", string="Sales Order", index=True, ondelete="cascade")
     partner_id = fields.Many2one("res.partner", string="Partner", index=True)
+    conversation_id = fields.Many2one(
+        "whatsapp.conversation",
+        string="Conversation",
+        index=True,
+        ondelete="set null",
+    )
     campaign_id = fields.Many2one("whatsapp.campaign", string="Campaign", index=True)
     message_body = fields.Text(string="Message Body")
     message_type = fields.Char(string="Message Type")
@@ -53,6 +59,8 @@ class WhatsAppMessageLog(models.Model):
             conversation = Conversation.search([("partner_id", "=", rec.partner_id.id)], limit=1)
             if not conversation:
                 conversation = Conversation.create({"partner_id": rec.partner_id.id})
+            if rec.conversation_id != conversation:
+                rec.write({"conversation_id": conversation.id})
             conversation.write(
                 {
                     "last_message": rec._conversation_summary(),
