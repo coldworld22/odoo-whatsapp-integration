@@ -1,3 +1,20 @@
+## 17.0.1.1.8
+
+- Completed the Odoo 17 compatibility audit for the customer package.
+- Migrated the WhatsApp settings panel to the native Odoo 17 settings layout.
+- Fixed the backend demo asset RPC import so web asset compilation resolves on Odoo 17.
+- Fixed sales order and invoice PDF rendering calls for the Odoo 17 report API.
+- Enabled and repaired module test discovery, including webhook callback request mocking.
+- Rebuilt and verified the Odoo 17 ZIP package with all manifest assets included.
+
+## 17.0.1.1.7
+
+- Rebuilt the Odoo 17 release bundle with the backend demo assets included:
+  `static/src/scss/demo_brand.scss`, `static/src/scss/demo_hide_apps.scss`,
+  and `static/src/js/demo_hide_apps.js`.
+- Added release archive verification so customer ZIPs fail CI if manifest assets
+  are missing from the package.
+
 ## 17.0.1.0.1
 
 - Switched to OPL-1 license for paid distribution; added support and troubleshooting docs.

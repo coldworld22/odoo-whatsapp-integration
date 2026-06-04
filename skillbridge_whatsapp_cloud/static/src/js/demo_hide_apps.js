@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import { rpc } from "@web/core/network/rpc";
+import { jsonrpc } from "@web/core/network/rpc_service";
 import { session } from "@web/session";
 
 const visibleMenuXmlids = new Set([
@@ -18,11 +18,11 @@ function applyDemoNavigation() {
     document.documentElement.classList.add("o_whatsapp_demo");
 }
 
-rpc("/web/dataset/call_kw/res.users/has_group", {
+jsonrpc("/web/dataset/call_kw/res.users/has_group", {
     model: "res.users",
     method: "has_group",
     args: ["skillbridge_whatsapp_cloud.group_whatsapp_demo_user"],
-    kwargs: {},
+    kwargs: { context: session.user_context || {} },
 })
     .then((hasGroup) => {
         if (!hasGroup || !session.uid) {

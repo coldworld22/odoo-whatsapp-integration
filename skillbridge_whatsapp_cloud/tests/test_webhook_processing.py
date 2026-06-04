@@ -1,10 +1,14 @@
 import hashlib
 import hmac
 import json
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from odoo.tests import TransactionCase
 
-from ..controllers.whatsapp_webhook import WhatsAppWebhookController
+from ..controllers import whatsapp_webhook
+
+WhatsAppWebhookController = whatsapp_webhook.WhatsAppWebhookController
 
 
 class TestWebhookProcessing(TransactionCase):
@@ -20,6 +24,23 @@ class TestWebhookProcessing(TransactionCase):
     def _signature(self, body_bytes):
         digest = hmac.new(self.app_secret.encode("utf-8"), body_bytes, hashlib.sha256).hexdigest()
         return f"sha256={digest}"
+
+    def _call_webhook(self, body_bytes, signature):
+        class DummyHttpRequest:
+            def __init__(self, body, signature):
+                self.method = "POST"
+                self.headers = {"X-Hub-Signature-256": signature}
+                self._body = body
+
+            def get_data(self, cache=False, as_text=False):
+                return self._body
+
+        request_context = SimpleNamespace(
+            env=self.env,
+            httprequest=DummyHttpRequest(body_bytes, signature),
+        )
+        with patch.object(whatsapp_webhook, "request", request_context):
+            return self.controller._handle_callback()
 
     def test_inbound_message_logs_and_chatter(self):
         payload = {
@@ -51,20 +72,7 @@ class TestWebhookProcessing(TransactionCase):
         params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
         params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
 
-        # Patch request context: simulate headers/body
-        class DummyRequest:
-            def __init__(self, body, signature):
-                self.method = "POST"
-                self.headers = {"X-Hub-Signature-256": signature}
-                self._body = body
-
-            def get_data(self, cache=False, as_text=False):
-                return self._body
-
-        httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        # Directly call the protected handler
-        self.controller._handle_callback()
+        self._call_webhook(body_bytes, sig)
 
         # Validate log created
         log = self.env["whatsapp.message.log"].search([("message_id", "=", "wamid.inbound1")], limit=1)
@@ -116,18 +124,7 @@ class TestWebhookProcessing(TransactionCase):
         params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
         params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
 
-        class DummyRequest:
-            def __init__(self, body, signature):
-                self.method = "POST"
-                self.headers = {"X-Hub-Signature-256": signature}
-                self._body = body
-
-            def get_data(self, cache=False, as_text=False):
-                return self._body
-
-        httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
+        self._call_webhook(body_bytes, sig)
 
         log = self.env["whatsapp.message.log"].search([("message_id", "=", "wamid.outbound1")], limit=1)
         self.assertEqual(log.status, "failed")
@@ -166,29 +163,16 @@ class TestWebhookProcessing(TransactionCase):
         params.set_param("skillbridge_whatsapp_cloud.app_secret", self.app_secret)
         params.set_param("skillbridge_whatsapp_cloud.webhook_verify_token", "token")
 
-        class DummyRequest:
-            def __init__(self, body, signature):
-                self.method = "POST"
-                self.headers = {"X-Hub-Signature-256": signature}
-                self._body = body
+        self._call_webhook(body_bytes, sig)
 
-            def get_data(self, cache=False, as_text=False):
-                return self._body
-
-        httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
-
-        self.partner.invalidate_cache()
+        self.partner.invalidate_recordset(["whatsapp_opt_in"])
         self.assertFalse(self.partner.whatsapp_opt_in, "STOP should opt the partner out")
 
         payload["entry"][0]["changes"][0]["value"]["messages"][0]["id"] = "wamid.inbound_start"
         payload["entry"][0]["changes"][0]["value"]["messages"][0]["text"]["body"] = "START"
         body_bytes = json.dumps(payload).encode("utf-8")
         sig = self._signature(body_bytes)
-        httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
+        self._call_webhook(body_bytes, sig)
 
-        self.partner.invalidate_cache()
+        self.partner.invalidate_recordset(["whatsapp_opt_in"])
         self.assertTrue(self.partner.whatsapp_opt_in, "START should opt the partner in")
