@@ -24,8 +24,8 @@ Setup:
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Public project page for details and docs (17.0 branch)
-    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/17.0",
+    # Public project page for details and docs (15.0 branch)
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/15.0",
     "category": "Sales",
     "price": 249.0,
     "currency": "USD",
@@ -50,7 +50,10 @@ Setup:
     ],
     "demo": ["data/demo.xml"],
     "images": [
+        "static/description/banner.png",
+        "static/description/cover-v3.png",
         "static/description/cover-v2.png",
+        "static/description/cover.png",
         "static/description/cover.gif",
         "static/description/screenshots/dashboard-v3.png",
         "static/description/screenshots/inbox-v3.png",
@@ -59,6 +62,10 @@ Setup:
         "static/description/screenshots/logs.png",
         "static/description/screenshots/analytics.png",
         "static/description/screen4.png",
+        "static/description/screen3.png",
+        "static/description/screen7.png",
+        "static/description/screen8.png",
+        "static/description/screen9.png",
         "static/description/screen6.png",
         "static/description/screen2.png",
         "static/description/screen5.png",

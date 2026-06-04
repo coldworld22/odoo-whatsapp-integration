@@ -6,7 +6,7 @@ def post_init_hook(*args, **kwargs):
     """Compatibility wrapper for module post-init hooks across Odoo versions.
 
     Supports the following signatures used across Odoo releases:
-    - post_init_hook(env)            # Odoo 17+ passes an Environment
+    - post_init_hook(env)            # Newer releases can pass an Environment
     - post_init_hook(cr, registry)   # Older Odoo versions
     - post_init_hook(registry)       # Some hooks receive only registry
     """
