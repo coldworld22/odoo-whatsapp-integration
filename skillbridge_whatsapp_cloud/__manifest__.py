@@ -1,6 +1,6 @@
 {
-    "name": "WhatsApp Cloud Messaging",
-    "summary": "WhatsApp Cloud API for Odoo: Sales Orders, Invoices, Templates, and Campaigns",
+    "name": "WhatsApp Cloud Messaging - Skillbridge Studio",
+    "summary": "WhatsApp Cloud API for Odoo: send orders, invoices, inbox replies, and campaigns.",
     "description": """
 WhatsApp Business Cloud API integration for Odoo Sales and Accounting.
 
@@ -19,7 +19,7 @@ Setup:
 2) Create a default WhatsApp Account record per company with token + phone number ID.
 3) Approve templates in Meta and mark them APPROVED in Odoo; then send from Sales Orders or run campaigns.
 """,
-    "version": "15.0.1.0.0",
+    "version": "17.0.1.1.6",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
@@ -56,10 +56,11 @@ Setup:
         "static/description/cover.png",
         "static/description/cover.gif",
         "static/description/screenshots/dashboard-v3.png",
-        "static/description/screenshots/dashboard-v2.png",
         "static/description/screenshots/inbox-v3.png",
-        "static/description/screenshots/inbox-v2.png",
-        "static/description/screen5.png",
+        "static/description/screenshots/campaigns.png",
+        "static/description/screenshots/templates.png",
+        "static/description/screenshots/logs.png",
+        "static/description/screenshots/analytics.png",
         "static/description/screen4.png",
         "static/description/screen3.png",
         "static/description/screen7.png",
@@ -67,6 +68,12 @@ Setup:
         "static/description/screen9.png",
         "static/description/screen6.png",
         "static/description/screen2.png",
+        "static/description/screen5.png",
+        "static/description/screen4.png",
+        "static/description/screen3.png",
+        "static/description/screen7.png",
+        "static/description/screen8.png",
+        "static/description/screen9.png",
         "static/description/contact.png",
         "static/description/screen1.png",
         "static/description/icon.png",

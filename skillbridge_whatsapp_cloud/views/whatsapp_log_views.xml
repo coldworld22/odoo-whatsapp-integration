@@ -1,9 +1,9 @@
 <odoo>
     <record id="view_whatsapp_message_log_tree" model="ir.ui.view">
-        <field name="name">whatsapp.message.log.tree</field>
+        <field name="name">whatsapp.message.log.list</field>
         <field name="model">whatsapp.message.log</field>
         <field name="arch" type="xml">
-            <tree string="WhatsApp Logs"
+            <list string="WhatsApp Logs"
                   decoration-success="status in ['delivered','read','sent']"
                   decoration-warning="status in ['pending','queued']"
                   decoration-danger="status in ['failed','error']">
@@ -14,7 +14,7 @@
                 <field name="partner_id"/>
                 <field name="order_id"/>
                 <field name="campaign_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -37,7 +37,7 @@
     <record id="action_whatsapp_message_log" model="ir.actions.act_window">
         <field name="name">WhatsApp Logs</field>
         <field name="res_model">whatsapp.message.log</field>
-        <field name="view_mode">tree,pivot</field>
+        <field name="view_mode">list,pivot</field>
         <field name="search_view_id" ref="view_whatsapp_message_log_search"/>
         <field name="help" type="html">
             <p>

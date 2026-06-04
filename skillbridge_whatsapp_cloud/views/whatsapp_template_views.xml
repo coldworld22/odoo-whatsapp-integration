@@ -1,9 +1,9 @@
 <odoo>
     <record id="view_whatsapp_template_tree" model="ir.ui.view">
-        <field name="name">whatsapp.template.tree</field>
+        <field name="name">whatsapp.template.list</field>
         <field name="model">whatsapp.template</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <header>
                     <button name="action_sync_from_meta" type="object" string="Sync from Meta"
                             class="btn-primary" groups="base.group_system"/>
@@ -14,7 +14,7 @@
                 <field name="category"/>
                 <field name="status"/>
                 <field name="last_synced_at"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -27,11 +27,11 @@
                     <button name="action_sync_from_meta" type="object" string="Sync from Meta" class="btn-primary"
                             groups="base.group_system"/>
                     <button name="action_submit" type="object" string="Submit"
-                            attrs="{'invisible': [('status', '!=', 'DRAFT')]}"/>
+                            invisible="status != 'DRAFT'"/>
                     <button name="action_mark_approved" type="object" string="Approve"
-                            attrs="{'invisible': [('status', 'not in', ['DRAFT', 'SUBMITTED', 'REJECTED'])]}"/>
+                            invisible="status not in ['DRAFT', 'SUBMITTED', 'REJECTED']"/>
                     <button name="action_mark_rejected" type="object" string="Reject"
-                            attrs="{'invisible': [('status', 'not in', ['DRAFT', 'SUBMITTED', 'APPROVED'])]}"/>
+                            invisible="status not in ['DRAFT', 'SUBMITTED', 'APPROVED']"/>
                     <field name="status" widget="statusbar" statusbar_visible="DRAFT,SUBMITTED,APPROVED,REJECTED"/>
                 </header>
                 <sheet>
@@ -74,7 +74,7 @@
     <record id="action_whatsapp_template" model="ir.actions.act_window">
         <field name="name">WhatsApp Templates</field>
         <field name="res_model">whatsapp.template</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_whatsapp_template_search"/>
         <field name="help" type="html">
             <p>List of WhatsApp Business templates. Match the Meta template name, language, and status to send from Sales Orders and campaigns.</p>

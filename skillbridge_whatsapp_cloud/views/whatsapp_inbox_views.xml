@@ -1,9 +1,9 @@
 <odoo>
     <record id="view_whatsapp_conversation_tree" model="ir.ui.view">
-        <field name="name">whatsapp.conversation.tree</field>
+        <field name="name">whatsapp.conversation.list</field>
         <field name="model">whatsapp.conversation</field>
         <field name="arch" type="xml">
-            <tree string="WhatsApp Inbox"
+            <list string="WhatsApp Inbox"
                   decoration-success="last_direction == 'outbound'"
                   decoration-info="last_direction == 'inbound'">
                 <field name="last_message_date"/>
@@ -11,7 +11,7 @@
                 <field name="last_direction"/>
                 <field name="last_status"/>
                 <field name="last_message"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -38,7 +38,7 @@
                     <notebook>
                         <page string="Messages">
                             <field name="message_ids" readonly="1">
-                                <tree string="Messages"
+                                <list string="Messages"
                                       decoration-success="direction == 'outbound'"
                                       decoration-info="direction == 'inbound'">
                                     <field name="create_date"/>
@@ -46,7 +46,7 @@
                                     <field name="message_type"/>
                                     <field name="message_body"/>
                                     <field name="status"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -71,7 +71,7 @@
     <record id="action_whatsapp_conversation" model="ir.actions.act_window">
         <field name="name">WhatsApp Inbox</field>
         <field name="res_model">whatsapp.conversation</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_whatsapp_conversation_search"/>
         <field name="help" type="html">
             <p>

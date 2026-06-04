@@ -29,12 +29,11 @@ jobs:
         run: |
           mkdir -p dist
           git fetch --all --prune
-          git archive --format=zip --prefix=skillbridge_whatsapp_cloud/ --output=dist/skillbridge_whatsapp_cloud-${GITHUB_REF##*/}.zip ${GITHUB_REF##*/} || true
+          git archive --format=zip --output=dist/skillbridge_whatsapp_cloud-${GITHUB_REF##*/}.zip ${GITHUB_REF##*/} || true
           # Also create archives for supported branches when run manually
-          git archive --format=zip --prefix=skillbridge_whatsapp_cloud/ --output=dist/skillbridge_whatsapp_cloud-15.0.zip 15.0 || true
-          git archive --format=zip --prefix=skillbridge_whatsapp_cloud/ --output=dist/skillbridge_whatsapp_cloud-17.0.zip 17.0 || true
-          git archive --format=zip --prefix=skillbridge_whatsapp_cloud/ --output=dist/skillbridge_whatsapp_cloud-18.0.zip 18.0 || true
-          git archive --format=zip --prefix=skillbridge_whatsapp_cloud/ --output=dist/skillbridge_whatsapp_cloud-19.0.zip 19.0 || true
+          git archive --format=zip --output=dist/skillbridge_whatsapp_cloud-17.0.zip 17.0 || true
+          git archive --format=zip --output=dist/skillbridge_whatsapp_cloud-18.0.zip 18.0 || true
+          git archive --format=zip --output=dist/skillbridge_whatsapp_cloud-19.0.zip 19.0 || true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
