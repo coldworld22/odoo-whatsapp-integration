@@ -1,8 +1,7 @@
-## 19.0.1.0.0
+## 17.0.1.1.6
 
-- Ported module metadata to Odoo 19.0 for Odoo Apps publishing.
-- Updated backend XML views from `tree` to `list` and migrated dynamic view modifiers to Odoo 19 expressions.
-- Removed broken store screenshot references and refreshed Odoo 19 store documentation.
+- Rebuilt the Odoo Apps Store description as a complete professional landing page with valid scoped styling, premium hero, feature cards, screenshot gallery, workflow, comparison, FAQ, and support CTA.
+- Aligned store metadata and documentation links with the Odoo 17 store branch.
 
 ## 17.0.1.0.1
 
@@ -34,3 +33,10 @@
 - Added high-quality screenshots and inline SVG badges/icons for a polished App Store listing.
 - Accessibility improvements: ARIA attributes, descriptive captions and keyboard-friendly CTAs.
 - Updated `__manifest__.py` images list and bumped module version for App Store readiness.
+
+## 17.0.1.1.6
+
+- Added missing backend asset files referenced by the manifest.
+- Reworked the Odoo Apps Store description with store-safe ASCII copy, valid screenshot paths, and clearer setup/support sections.
+- Fixed the WhatsApp conversation/message log relation so the registry can initialize cleanly.
+- Updated manifest title, summary, website, version, and image gallery entries for the refreshed Odoo 17 listing.
