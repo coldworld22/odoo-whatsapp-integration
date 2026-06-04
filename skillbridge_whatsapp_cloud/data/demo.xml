@@ -68,7 +68,7 @@
             <field name="throttle_batch_size">10</field>
             <field name="window_start">8.0</field>
             <field name="window_end">22.0</field>
-            <field name="state">running</field>
+            <field name="state">draft</field>
         </record>
 
         <record id="whatsapp_campaign_step_demo" model="whatsapp.campaign.step">
