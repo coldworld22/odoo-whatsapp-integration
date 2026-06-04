@@ -1,10 +1,10 @@
 # WhatsApp Cloud Messaging
 WhatsApp Cloud API for Odoo sales orders, invoices, and campaigns with templates, PDFs, and delivery tracking.
 
-A premium enterprise-grade integration for Odoo 17 using the official Meta Cloud API. Includes inbox, campaign engine, template sync, PDF sharing and delivery/read analytics. See the App Store-ready screenshots in `static/description/screenshots/`.
+A premium enterprise-grade integration for Odoo 16 using the official Meta Cloud API. Includes inbox, campaign engine, template sync, PDF sharing and delivery/read analytics. See the App Store-ready screenshots in `static/description/`.
 
 ## Compatibility
-- Odoo 17.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
+- Odoo 16.0 (this branch). Use matching branches for other versions when publishing to the Odoo App Store.
 
 ## Data & Privacy
 - Sends partner mobile numbers, template/text content, and optional PDFs to the WhatsApp Business Cloud API to deliver messages.
@@ -36,12 +36,18 @@ systemctl restart odoo
 3. Configure Settings → WhatsApp Business API with your WABA credentials and webhook settings to test end-to-end messaging in a sandbox or production WABA.
 
 ## Screenshots
-- `static/description/screenshots/dashboard-v2.png` (updated)
-- `static/description/screenshots/inbox-v2.png` (updated)
-- `static/description/screenshots/campaigns.png`
-- `static/description/screenshots/templates.png`
-- `static/description/screenshots/logs.png`
-- `static/description/screenshots/analytics.png`
+- `static/description/banner.png`
+- `static/description/cover-v3.png`
+- `static/description/cover-v2.png`
+- `static/description/screenshots/dashboard-v3.png`
+- `static/description/screenshots/dashboard-v2.png`
+- `static/description/screen5.png`
+- `static/description/screen4.png`
+- `static/description/screen3.png`
+- `static/description/screen7.png`
+- `static/description/screen8.png`
+- `static/description/screen9.png`
+- `static/description/screen6.png`
 
 ## Configuration
 1. Settings → General Settings → WhatsApp Business API: set Access Token, Phone Number ID, Business Account ID (WABA ID), Webhook Verify Token, App Secret, and optional Default Media URL.
@@ -57,7 +63,7 @@ systemctl restart odoo
 - A daily cron keeps templates synced when WABA credentials are configured.
 
 ## Repository format for Odoo App Store
-- Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#17.0` when registering the addon (branch `17.0` is already pushed).
+- Use `ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#16.0` when registering the addon after the `16.0` branch is pushed.
 
 ## Notes
 - Ensure the Meta token is allowed to send from the configured phone_number_id.

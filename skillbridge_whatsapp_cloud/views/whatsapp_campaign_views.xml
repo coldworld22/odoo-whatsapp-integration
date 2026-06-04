@@ -24,19 +24,26 @@
         <field name="arch" type="xml">
             <form string="WhatsApp Campaign">
                 <header>
-                    <button name="action_generate_queue" type="object" string="Generate Queue" class="oe_highlight" modifiers='{"invisible": [["state", "!=", "draft"]]}'/>
-                    <button name="action_start" type="object" string="Start" modifiers='{"invisible": [["state", "not in", ["draft", "paused"]]]}'/>
-                    <button name="action_pause" type="object" string="Pause" modifiers='{"invisible": [["state", "!=", "running"]]}'/>
-                    <button name="action_done" type="object" string="Done" modifiers='{"invisible": [["state", "not in", ["running", "paused"]]]}'/>
+                    <button name="action_generate_queue" type="object" string="Generate Queue" class="oe_highlight"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_start" type="object" string="Start"
+                            attrs="{'invisible': [('state', 'not in', ['draft', 'paused'])]}"/>
+                    <button name="action_pause" type="object" string="Pause"
+                            attrs="{'invisible': [('state', '!=', 'running')]}"/>
+                    <button name="action_done" type="object" string="Done"
+                            attrs="{'invisible': [('state', 'not in', ['running', 'paused'])]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,running,paused,done"/>
                 </header>
                 <sheet>
                     <group>
                         <field name="name"/>
                         <field name="message_mode"/>
-                        <field name="template_id" modifiers='{"invisible": [["message_mode", "!=", "template"]], "required": [["message_mode", "=", "template"]]}'/>
-                        <field name="media_url" modifiers='{"invisible": [["message_mode", "!=", "media_image"]], "required": [["message_mode", "=", "media_image"]]}'/>
-                        <field name="message_body" modifiers='{"required": [["message_mode", "in", ["text", "media_image"]]]}'/>
+                        <field name="template_id"
+                               attrs="{'invisible': [('message_mode', '!=', 'template')], 'required': [('message_mode', '=', 'template')]}"/>
+                        <field name="media_url"
+                               attrs="{'invisible': [('message_mode', '!=', 'media_image')], 'required': [('message_mode', '=', 'media_image')]}"/>
+                        <field name="message_body"
+                               attrs="{'required': [('message_mode', 'in', ['text', 'media_image'])]}"/>
                     </group>
                     <group string="Audience">
                         <field name="partner_tag_ids" widget="many2many_tags"/>
@@ -62,8 +69,8 @@
                                     <field name="sequence"/>
                                     <field name="delay_hours"/>
                                     <field name="message_mode"/>
-                                    <field name="template_id" modifiers='{"invisible": [["message_mode", "!=", "template"]]}'/>
-                                    <field name="media_url" modifiers='{"invisible": [["message_mode", "!=", "media_image"]]}'/>
+                                    <field name="template_id" attrs="{'invisible': [('message_mode', '!=', 'template')]}"/>
+                                    <field name="media_url" attrs="{'invisible': [('message_mode', '!=', 'media_image')]}"/>
                                     <field name="message_body"/>
                                 </tree>
                             </field>

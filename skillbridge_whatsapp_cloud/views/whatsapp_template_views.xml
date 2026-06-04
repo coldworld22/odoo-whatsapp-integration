@@ -27,11 +27,11 @@
                     <button name="action_sync_from_meta" type="object" string="Sync from Meta" class="btn-primary"
                             groups="base.group_system"/>
                     <button name="action_submit" type="object" string="Submit"
-                            modifiers='{"invisible": [["status", "!=", "DRAFT"]]}'/>
+                            attrs="{'invisible': [('status', '!=', 'DRAFT')]}"/>
                     <button name="action_mark_approved" type="object" string="Approve"
-                            modifiers='{"invisible": [["status", "not in", ["DRAFT","SUBMITTED","REJECTED"]]]}'/>
+                            attrs="{'invisible': [('status', 'not in', ['DRAFT', 'SUBMITTED', 'REJECTED'])]}"/>
                     <button name="action_mark_rejected" type="object" string="Reject"
-                            modifiers='{"invisible": [["status", "not in", ["DRAFT","SUBMITTED","APPROVED"]]]}'/>
+                            attrs="{'invisible': [('status', 'not in', ['DRAFT', 'SUBMITTED', 'APPROVED'])]}"/>
                     <field name="status" widget="statusbar" statusbar_visible="DRAFT,SUBMITTED,APPROVED,REJECTED"/>
                 </header>
                 <sheet>

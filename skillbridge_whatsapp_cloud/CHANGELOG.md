@@ -1,3 +1,16 @@
+## 16.0.1.0.0
+
+- Ported module metadata and store documentation to Odoo 16.0.
+- Kept Odoo 16 backend XML syntax with `tree` views and `attrs` modifiers.
+- Added Odoo 16.0 release workflow archive coverage.
+
+## 15.0.1.0.0
+
+- Ported module metadata to Odoo 15.0 for Odoo Apps publishing.
+- Updated backend XML views from `list` to `tree` and restored Odoo 15 `attrs` modifiers.
+- Refreshed Odoo 15 store documentation.
+- Added the available store screenshots and release archive coverage for Odoo 15.0.
+
 ## 17.0.1.0.1
 
 - Switched to OPL-1 license for paid distribution; added support and troubleshooting docs.
