@@ -1,6 +1,6 @@
 {
-    "name": "WhatsApp Cloud Messaging",
-    "summary": "WhatsApp Cloud API for Odoo: Sales Orders, Invoices, Templates, and Campaigns",
+    "name": "WhatsApp Cloud Messaging - Skillbridge Studio",
+    "summary": "WhatsApp Cloud API for Odoo: send orders, invoices, inbox replies, and campaigns.",
     "description": """
 WhatsApp Business Cloud API integration for Odoo Sales and Accounting.
 
@@ -19,13 +19,13 @@ Setup:
 2) Create a default WhatsApp Account record per company with token + phone number ID.
 3) Approve templates in Meta and mark them APPROVED in Odoo; then send from Sales Orders or run campaigns.
 """,
-    "version": "16.0.1.0.0",
+    "version": "15.0.1.0.1",
     "author": "Skillbridge Studio",
     "maintainer": "Skillbridge Studio",
     "support": "support@eduskillbridge.net",
     "license": "OPL-1",
-    # Public project page for details and docs (16.0 branch)
-    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/16.0",
+    # Public project page for details and docs (15.0 branch)
+    "website": "https://github.com/coldworld22/odoo-whatsapp-integration/tree/15.0",
     "category": "Sales",
     "price": 249.0,
     "currency": "USD",
@@ -57,6 +57,12 @@ Setup:
         "static/description/cover.gif",
         "static/description/screenshots/dashboard-v3.png",
         "static/description/screenshots/dashboard-v2.png",
+        "static/description/screenshots/dashboard.png",
+        "static/description/screenshots/inbox.png",
+        "static/description/screenshots/campaigns.png",
+        "static/description/screenshots/templates.png",
+        "static/description/screenshots/logs.png",
+        "static/description/screenshots/analytics.png",
         "static/description/screen5.png",
         "static/description/screen4.png",
         "static/description/screen3.png",

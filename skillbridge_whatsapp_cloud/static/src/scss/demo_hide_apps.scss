@@ -1,0 +1,18 @@
+/* Hide app navigation only when the demo class is present. */
+.o_whatsapp_demo {
+  .o_navbar_apps_menu,
+  .o_navbar_apps,
+  .o_menu_systray .o_app_switcher_toggle,
+  li[data-menu-xmlid="base.menu_apps"] {
+    display: none !important;
+  }
+
+  .o_menu_sections [data-menu-xmlid] {
+    display: none !important;
+  }
+
+  .o_menu_sections [data-menu-xmlid="sale.sale_menu_root"],
+  .o_menu_sections [data-menu-xmlid="skillbridge_whatsapp_cloud.menu_whatsapp_template_root"] {
+    display: flex !important;
+  }
+}

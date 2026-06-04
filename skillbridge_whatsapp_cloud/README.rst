@@ -6,7 +6,7 @@ WhatsApp Cloud API for Odoo sales, invoices, and campaigns with templates, PDFs,
 Compatibility
 -------------
 
-- Odoo 16.0 (this branch). Use a matching branch for other versions when publishing to the Odoo App Store.
+- Odoo 15.0 (this branch). Use a matching branch for other versions when publishing to the Odoo App Store.
 
 Key Features
 ------------
@@ -58,7 +58,7 @@ Quickstart
 Repository for Odoo App Store
 -----------------------------
 
-When registering the addon, use the store format: ``ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#16.0`` after the ``16.0`` branch is pushed.
+When registering the addon, use the store format: ``ssh://git@github.com/coldworld22/odoo-whatsapp-integration.git#15.0`` after the ``15.0`` branch is pushed.
 
 Troubleshooting
 ---------------

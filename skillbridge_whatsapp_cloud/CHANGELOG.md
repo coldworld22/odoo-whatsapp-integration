@@ -1,15 +1,21 @@
-## 16.0.1.0.0
+## 15.0.1.0.1
 
-- Ported module metadata and store documentation to Odoo 16.0.
-- Kept Odoo 16 backend XML syntax with `tree` views and `attrs` modifiers.
-- Added Odoo 16.0 release workflow archive coverage.
+- Redesigned the Odoo Apps Store description page with a stronger banner-led layout, clearer feature sections, and a cleaner screenshot gallery.
 
 ## 15.0.1.0.0
 
 - Ported module metadata to Odoo 15.0 for Odoo Apps publishing.
-- Updated backend XML views from `list` to `tree` and restored Odoo 15 `attrs` modifiers.
-- Refreshed Odoo 15 store documentation.
+- Restored Odoo 15 backend XML syntax and settings view inheritance.
 - Added the available store screenshots and release archive coverage for Odoo 15.0.
+
+## 17.0.1.1.6
+
+- Rebuilt the Odoo Apps Store description as a complete professional landing page with valid scoped styling, premium hero, feature cards, screenshot gallery, workflow, comparison, FAQ, and support CTA.
+- Aligned store metadata and documentation links with the Odoo 17 store branch.
+- Added missing backend asset files referenced by the manifest.
+- Reworked the Odoo Apps Store description with store-safe ASCII copy, valid screenshot paths, and clearer setup/support sections.
+- Fixed the WhatsApp conversation/message log relation so the registry can initialize cleanly.
+- Updated manifest title, summary, website, version, and image gallery entries for the refreshed Odoo 17 listing.
 
 ## 17.0.1.0.1
 

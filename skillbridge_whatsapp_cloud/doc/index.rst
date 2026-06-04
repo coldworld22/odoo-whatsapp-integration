@@ -4,7 +4,7 @@ WhatsApp Cloud Messaging
 Overview
 --------
 
-SkillBridge WhatsApp Cloud Messaging connects Odoo 16 with the official Meta WhatsApp Cloud API for sales, invoicing, inbox replies, templates, campaign queues, and message tracking.
+SkillBridge WhatsApp Cloud Messaging connects Odoo 15 with the official Meta WhatsApp Cloud API for sales, invoicing, inbox replies, templates, campaign queues, and message tracking.
 
 Prerequisites
 -------------

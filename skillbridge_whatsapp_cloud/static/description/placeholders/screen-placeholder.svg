@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#ffffff"/>
+  <rect x="16" y="16" width="768" height="448" rx="10" fill="#f8fafc" stroke="#e6eef6"/>
+  <rect x="40" y="48" width="320" height="224" rx="8" fill="#eaf6ff"/>
+  <rect x="384" y="48" width="336" height="48" rx="6" fill="#f1f5f9"/>
+  <rect x="384" y="112" width="336" height="24" rx="6" fill="#f1f5f9"/>
+  <rect x="384" y="152" width="336" height="120" rx="8" fill="#fff" stroke="#e6eef6"/>
+  <text x="56" y="320" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#475569">Screenshot placeholder</text>
+</svg>
