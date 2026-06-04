@@ -1,7 +1,7 @@
 ## Setup Guide
 
 ### Prerequisites
-- Odoo 15+ running and accessible (tested on 15/16/17).
+- Odoo 16.0 running and accessible.
 - Meta WhatsApp Business Cloud API account with:
   - A phone number ID (from WhatsApp Manager -> Phone numbers).
   - A Business Account ID (WABA ID) for template sync.
