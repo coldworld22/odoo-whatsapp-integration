@@ -4,8 +4,8 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//form" position="inside">
-                <div class="app-settings-block" data-string="WhatsApp Integration">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="WhatsApp Integration" string="WhatsApp Integration" data-key="skillbridge_whatsapp_cloud">
                     <h2>WhatsApp Business API</h2>
                     <p class="text-muted">
                         Connect Odoo to the WhatsApp Business Cloud API to send sales orders and invoices.

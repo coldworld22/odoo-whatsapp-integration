@@ -1,3 +1,9 @@
+## 15.0.1.0.0
+
+- Ported module metadata to Odoo 15.0 for Odoo Apps publishing.
+- Restored Odoo 15 backend XML syntax and settings view inheritance.
+- Added the available store screenshots and release archive coverage for Odoo 15.0.
+
 ## 17.0.1.0.1
 
 - Switched to OPL-1 license for paid distribution; added support and troubleshooting docs.
