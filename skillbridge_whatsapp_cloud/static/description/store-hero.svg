@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2752" height="1536" viewBox="0 0 2752 1536">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.58" stop-color="#f6faf8"/>
+      <stop offset="1" stop-color="#eef7f3"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#128c7e"/>
+      <stop offset="1" stop-color="#37b978"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="36" flood-color="#143b34" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#101828" flood-opacity="0.14"/>
+    </filter>
+    <clipPath id="mainShot">
+      <rect x="1260" y="264" width="1410" height="760" rx="34"/>
+    </clipPath>
+    <clipPath id="subShotA">
+      <rect x="1038" y="868" width="940" height="456" rx="28"/>
+    </clipPath>
+    <clipPath id="subShotB">
+      <rect x="1806" y="914" width="800" height="398" rx="28"/>
+    </clipPath>
+    <style>
+      .sans { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; }
+      .eyebrow { font-size: 30px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; }
+      .title { font-size: 98px; font-weight: 800; line-height: 1.04; }
+      .subtitle { font-size: 42px; font-weight: 400; line-height: 1.32; }
+      .body { font-size: 31px; font-weight: 400; }
+      .pill { font-size: 32px; font-weight: 700; }
+      .metric { font-size: 48px; font-weight: 800; }
+      .metricLabel { font-size: 24px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <rect width="2752" height="1536" fill="url(#bg)"/>
+  <path d="M1786 0H2752V1536H1340C1636 1200 1765 750 1786 0Z" fill="#e5f6ee"/>
+  <path d="M2058 0H2752V1536H1802C1990 1042 2065 532 2058 0Z" fill="#f1f5ff" opacity="0.84"/>
+
+  <g transform="translate(132 110)" class="sans">
+    <rect x="0" y="0" width="56" height="56" rx="14" fill="#128c7e"/>
+    <path d="M16 17H39L24 33H43L21 54L26 38H12Z" fill="#ffffff"/>
+    <text x="78" y="43" font-size="48" font-weight="800" fill="#101828">SkillBridge</text>
+  </g>
+
+  <g transform="translate(132 230)" class="sans">
+    <text class="eyebrow" x="0" y="0" fill="#128c7e">Official Meta Cloud API</text>
+    <text class="title" x="0" y="124" fill="#101828">WhatsApp Cloud</text>
+    <text class="title" x="0" y="228" fill="#101828">Messaging for Odoo</text>
+    <text class="subtitle" x="0" y="336" fill="#475467">Sales orders, invoices, inbox replies,</text>
+    <text class="subtitle" x="0" y="394" fill="#475467">templates, campaigns, and delivery tracking.</text>
+  </g>
+
+  <g class="sans" transform="translate(132 764)">
+    <rect x="0" y="0" width="620" height="78" rx="39" fill="#ffffff" filter="url(#softShadow)"/>
+    <rect x="26" y="22" width="34" height="34" rx="10" fill="url(#accent)"/>
+    <text class="pill" x="82" y="51" fill="#101828">Two-way conversations</text>
+
+    <rect x="0" y="102" width="560" height="78" rx="39" fill="#ffffff" filter="url(#softShadow)"/>
+    <rect x="26" y="124" width="34" height="34" rx="10" fill="url(#accent)"/>
+    <text class="pill" x="82" y="153" fill="#101828">Template sync</text>
+
+    <rect x="0" y="204" width="650" height="78" rx="39" fill="#ffffff" filter="url(#softShadow)"/>
+    <rect x="26" y="226" width="34" height="34" rx="10" fill="url(#accent)"/>
+    <text class="pill" x="82" y="255" fill="#101828">PDF and media sharing</text>
+
+    <rect x="0" y="306" width="620" height="78" rx="39" fill="#ffffff" filter="url(#softShadow)"/>
+    <rect x="26" y="328" width="34" height="34" rx="10" fill="url(#accent)"/>
+    <text class="pill" x="82" y="357" fill="#101828">Campaign queues</text>
+  </g>
+
+  <g class="sans" transform="translate(132 1250)">
+    <rect x="0" y="0" width="760" height="182" rx="28" fill="#101828"/>
+    <text class="metric" x="38" y="78" fill="#ffffff">No gateway</text>
+    <text class="metricLabel" x="38" y="128" fill="#b8eacc">Direct Meta API integration</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1260" y="264" width="1410" height="760" rx="34" fill="#ffffff"/>
+    <image xlink:href="screen5.png" x="1260" y="264" width="1410" height="760" preserveAspectRatio="xMidYMid slice" clip-path="url(#mainShot)"/>
+  </g>
+  <rect x="1260" y="264" width="1410" height="760" rx="34" fill="none" stroke="#d0d5dd" stroke-width="2"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1038" y="868" width="940" height="456" rx="28" fill="#ffffff"/>
+    <image xlink:href="screen7.png" x="1038" y="868" width="940" height="456" preserveAspectRatio="xMidYMid slice" clip-path="url(#subShotA)"/>
+  </g>
+  <rect x="1038" y="868" width="940" height="456" rx="28" fill="none" stroke="#d0d5dd" stroke-width="2"/>
+
+  <g filter="url(#shadow)">
+    <rect x="1806" y="914" width="800" height="398" rx="28" fill="#ffffff"/>
+    <image xlink:href="screen3.png" x="1806" y="914" width="800" height="398" preserveAspectRatio="xMidYMid slice" clip-path="url(#subShotB)"/>
+  </g>
+  <rect x="1806" y="914" width="800" height="398" rx="28" fill="none" stroke="#d0d5dd" stroke-width="2"/>
+
+  <g class="sans" transform="translate(1918 1342)">
+    <rect x="0" y="0" width="566" height="86" rx="43" fill="#ffffff" filter="url(#softShadow)"/>
+    <circle cx="52" cy="43" r="22" fill="#128c7e"/>
+    <text x="92" y="54" font-size="34" font-weight="800" fill="#101828">Tracked delivery events</text>
+  </g>
+</svg>
