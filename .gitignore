@@ -5,3 +5,6 @@ odoo.conf
 *.pyc
 __pycache__/
 requirements.txt
+
+# Build archives (published to Odoo Apps / CI artifacts, not committed)
+*.zip
