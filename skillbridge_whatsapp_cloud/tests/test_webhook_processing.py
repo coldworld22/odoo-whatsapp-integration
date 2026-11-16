@@ -1,6 +1,7 @@
 import hashlib
 import hmac
 import json
+from contextlib import contextmanager
 from types import SimpleNamespace
 from unittest.mock import patch
 
@@ -19,12 +20,14 @@ class TestWebhookProcessing(TransactionCase):
             {"partner_id": self.partner.id, "partner_invoice_id": self.partner.id, "partner_shipping_id": self.partner.id}
         )
 
+    @contextmanager
     def _mock_request(self, httprequest):
-        """Stand in for odoo.http.request: the handler only reads .env and .httprequest."""
-        fake = SimpleNamespace(env=self.env, httprequest=httprequest)
-        return patch(
-            "odoo.addons.skillbridge_whatsapp_cloud.controllers.whatsapp_webhook.request", fake
-        )
+        """Stand in for odoo.http.request. The handler reads .env and .httprequest, and
+        building http.Response reads .endpoint, so both module references are patched."""
+        fake = SimpleNamespace(env=self.env, httprequest=httprequest, endpoint=None)
+        with patch("odoo.addons.skillbridge_whatsapp_cloud.controllers.whatsapp_webhook.request", fake), \
+                patch("odoo.http.request", fake):
+            yield
 
     def _signature(self, body_bytes):
         digest = hmac.new(self.app_secret.encode("utf-8"), body_bytes, hashlib.sha256).hexdigest()
