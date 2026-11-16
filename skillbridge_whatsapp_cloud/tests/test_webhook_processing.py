@@ -1,6 +1,8 @@
 import hashlib
 import hmac
 import json
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from odoo.tests import TransactionCase
 
@@ -15,6 +17,13 @@ class TestWebhookProcessing(TransactionCase):
         self.partner = self.env["res.partner"].create({"name": "Test Partner", "mobile": "+15551234567"})
         self.order = self.env["sale.order"].create(
             {"partner_id": self.partner.id, "partner_invoice_id": self.partner.id, "partner_shipping_id": self.partner.id}
+        )
+
+    def _mock_request(self, httprequest):
+        """Stand in for odoo.http.request: the handler only reads .env and .httprequest."""
+        fake = SimpleNamespace(env=self.env, httprequest=httprequest)
+        return patch(
+            "odoo.addons.skillbridge_whatsapp_cloud.controllers.whatsapp_webhook.request", fake
         )
 
     def _signature(self, body_bytes):
@@ -62,9 +71,8 @@ class TestWebhookProcessing(TransactionCase):
                 return self._body
 
         httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        # Directly call the protected handler
-        self.controller._handle_callback()
+        with self._mock_request(httpreq):
+            self.controller._handle_callback()
 
         # Validate log created
         log = self.env["whatsapp.message.log"].search([("message_id", "=", "wamid.inbound1")], limit=1)
@@ -126,8 +134,8 @@ class TestWebhookProcessing(TransactionCase):
                 return self._body
 
         httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
+        with self._mock_request(httpreq):
+            self.controller._handle_callback()
 
         log = self.env["whatsapp.message.log"].search([("message_id", "=", "wamid.outbound1")], limit=1)
         self.assertEqual(log.status, "failed")
@@ -176,8 +184,8 @@ class TestWebhookProcessing(TransactionCase):
                 return self._body
 
         httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
+        with self._mock_request(httpreq):
+            self.controller._handle_callback()
 
         self.partner.invalidate_cache()
         self.assertFalse(self.partner.whatsapp_opt_in, "STOP should opt the partner out")
@@ -187,8 +195,8 @@ class TestWebhookProcessing(TransactionCase):
         body_bytes = json.dumps(payload).encode("utf-8")
         sig = self._signature(body_bytes)
         httpreq = DummyRequest(body_bytes, sig)
-        self.env["ir.http"]._current_request = httpreq
-        self.controller._handle_callback()
+        with self._mock_request(httpreq):
+            self.controller._handle_callback()
 
         self.partner.invalidate_cache()
         self.assertTrue(self.partner.whatsapp_opt_in, "START should opt the partner in")
