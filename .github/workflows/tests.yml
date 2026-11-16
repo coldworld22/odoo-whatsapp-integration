@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, "1[5-9].0"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  odoo-tests:
+    name: Install and test in Odoo
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+          POSTGRES_DB: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      # Test against the Odoo version this branch's manifest targets (e.g. 17.0.1.0.0 → odoo:17.0).
+      - name: Pick Odoo version
+        id: odoo
+        run: |
+          version=$(python3 -c "import ast; m = ast.literal_eval(open('skillbridge_whatsapp_cloud/__manifest__.py').read()); print(m['version'].split('.')[0] + '.0')")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Testing on Odoo $version"
+      - name: Install module and run tests
+        run: |
+          docker run --rm --network host \
+            -e HOST=localhost -e USER=odoo -e PASSWORD=odoo \
+            -v "$GITHUB_WORKSPACE:/mnt/extra-addons:ro" \
+            odoo:${{ steps.odoo.outputs.version }} odoo -d test --without-demo=all \
+              -i skillbridge_whatsapp_cloud --test-enable --test-tags /skillbridge_whatsapp_cloud \
+              --stop-after-init --log-level=test 2>&1 | tee odoo.log
+      # Odoo exits 0 even when tests fail, so the log is the source of truth.
+      - name: Fail on errors in the log
+        run: |
+          if grep -E " (ERROR|CRITICAL) " odoo.log; then exit 1; fi
+          grep -E "tests when loading database" odoo.log || true
